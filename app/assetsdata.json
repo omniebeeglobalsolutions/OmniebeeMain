@@ -1,0 +1,838 @@
+[
+  {
+    "name": "EI-T&S",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740155/njghlvyxebnvurd5dttp.gif"
+  },
+  {
+    "name": "EI-PL",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740134/ejoribstileo00g1trie.gif"
+  },
+  {
+    "name": "EI-SO",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740116/hdzyqcsppvaumf20lzoj.gif"
+  },
+  {
+    "name": "EI-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740080/yd6uzus597dqzewqwmrb.jpg"
+  },
+  {
+    "name": "EI-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740066/athqih14pmwnxcmcqays.jpg"
+  },
+  {
+    "name": "EI-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740049/jxm8at3y3ikdbokgp4k4.jpg"
+  },
+  {
+    "name": "EI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752740029/d7ewdd4ottz2o8mds0zu.png"
+  },
+  {
+    "name": "BI-SC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739887/e4fyckyutx7h9vdsbitq.gif"
+  },
+  {
+    "name": "BI-FI",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739873/ci6e0onstwl91ntjmt22.gif"
+  },
+  {
+    "name": "BI-SA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739856/cdnwztk7qzogcg94pwvv.gif"
+  },
+  {
+    "name": "BI-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739821/bf7lperatxj0fcmed9gu.jpg"
+  },
+  {
+    "name": "BI-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739809/tce0rm2nx0kckix0nocj.jpg"
+  },
+  {
+    "name": "BI-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739797/hvwfqbfu2dhzn7xd4srf.jpg"
+  },
+  {
+    "name": "BI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739780/bqjubxbncdet3tsblnct.png"
+  },
+  {
+    "name": "ATI-TFC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739745/kjukh3jsomwnpj6lj78s.gif"
+  },
+  {
+    "name": "ATI-FFT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739716/ilmxlhn6blf6k4mjfwhv.gif"
+  },
+  {
+    "name": "ATI-SFC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739696/lwvddovx0rmlz0dsjjeb.gif"
+  },
+  {
+    "name": "ATI-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739674/pmalph7b6jwxkeapmmrp.jpg"
+  },
+  {
+    "name": "ATI-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739664/aqgu0drqhj5u7dlav2is.jpg"
+  },
+  {
+    "name": "ATI-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739651/dct75qmn41gyciwxsiwt.jpg"
+  },
+  {
+    "name": "ATI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739641/bvqwesfzugurzk0wwijn.png"
+  },
+  {
+    "name": "TI-INL",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739605/pbjgjuwmfyr3jgpq2d5z.gif"
+  },
+  {
+    "name": "TI-DTE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739590/lzq6p3whdyt0f6xwzfps.gif"
+  },
+  {
+    "name": "TI-tablet",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739571/eciyrpsjsmevmcvlvn1v.gif"
+  },
+  {
+    "name": "TI-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739548/rbtzl4w24xif6ebhkexg.jpg"
+  },
+  {
+    "name": "TI-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739538/odmbgxxebaurrca0d1ju.jpg"
+  },
+  {
+    "name": "TI-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739525/ahkliopma9cjlhqldbjh.jpg"
+  },
+  {
+    "name": "TI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739509/wnrblx4bizoglg4uyhiq.png"
+  },
+  {
+    "name": "ECommerce-SOF",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739450/jh8bmxx5wngcsxk68ope.gif"
+  },
+  {
+    "name": "ECommerce-CCS",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739430/fxzhlbxfqv0f3rawbpgn.gif"
+  },
+  {
+    "name": "ECommerce-WH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739411/vwvo9y4g8fmbrnbowcuw.gif"
+  },
+  {
+    "name": "ECommerce-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739387/dg6plmsofjrcxyiwtzdh.jpg"
+  },
+  {
+    "name": "ECommerce-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739366/yp3qdxblmgscsrith5zc.jpg"
+  },
+  {
+    "name": "ECommerce-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739343/egsewbjcp5gb3gvaeyf1.jpg"
+  },
+  {
+    "name": "ECommerceI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739298/y11t80minufnfmytxhdc.png"
+  },
+  {
+    "name": "HCI-ICM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739251/j1kk4nz3pkcvudjk5nvj.gif"
+  },
+  {
+    "name": "HCI-PCE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739167/viqwlckgipcmi4ss5iuc.gif"
+  },
+  {
+    "name": "HCI-SH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739148/zpbxkcrbjtauuvaisf0k.gif"
+  },
+  {
+    "name": "HCI-third",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739119/nlynmviyeek75aerhnku.jpg"
+  },
+  {
+    "name": "HCI-second",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739098/nns4jt0ilmkcl8whedwz.jpg"
+  },
+  {
+    "name": "HCI-first",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752739023/fgmgib6s9tgzm7iwhmc6.jpg"
+  },
+  {
+    "name": "HCI-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738989/otrgtkcxkebunizsuwzk.png"
+  },
+  {
+    "name": "TS-CIO",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738880/iyx0np61pl8inf3fbe87.jpg"
+  },
+  {
+    "name": "TS-CGF",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738865/wiu0zmw7ml37dk0tqcmk.jpg"
+  },
+  {
+    "name": "TS-TMC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738852/rzsyuohbtnpartbdo5ov.jpg"
+  },
+  {
+    "name": "TS-PAP",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738837/w1whvmysjssh6gm97gb5.jpg"
+  },
+  {
+    "name": "TS-PT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738820/zdqlk0dkk04qzw1cu1io.jpg"
+  },
+  {
+    "name": "TS-EMI",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738798/x5qlq72islj9rrj6pkpg.png"
+  },
+  {
+    "name": "TS-PM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738776/u239dcrm51drb80lryyu.gif"
+  },
+  {
+    "name": "TS-UIUX",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738758/gxcm0fpe85wsmukqbrr2.gif"
+  },
+  {
+    "name": "TS-STQA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738744/h8azmkqy80sliet3vmu8.gif"
+  },
+  {
+    "name": "TS-DSA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738709/rbpnuoed1yktw2z7xjtf.gif"
+  },
+  {
+    "name": "TS-CDS",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738667/i2qg1ziyu2bxshbbspuo.gif"
+  },
+  {
+    "name": "TS-WAD",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738649/cybtu0jknitujqv9yr1f.gif"
+  },
+  {
+    "name": "TS-CR",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738618/erjlpqc6zjyu4mmsn4ji.gif"
+  },
+  {
+    "name": "TS-FLM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738604/kbr4yz8c8duf4vsmn2sl.gif"
+  },
+  {
+    "name": "TS-JRG",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738587/b9mjrec0gjkocztiokk5.gif"
+  },
+  {
+    "name": "TS-IAC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738568/ppqc7uyacabcqx79ipii.gif"
+  },
+  {
+    "name": "TS-firstSlideBanner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738533/rkq67mwarfzxhkrwrnh1.jpg"
+  },
+  {
+    "name": "TS-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738452/p80bsz67r4uixewbqlpv.jpg"
+  },
+  {
+    "name": "BCS-LTSP",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738425/g314mddffb5sl93nlt3c.jpg"
+  },
+  {
+    "name": "BCS-IFT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738409/zxlrnnmqsehdpfaffh4m.png"
+  },
+  {
+    "name": "BCS-PFM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738391/cfbn7geb91peeqogrle8.png"
+  },
+  {
+    "name": "BCS-CCA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738350/w06qscetxl2t7ohaucyz.png"
+  },
+  {
+    "name": "BCS-MDT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738335/awdkxwngjnxpawfrgbxr.jpg"
+  },
+  {
+    "name": "BCS-RDC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738319/qxbkif37ppsaxbbvaa6f.jpg"
+  },
+  {
+    "name": "BCS-RCO",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738298/u91dtxrm9ufomxtgricn.gif"
+  },
+  {
+    "name": "BCS-E2ESE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738279/gtwumpx6sjzh2cez0c7b.gif"
+  },
+  {
+    "name": "BCS-IOA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738256/tmuzbgpzztuvqnkuqsz0.gif"
+  },
+  {
+    "name": "BCS-AME",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738235/aypkt7rh8fmtcuuqe2a6.gif"
+  },
+  {
+    "name": "BCS-firstSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752738166/hmqys89l085msttgcyvd.jpg"
+  },
+  {
+    "name": "SS-TGSE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737939/bepgqzy8gwe08wkk5ndb.png"
+  },
+  {
+    "name": "SS-HRR",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737919/gxgddow0st96th45zy1e.png"
+  },
+  {
+    "name": "SS-PCH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737903/bfigpqcrqtubzwjyikva.png"
+  },
+  {
+    "name": "SS-QTT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737884/z1ki8n1gwwooiapjnihu.png"
+  },
+  {
+    "name": "SS-SRC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737734/bn5ggbf6d2swkc5r5fyw.jpg"
+  },
+  {
+    "name": "SS-CHM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737693/vsbshnrmziixbybpinx0.png"
+  },
+  {
+    "name": "SS-CE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737665/kgpzkumfcghegimzdcag.gif"
+  },
+  {
+    "name": "SS-TC",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737649/ogpcomesup9ovxffz7kx.gif"
+  },
+  {
+    "name": "SS-ZBH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737636/kmjxyaufyeytlq8ehoyd.gif"
+  },
+  {
+    "name": "SS-WRH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737577/aet3i1bkzegzjzdupbz8.gif"
+  },
+  {
+    "name": "SS-firstSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737525/tk9ajxsgsfgfzidfrmt9.jpg"
+  },
+  {
+    "name": "ITC-GBB",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737209/gk1ailt1ywfmznlt2w2q.png"
+  },
+  {
+    "name": "ITC-ACE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737172/uffg6t31jczzmzszxywm.png"
+  },
+  {
+    "name": "ITC-PCH",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737153/zfllerj5fgmvjkky0o8j.png"
+  },
+  {
+    "name": "ITC-C2H",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737133/fn3b2fayeqt7r8uz40u1.jpg"
+  },
+  {
+    "name": "ITC-E2EPS",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737108/ewj4azekdydzjbz4ttfx.jpg"
+  },
+  {
+    "name": "IT-WTN",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737084/q49biveg2tffqvko0gdk.png"
+  },
+  {
+    "name": "ITC-firstOneSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752737056/guaxre4yrrz1vympph2t.jpg"
+  },
+  {
+    "name": "ITC-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736889/gcwlsydfhnwkwsyrtfpf.jpg"
+  },
+  {
+    "name": "TS-FIR",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736844/ag6lpljuwsojrlikeuf8.gif"
+  },
+  {
+    "name": "TS-ReducedDownTime",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736825/yiw8x3hjrozxxcketdaz.gif"
+  },
+  {
+    "name": "SD-OTT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736781/ywc4zbes1y7hylg7q4hx.jpg"
+  },
+  {
+    "name": "SD-Logistics",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736759/gywpsbj6mgruu2tjrduq.gif"
+  },
+  {
+    "name": "SD-Online",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736737/zrfyrropiaarjeznbnjj.gif"
+  },
+  {
+    "name": "SD-healthcare",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736709/k6mvw5hucpyer7y0dkau.gif"
+  },
+  {
+    "name": "SD-Insurance",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736684/i7yqob0bdxvv4uyrkvmd.gif"
+  },
+  {
+    "name": "SD-Dollar",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736657/lip0xjkhuz9ew0wfedcp.gif"
+  },
+  {
+    "name": "SD-Accuracy",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736632/vx7lwgdrqxxrwzwd1xle.gif"
+  },
+  {
+    "name": "SD-engagement",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736618/jwresfrlqsxcxqnagizn.gif"
+  },
+  {
+    "name": "SD-opportunities",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736602/odfmqwmzzbuocudso17a.gif"
+  },
+  {
+    "name": "SD-Efficiency",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736580/gwjclrzudp5iwvldetlt.gif"
+  },
+  {
+    "name": "TS-SI",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736526/bzckdkul5cjs0prpm5px.jpg"
+  },
+  {
+    "name": "TS-CI",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736508/iq7vwxairq4djpmslppc.jpg"
+  },
+  {
+    "name": "TS-KTR",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736489/vycbfrcmztmkgrvjyqoc.jpg"
+  },
+  {
+    "name": "TS-AFA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736470/rg5vydloctimvizoz7hz.png"
+  },
+  {
+    "name": "TS-ETS",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736439/d08koi3qt5rm0rvxrsm9.png"
+  },
+  {
+    "name": "TS-RTSA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736424/uhbveqza7hoje34l6jxr.jpg"
+  },
+  {
+    "name": "TS-firstSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736377/cz6juvjd6kf4oiwejx5h.jpg"
+  },
+  {
+    "name": "TS-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736306/uzgvdznejanfu7wyol9v.jpg"
+  },
+  {
+    "name": "SoftwareDev-ADA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736183/cbgh60jwxk9aj9ivehw2.png"
+  },
+  {
+    "name": "SoftwareDev-FEO",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736171/u5sdk9pz2wso6asu5epc.png"
+  },
+  {
+    "name": "SoftwareDev-CA",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736157/xpusfccoxs4jclouhzbm.png"
+  },
+  {
+    "name": "SoftwareDev-CT",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736140/iyk2x1v3b4w5y6f8z9qj.png"
+  },
+  {
+    "name": "SoftwareDev-CDM",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736145/lq7s6f4yxd9s1uwb3pf1.png"
+  },
+  {
+    "name": "SoftwareDev-2YOE",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736129/o0fhtzxdhaetfhfpmazl.png"
+  },
+  {
+    "name": "SoftwareDev-FSD",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752736110/uv2chayev4yw3n9ojvgh.png"
+  },
+  {
+    "name": "SoftwareDev-firstSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735867/zr2gk3maglbwkpuauhrs.jpg"
+  },
+  {
+    "name": "SoftwareDev-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735843/biegxcwpqzbmhcflgtte.jpg"
+  },
+  {
+    "name": "ContactUs-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735764/gvsm2scykia8qedwzv9b.jpg"
+  },
+  {
+    "name": "career-googleTwo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735697/kkqnq2ta7d58esnylbey.png"
+  },
+  {
+    "name": "career-googleOne",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735687/zdsxcxsnpzgjnjarioc8.png"
+  },
+  {
+    "name": "Career-JobDescription-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735671/snd8mvqxhuhxaoenxewq.jpg"
+  },
+  {
+    "name": "Career-Person5",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735588/y7yroamghaokbsjxsnwm.jpg"
+  },
+  {
+    "name": "Career-Person4",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735576/gtyvjrozycwixzcc3ftk.jpg"
+  },
+  {
+    "name": "Career-Person3",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735565/gkuj0ryvv9jtox5eldew.jpg"
+  },
+  {
+    "name": "Career-Person2",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735553/zeznqbosvw2jue5p42uc.jpg"
+  },
+  {
+    "name": "Career-Person1",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735542/zbalpscin88pjxbbmuuh.jpg"
+  },
+  {
+    "name": "Career-2ndSlide",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735404/nicldwca7p95bevipqyy.jpg"
+  },
+  {
+    "name": "Career-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735375/hjsmlbtpb2pperbdcd2c.jpg"
+  },
+  {
+    "name": "About-mission",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735289/n9ypfw4u08fhpv4qwlcu.png"
+  },
+  {
+    "name": "About-target",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735276/dksr1ipasa5gxo49q6i4.png"
+  },
+  {
+    "name": "About-values",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735258/yyaafutvkvxpwokawodd.png"
+  },
+  {
+    "name": "About-teacher",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735177/n8fpzslgegfbjs6fiyrp.gif"
+  },
+  {
+    "name": "About-modelling",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735161/aytpsmijkqriwg6l0nel.gif"
+  },
+  {
+    "name": "About-growth",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735144/ofz06tmwqfyepwlvnvxi.gif"
+  },
+  {
+    "name": "About-2ndSlideTwo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735052/ltpytncdi5mn9p62dqv8.jpg"
+  },
+  {
+    "name": "About-2ndSlideOne",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735015/f3kkhzmkzmmpr0hdwtmv.jpg"
+  },
+  {
+    "name": "About-Banner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734971/qyln6rjk21nkknul1ume.jpg"
+  },
+  {
+    "name": "insta-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734837/nyp1fs2nuycmasg2ivtv.png"
+  },
+  {
+    "name": "world-darklogo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734777/vszclkub8qumgvhq450p.png"
+  },
+  {
+    "name": "phone-darklogo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734755/hsq28kdlxtl93osd4rcc.png"
+  },
+  {
+    "name": "email-darklogo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734737/mcf5y7yiuxidbq74tbnx.png"
+  },
+  {
+    "name": "phone-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734721/yyej4nm5wxpzuevlzzfl.png"
+  },
+  {
+    "name": "mail-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734696/fkjqihszgbykx3pzcxf1.png"
+  },
+  {
+    "name": "linkedin-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734680/ug8mod8phq4lvzqpaipz.png"
+  },
+  {
+    "name": "facebook-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734663/yrwpvhs5ikcavpw3mtdm.png"
+  },
+  {
+    "name": "Home-Help",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734634/icoioggd4i5unmgth0de.png"
+  },
+  {
+    "name": "Home-Settings",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734617/hddhm1xqms2fqm8cuw9p.png"
+  },
+  {
+    "name": "Home-Education",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734568/unugscrj9sw0dqsp2oso.gif"
+  },
+  {
+    "name": "Home-Travel",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734554/hiidhz0qy3xnzx4vv8e9.gif"
+  },
+  {
+    "name": "Home-AgriTech",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734533/a336k09iavn5alvw4rqj.gif"
+  },
+  {
+    "name": "Home-Dollar",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734502/pvgpm6zjf4c9w8jmsdfn.gif"
+  },
+  {
+    "name": "Home-Truck",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734489/crt5hbqrn3jgcdudbk8v.gif"
+  },
+  {
+    "name": "Home-Health",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734463/meo4ufbhctfjuewusg0n.gif"
+  },
+  {
+    "name": "ogs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734403/xgpxo1mdjplj63nmfljs.jpg"
+  },
+  {
+    "name": "OGS_Darklogo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734391/upnr7ik4007ozok1bbwp.png"
+  },
+  {
+    "name": "Home-Career",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734369/bddycsn6iyomsynqbviz.jpg"
+  },
+  {
+    "name": "Omniebee-footerlogo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734313/tdkuygqntdjl8ktwkmeu.png"
+  },
+  {
+    "name": "figma-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734242/zqt3kjssualct38sqnoi.png"
+  },
+  {
+    "name": "git-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734230/mqotzpkgsvlaexpawsrt.png"
+  },
+  {
+    "name": "aws-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734216/zoc8jb5ey5xwugnwm4eg.png"
+  },
+  {
+    "name": "postgresql-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734198/gmqjwfklf8r7kxubmevn.png"
+  },
+  {
+    "name": "mysql-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734179/nwuvo2sxflyghlclciee.png"
+  },
+  {
+    "name": "mongo-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734163/u63pefyikfx0jqofttzt.png"
+  },
+  {
+    "name": "graph-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734146/zudyudbzhajyogidbepz.png"
+  },
+  {
+    "name": "kubernetes-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734123/ts2o3wtcjtebw4cgkkd0.png"
+  },
+  {
+    "name": "docker-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734107/wjj1sl8web5ooygmblbn.png"
+  },
+  {
+    "name": "python-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734092/smb1valalcupgnxbxpnt.png"
+  },
+  {
+    "name": "expressjs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734074/qz4udb4vvkgqezmyssge.png"
+  },
+  {
+    "name": "nodejs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734059/sp6komrgkfbcbofaqaiq.png"
+  },
+  {
+    "name": "cloud-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734037/mfghupphpnlt2bamahbh.png"
+  },
+  {
+    "name": "automation-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734020/pcosthfjnnnpl9zwck5s.png"
+  },
+  {
+    "name": "js-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734000/g87mzyrzugqc2ftzcrqo.jpg"
+  },
+  {
+    "name": "vuejs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733809/yidjambzzt38vgkrmqlv.png"
+  },
+  {
+    "name": "nextjs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733748/icojzrnexrohu42nsmyz.png"
+  },
+  {
+    "name": "reactjs-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733736/iq1oemhynurohecuyipg.png"
+  },
+  {
+    "name": "Home-ITConsulting",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733421/mh3phyndlkcdbnwwcj0i.jpg"
+  },
+  {
+    "name": "Home-BusinessConsulting",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733368/xcgqrooff99hzrdpqf7e.jpg"
+  },
+  {
+    "name": "Home-tsThree",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733238/sgz28wwtffxtp1toogez.jpg"
+  },
+  {
+    "name": "Home-tsTwo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733222/ruykzar5lsnxeouv1tzo.jpg"
+  },
+  {
+    "name": "Home-tsOne",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733207/w4uipekbsvldztlioojz.png"
+  },
+  {
+    "name": "Home-devThree",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733177/obcxmcsp2cdtdnqugj31.jpg"
+  },
+  {
+    "name": "home-devTwo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752733147/ae7wxkewtwdp3l4vwc6h.jpg"
+  },
+  {
+    "name": "homeDev",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752732146/x9dv7yk8u0oxu01crngn.jpg"
+  },
+  {
+    "name": "Home-staffing",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752732106/jlp58zrdbyacnfw6vj5b.jpg"
+  },
+  {
+    "name": "Home-2ndSlideThree",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752731898/cyahjgqzexmausarmo87.jpg"
+  },
+  {
+    "name": "Home-2ndSlideOne",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752731872/zxn87sleppdqq6vvbswb.jpg"
+  },
+  {
+    "name": "Home-2nd-SlideTwo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752731687/aumasrlcrvmln5peqrlp.jpg"
+  },
+  {
+    "name": "homebanner",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752731345/ciuh9ims7hdv22ifsg7a.jpg"
+  },
+  {
+    "name": "location-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752838345/yxv9duki7slrsmnnayva.png"
+  },
+  {
+    "name": "Home-EduTraining",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753013064/gvwt3nxe1m5dr7o3cccy.jpg"
+  },
+  {
+    "name": "verify-tag",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753081606/ndikg4xvrcxok2yvinne.png"
+  },
+  {
+    "name": "whatsapp-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753180958/saggjr02wgfvlyalgeoj.png"
+  },
+  {
+    "name": "facebook-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753180973/a0nh38idxulyivrmdnbr.png"
+  },
+  {
+    "name": "gmail-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753181135/fsgv9w9zvok7mqcu2crc.png"
+  },
+  {
+    "name": "linkedin-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753181147/wphnzyux0lejcg0zfihy.png"
+  },
+  {
+    "name": "telegram-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753181166/c9cdn6ufcw4dvgzffjt7.png"
+  },
+  {
+    "name": "instagram-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753181181/di4g07lntcume1irr2dg.png"
+  },
+  {
+    "name": "twitter-logo",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753181197/x3qmov22x1mzmfdmwf2k.png"
+  },
+  {
+    "name": "gptw-certified",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753187257/wsauvatz0mkcuc4o0hqg.png"
+  },
+  {
+    "name": "anil",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753187683/azbnfqhjcfkisukpsldc.jpg"
+  },
+  {
+    "name": "anusha",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753187769/b2qo2vsqs6j4ndiiblqj.jpg"
+  },
+  {
+    "name": "coffee",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753188376/ikouycqwjrfdsncki1z9.png"
+  },
+  {
+    "name": "meetings",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753188368/zgaddwlhwcv2u4f2qvxf.png"
+  },
+  {
+    "name": "highfives",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753188358/pilmbr8ixcqckcst49yx.png"
+  },
+  {
+    "name": "stickynotes",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753188346/o8ubdhnoeprljt5lsquf.png"
+  },
+  {
+    "name": "arrow-up",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753271720/barnij4jhocogzl6njc6.png"
+  },
+  {
+    "name": "home-career",
+    "url": "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753274267/vzveb2gtjhwdi0slpu9p.jpg"
+  }
+]

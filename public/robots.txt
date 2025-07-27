@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://omniebeeglobalsolutions.com
+
+# Sitemaps
+Sitemap: https://omniebeeglobalsolutions.com/sitemap.xml
