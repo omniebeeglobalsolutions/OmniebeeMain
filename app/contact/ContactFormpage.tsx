@@ -260,7 +260,7 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">Call Us</p>
                   <a
                     href="tel:+919505637481"
-                    className="text-white font-bold text-base break-all"
+                    className="text-white font-bold text-base hover:text-[#56b9f0] break-all"
                   >
                     +91 9505637481
                   </a>

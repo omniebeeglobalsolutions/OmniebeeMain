@@ -63,10 +63,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src={assetsDataMap["OGS_Darklogo"]}
+                src={assetsDataMap["OGS-Favicon"]}
                 alt="Logo"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
+                style={{ borderRadius: "10%" }}
               />
               <div className="w-[1px] h-10 bg-gray-400" />
               <h2 className="font-bold text-[#479BC9] text-lg leading-tight">
@@ -76,7 +77,7 @@ const Footer = () => {
               </h2>
             </div>
 
-            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-justify">
+            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-justify w-[340px]">
               Omniebee Global Solutions is a results-driven IT services company,
               delivering excellence in web and software development, cloud
               integration, UI/UX design, and full-stack consulting. We are
