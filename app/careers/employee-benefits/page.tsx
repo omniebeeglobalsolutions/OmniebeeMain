@@ -3,10 +3,10 @@ import { assetsDataMap } from '@/app/utils/assetsDataMap';
 import Link from 'next/link';
 import React from 'react';
 
-const teamImage = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=800&q=80';
-const profile1 = 'https://randomuser.me/api/portraits/men/32.jpg';
-const profile2 = 'https://randomuser.me/api/portraits/men/45.jpg';
-const profile3 = 'https://randomuser.me/api/portraits/women/44.jpg';
+const teamImage = assetsDataMap["Group3"];
+const profile1 = assetsDataMap["anil"]
+const profile2 = assetsDataMap["Sriram"]
+const profile3 = assetsDataMap["Rakshii"]
 
 const EmployeeBenefitsPage = () => {
   return (
@@ -154,7 +154,7 @@ const EmployeeBenefitsPage = () => {
           <div className="flex flex-col items-center gap-8">
             {/* Top Large Image */}
             <img
-              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=600&q=80" // Table tennis placeholder
+              src={assetsDataMap["Group1"]} // Table tennis placeholder
               alt="Table Tennis"
               className="rounded-2xl w-full max-w-md object-cover"
             />
@@ -207,7 +207,7 @@ const EmployeeBenefitsPage = () => {
             </div>
             {/* Bottom Large Image */}
             <img
-              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80" // Skydiving placeholder
+              src={assetsDataMap["Group2"]} // Skydiving placeholder
               alt="Skydiving"
               className="rounded-2xl w-full max-w-md object-cover self-end"
             />
@@ -245,7 +245,7 @@ const EmployeeBenefitsPage = () => {
             </div>
             <div className="flex justify-center items-end">
               <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
+                src={assetsDataMap["anusha"]}
                 alt="Employee"
                 className="w-28 h-32 object-cover rounded-2xl shadow-lg bg-white border-4 border-white"
                 style={{ objectPosition: 'top' }}

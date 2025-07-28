@@ -42,45 +42,64 @@ const IntroSection = () => {
     switch (name) {
       case "fullname":
         if (!value.trim()) return "Please enter your full name.";
-        if (!/^[a-zA-Z ]{2,}$/.test(value.trim())) return "Name should contain only letters and spaces (min 2 characters).";
-        if (/[^a-zA-Z ]/.test(value.trim())) return "Name should not contain special characters.";
+        if (!/^[a-zA-Z ]{2,}$/.test(value.trim()))
+          return "Name should contain only letters and spaces (min 2 characters).";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Name should not contain special characters.";
         return "";
       case "email":
         if (!value.trim()) return "Please enter your email.";
-        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) return "Enter a valid email address.";
-        if (/[^a-zA-Z0-9@._-]/.test(value)) return "Email should not contain special characters except @ . _ -";
+        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
+          return "Enter a valid email address.";
+        if (/[^a-zA-Z0-9@._-]/.test(value))
+          return "Email should not contain special characters except @ . _ -";
         return "";
       case "phoneNumber":
         if (!value.trim()) return "Please enter your phone number.";
-        if (!/^[6-9]\d{9}$/.test(value)) return "Enter a valid 10-digit phone number.";
+        if (!/^[6-9]\d{9}$/.test(value))
+          return "Enter a valid 10-digit phone number.";
+        if (value.length > 10) return "Phone number cannot exceed 10 digits.";
         return "";
       case "yearsOfExperience":
         if (!value.trim()) return "Please enter your years of experience.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
+        if (Number(value) > 75)
+          return "Enter valid years of experience (max 75).";
         return "";
       case "noticePeriod":
         if (!value.trim()) return "Please enter your notice period.";
-        if (/[^a-zA-Z0-9 ]/.test(value.trim())) return "Notice period should not contain special characters.";
+        if (/[^a-zA-Z0-9 ]/.test(value.trim()))
+          return "Notice period should not contain special characters.";
         return "";
       case "primarySkills":
         if (!value.trim()) return "Please enter your primary skills.";
-        if (value.trim().length < 2) return "Primary skills should be at least 2 characters.";
+        if (value.trim().length < 2)
+          return "Primary skills should be at least 2 characters.";
         return "";
       case "designation":
         if (!value.trim()) return "Please enter the designation.";
-        if (value.trim().length < 2) return "Designation should be at least 2 characters.";
-        if (/[^a-zA-Z ]/.test(value.trim())) return "Designation should only contain letters and spaces.";
+        if (value.trim().length < 2)
+          return "Designation should be at least 2 characters.";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Designation should only contain letters and spaces.";
         return "";
       case "currentCTC":
-        if (!value.trim()) return "Please enter your current Cmd.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (!value.trim()) return "Please enter your current CTC.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "expectedCTC":
         if (!value.trim()) return "Please enter your expected CTC.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "linkedin":
-        if (value.trim() && !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())) return "Enter a valid LinkedIn URL.";
+        if (
+          value.trim() &&
+          !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())
+        )
+          return "Enter a valid LinkedIn URL.";
         return "";
       default:
         return "";
@@ -278,16 +297,56 @@ const IntroSection = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
               {[
-                { label: "Full Name", name: "fullname", placeholder: "Enter your full name" },
-                { label: "Email Address", name: "email", placeholder: "Enter your email address" },
-                { label: "Phone Number", name: "phoneNumber", placeholder: "Enter your 10-digit phone number" },
-                { label: "Years of Experience", name: "yearsOfExperience", placeholder: "e.g. 3" },
-                { label: "Notice Period", name: "noticePeriod", placeholder: "e.g. 2 months" },
-                { label: "Primary Skills", name: "primarySkills", placeholder: "e.g. React, Node.js" },
-                { label: "Designation Applying For", name: "designation", placeholder: "e.g. Software Engineer" },
-                { label: "Current CTC", name: "currentCTC", placeholder: "e.g. 500000" },
-                { label: "Expected CTC", name: "expectedCTC", placeholder: "e.g. 700000" },
-                { label: "Linkedin Profile Link", name: "linkedin", placeholder: "Paste your LinkedIn profile URL" },
+                {
+                  label: "Full Name",
+                  name: "fullname",
+                  placeholder: "Enter your full name",
+                },
+                {
+                  label: "Email Address",
+                  name: "email",
+                  placeholder: "Enter your email address",
+                },
+                {
+                  label: "Phone Number",
+                  name: "phoneNumber",
+                  placeholder: "Enter your 10-digit phone number",
+                },
+                {
+                  label: "Years of Experience",
+                  name: "yearsOfExperience",
+                  placeholder: "e.g. 3",
+                },
+                {
+                  label: "Notice Period",
+                  name: "noticePeriod",
+                  placeholder: "e.g. 2 months",
+                },
+                {
+                  label: "Primary Skills",
+                  name: "primarySkills",
+                  placeholder: "e.g. React, Node.js",
+                },
+                {
+                  label: "Designation Applying For",
+                  name: "designation",
+                  placeholder: "e.g. Software Engineer",
+                },
+                {
+                  label: "Current CTC",
+                  name: "currentCTC",
+                  placeholder: "e.g. 500000",
+                },
+                {
+                  label: "Expected CTC",
+                  name: "expectedCTC",
+                  placeholder: "e.g. 700000",
+                },
+                {
+                  label: "Linkedin Profile Link",
+                  name: "linkedin",
+                  placeholder: "Paste your LinkedIn profile URL",
+                },
               ].map(({ label, name, placeholder }, i) => (
                 <div key={i}>
                   <label className="block text-sm font-medium text-[#479BC9] mb-1">
@@ -307,6 +366,7 @@ const IntroSection = () => {
                     value={(formData as any)[name]}
                     onChange={handleChange}
                     placeholder={placeholder}
+                    maxLength={name === "phoneNumber" ? 10 : undefined}
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
                   {formErrors[name as keyof typeof formErrors] && (
@@ -350,8 +410,8 @@ const IntroSection = () => {
 
       {showShareModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[45vh] rounded-lg overflow-y-auto p-5 mt-12">
-            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center mb-5">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[38vh] rounded-lg overflow-y-auto p-5 mt-12">
+            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center">
               Share with your Friends
             </h3>
 
@@ -361,7 +421,7 @@ const IntroSection = () => {
                 {
                   name: "Whatsapp",
                   url: `https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    "Check out this career opportunity: https://www.omniebeeglobalsolutions.com/careers"
+                    "🚀 Explore amazing career opportunities at Omniebee Global Solutions! Join our dynamic team and grow your future. Apply now 👉 https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["whatsapp-logo"],
                 },
@@ -369,6 +429,8 @@ const IntroSection = () => {
                   name: "Facebook",
                   url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                     "https://www.omniebeeglobalsolutions.com/careers"
+                  )}&quote=${encodeURIComponent(
+                    "Looking to take your career to the next level? Join Omniebee Global Solutions — a place where innovation meets opportunity."
                   )}`,
                   icon: assetsDataMap["facebook-logo"],
                 },
@@ -383,12 +445,16 @@ const IntroSection = () => {
                   name: "Twitter",
                   url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
                     "https://www.omniebeeglobalsolutions.com/careers"
-                  )}&text=${encodeURIComponent("Explore this role")}`,
+                  )}&text=${encodeURIComponent(
+                    "Join the team at Omniebee Global Solutions and build a career you’re proud of. Check out the latest openings now! #Hiring #TechCareers"
+                  )}`,
                   icon: assetsDataMap["twitter-logo"],
                 },
                 {
                   name: "Gmail",
-                  url: `mailto:?subject=Great Career Opportunity&body=Check this out: https://www.omniebeeglobalsolutions.com/careers`,
+                  url: `mailto:?subject=Career Opportunity at Omniebee Global Solutions&body=${encodeURIComponent(
+                    "Hi,\n\nI came across some exciting career opportunities at Omniebee Global Solutions. If you're exploring new roles or want to work in a growing tech-driven company, take a look:\n\nhttps://www.omniebeeglobalsolutions.com/careers\n\nFeel free to apply or share it with others who might be interested!"
+                  )}`,
                   icon: assetsDataMap["gmail-logo"],
                 },
                 {
@@ -396,7 +462,7 @@ const IntroSection = () => {
                   url: `https://t.me/share/url?url=${encodeURIComponent(
                     "https://www.omniebeeglobalsolutions.com/careers"
                   )}&text=${encodeURIComponent(
-                    "Check out this career opportunity!"
+                    "✨ New career opportunities available at Omniebee Global Solutions! If you're passionate about tech and growth, this is your chance. Apply here: https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["telegram-logo"],
                 },

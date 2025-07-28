@@ -35,11 +35,11 @@ const JobCategory = ({ category, count, jobs, startIndex }: Props) => {
           {category}
         </h3>
         <span
-          className="relative bg-[#2E3E95] text-white text-xs px-3 py-1 rounded-full transition-transform duration-300 inline-block overflow-visible font-semibold"
+          className="relative bg-[#2E3E95] text-white text-xs px-3 py-1 rounded-full transition-transform duration-300 inline-block overflow-visible font-semibold cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onAnimationEnd={() => setIsHovered(false)}
         >
-          {count} Jobs
+          {count} {count === 1 ? "Job" : "Jobs"}
           {isHovered && (
             <>
               <span className="star star1">✨</span>
