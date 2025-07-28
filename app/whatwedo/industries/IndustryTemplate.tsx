@@ -201,13 +201,13 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 h-[150px]">
+      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 py-5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6 md:gap-12">
-          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-extrabold w-full md:w-1/3">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-extrabold w-full md:w-1/3 text-left">
             {data.sections[5].ctaSection?.heading}
           </h2>
 
-          <p className="text-white text-sm sm:text-base font-normal w-full md:w-1/3 text-justify">
+          <p className="text-white text-sm sm:text-base font-normal w-full md:w-1/3 text-left">
             {data.sections[5].ctaSection?.description}
           </p>
 
