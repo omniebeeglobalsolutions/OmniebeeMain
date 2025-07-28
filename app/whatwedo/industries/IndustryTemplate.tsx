@@ -81,10 +81,11 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
             />
           </div>
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-sm sm:text-xl md:text-xl font-bold text-[#2E3E95] mb-4 leading-snug w-[300px]">
+            <h2 className="text-base sm:text-xl md:text-xl font-bold text-[#2E3E95] mb-4 leading-snug w-[350px] mx-auto text-center">
               {data.sections[0].heading}
             </h2>
-            <p className="text-[#262626] mb-6 sm:mb-10 text-base sm:text-base text-justify leading-[25px] max-w-2xl mx-auto md:mx-0 w-[400px] sm:w-[580px]">
+            <p className="text-[#262626] mb-6 sm:mb-10 text-base sm:text-base text-justify leading-[25px] w-full max-w-[580px] mx-auto md:mx-0 px-4 sm:px-0
+">
               {data.sections[0].content}
             </p>
             <a
