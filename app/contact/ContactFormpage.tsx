@@ -264,7 +264,7 @@ export default function ContactFormpage() {
                   </p>
                   <a
                     href="tel:+919505637481"
-                    className="text-white-400 hover:text-white-600 font-bold text-base"
+                    className="text-white-400 hover:text-white-600 font-bold text-base hover:text-[#56b9f0]"
                   >
                     +91 9505637481
                   </a>
@@ -285,7 +285,7 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
                     href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold hover:text-white/80 whitespace-nowrap"
+                    className="text-white font-bold whitespace-nowrap hover:text-[#56b9f0]"
                   >
                     support@omnibeeglobalsolutions.com
                   </a>
@@ -307,7 +307,7 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">
                     Our Location
                   </p>
-                  <p className="font-bold">
+                  <p className="font-bold hover:text-[#56b9f0] cursor-pointer">
                     8-3-231/A 77 & 78, Sri Krishna Nagar, <br />
                     Yousufguda, Hyderabad, 500045
                   </p>
