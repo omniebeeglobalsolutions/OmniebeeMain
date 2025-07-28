@@ -40,28 +40,35 @@ export default function ContactFormpage() {
     switch (name) {
       case "name":
         if (!value.trim()) return "Please enter your name.";
-        if (!/^[a-zA-Z ]{2,}$/.test(value.trim())) return "Name should contain only letters and spaces (min 2 characters).";
-        if (/[^a-zA-Z ]/.test(value.trim())) return "Name should not contain special characters.";
+        if (!/^[a-zA-Z ]{2,}$/.test(value.trim()))
+          return "Name should contain only letters and spaces (min 2 characters).";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Name should not contain special characters.";
         return "";
       case "email":
         if (!value.trim()) return "Please enter your email.";
-        if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) return "Enter a valid email address.";
-        if (/[^a-zA-Z0-9@._]/.test(value)) return "Email should not contain special characters except @ . _ ";
+        if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
+          return "Enter a valid email address.";
+        if (/[^a-zA-Z0-9@._]/.test(value))
+          return "Email should not contain special characters except @ . _ ";
         return "";
       case "phone":
         if (!value.trim()) return "Please enter your phone number.";
-        if (!/^[6-9]\d{9}$/.test(value)) return "Enter a valid 10-digit phone number.";
+        if (!/^[6-9]\d{9}$/.test(value))
+          return "Enter a valid 10-digit phone number.";
         return "";
       case "zip":
         if (!value.trim()) return "Please enter your zip code.";
-        if (!/^\d{6}$/.test(value.trim())) return "Enter a valid 6-digit Indian zip code.";
+        if (!/^\d{6}$/.test(value.trim()))
+          return "Enter a valid 6-digit Indian zip code.";
         return "";
       case "service":
         if (!value.trim()) return "Please select a service.";
         return "";
       case "message":
         if (!value.trim()) return "Please enter your message.";
-        if (value.trim().length < 10) return "Message should be at least 10 characters.";
+        if (value.trim().length < 10)
+          return "Message should be at least 10 characters.";
         return "";
       default:
         return "";
@@ -74,10 +81,10 @@ export default function ContactFormpage() {
     >
   ) => {
     const { name, value } = e.target;
-    
+
     // Handle phone number input restriction (max 10 digits)
     if (name === "phone") {
-      const numericValue = value.replace(/\D/g, ''); // Remove non-digits
+      const numericValue = value.replace(/\D/g, ""); // Remove non-digits
       if (numericValue.length <= 10) {
         setForm({ ...form, [name]: numericValue });
         const error = validateField(name, numericValue);
@@ -85,10 +92,10 @@ export default function ContactFormpage() {
       }
       return;
     }
-    
+
     // Handle zip code input restriction (max 6 digits)
     if (name === "zip") {
-      const numericValue = value.replace(/\D/g, ''); // Remove non-digits
+      const numericValue = value.replace(/\D/g, ""); // Remove non-digits
       if (numericValue.length <= 6) {
         setForm({ ...form, [name]: numericValue });
         const error = validateField(name, numericValue);
@@ -96,7 +103,7 @@ export default function ContactFormpage() {
       }
       return;
     }
-    
+
     // Handle other fields normally
     setForm({ ...form, [name]: value });
     const error = validateField(name, value);
@@ -172,7 +179,7 @@ export default function ContactFormpage() {
                     placeholder="Enter your full name"
                     onChange={handleChange}
                     value={form.name}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.name && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.name}</p>
@@ -185,7 +192,7 @@ export default function ContactFormpage() {
                     placeholder="Enter your email address"
                     onChange={handleChange}
                     value={form.email}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.email && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.email}</p>
@@ -199,7 +206,7 @@ export default function ContactFormpage() {
                     onChange={handleChange}
                     value={form.phone}
                     maxLength={10}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.phone && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.phone}</p>
@@ -213,7 +220,7 @@ export default function ContactFormpage() {
                     onChange={handleChange}
                     value={form.zip}
                     maxLength={6}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.zip && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.zip}</p>
@@ -224,7 +231,7 @@ export default function ContactFormpage() {
                     name="service"
                     onChange={handleChange}
                     value={form.service}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                     aria-placeholder="Select a service"
                   >
                     <option value="">Select a service</option>
@@ -247,7 +254,7 @@ export default function ContactFormpage() {
                     rows={4}
                     onChange={handleChange}
                     value={form.message}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.message && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.message}</p>
@@ -259,7 +266,7 @@ export default function ContactFormpage() {
               )}
               <button
                 type="submit"
-                className="button-primary text-white px-6 py-2 rounded hover:bg-[#338cd3] transition-all font-semibold shadow-md disabled:opacity-60"
+                className="button-primary text-white px-6 py-2 rounded hover:bg-[#2e3e95] transition-all font-semibold shadow-md disabled:opacity-60"
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Submit Message"}
@@ -268,18 +275,18 @@ export default function ContactFormpage() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="bg-[#2E3E95] text-white w-full max-w-xs sm:max-w-sm md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
+          <div className="bg-[#2E3E95] text-white w-full max-w-md md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
               {/* Phone */}
-              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
+              <div className="flex items-center gap-3 min-w-0" style={{marginBottom: "50px"}}>
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["phone-logo"]}
                     alt="Phone"
                     width={30}
                     height={30}
-                    className="w-7 h-7 object-cover"
+                    className="w-10 h-10 object-cover"
                     priority
                   />
                 </div>
@@ -294,37 +301,37 @@ export default function ContactFormpage() {
                 </div>
               </div>
               {/* Email */}
-              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
+              <div className="flex items-center gap-3 min-w-0" style={{marginBottom: "50px", wordBreak: "break-all"}}>
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["mail-logo"]}
                     alt="Email"
                     width={30}
                     height={30}
-                    className="w-7 h-7 object-contain"
+                    className="w-10 h-10 object-contain"
                     priority
                   />
                 </div>
                 <div className="flex flex-col min-w-0">
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
-                    href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold break-all hover:text-[#56b9f0]"
+                    href="mailto:support@omniebeeglobalsolutions.com"
+                    className="text-white font-bold break-all hover:text-[#56b9f0] text-sm"
                     style={{ wordBreak: "break-all" }}
                   >
-                    support@omnibeeglobalsolutions.com
+                    support@omniebeeglobalsolutions.com
                   </a>
                 </div>
               </div>
               {/* Location */}
-              <div className="flex items-start gap-3 min-w-0">
-                <div className="pt-1">
+              <div className="flex items-center gap-3 min-w-0 mb-12">
+                <div>
                   <Image
                     src={assetsDataMap["location-logo"]}
                     alt="Location"
                     width={30}
                     height={30}
-                    className="w-7 h-7 object-cover"
+                    className="w-10 h-10 object-contain"
                     priority
                   />
                 </div>

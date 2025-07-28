@@ -123,7 +123,7 @@ const CareerById = ({ job, showInterestedButton = false, applyUrl }: Props) => {
           <div className="mb-6">
             <div className="font-bold mb-1 text-[#000000]">Working for us</div>
             <div className="text-sm text-[#000000] mb-2">
-              Ominbee is rated 4.6/5 on Glass door, for many good reasons. We
+              Omniebee is rated 4.6/5 on Glass door, for many good reasons. We
               truly value our employees' growth, well-being, and diversity, and
               people’s experiences bear this out. At Ominbee, we offer a host of
               enticing benefits that create an environment where you can thrive

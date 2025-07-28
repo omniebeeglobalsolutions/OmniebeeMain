@@ -28,7 +28,7 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 1500 }) => {
 
   return (
     <div className="text-5xl font-bold text-blue-900 mt-4">
-      {count.toLocaleString()}
+      {count.toLocaleString()}+
     </div>
   );
 };
