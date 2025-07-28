@@ -279,8 +279,8 @@ const IntroSection = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[90vh] rounded-lg overflow-y-auto p-6">
+        <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[90vh] rounded-lg overflow-y-auto p-5 mt-12">
             {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
@@ -409,9 +409,9 @@ const IntroSection = () => {
       )}
 
       {showShareModal && (
-        <div className="fixed inset-0 z-100 backdrop-blur-2xl bg-opacity-50 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-[#F5F5F5] shadow-md w-full max-w-4xl rounded-lg max-h-screen overflow-y-auto sm:overflow-y-hidden p-4 sm:p-6">
-            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95]">
+        <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[30vh] rounded-lg overflow-y-auto p-5 mt-12">
+            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center mb-5">
               Share with your Friends
             </h3>
 
@@ -491,7 +491,7 @@ const IntroSection = () => {
 
             <button
               onClick={() => setShowShareModal(false)}
-              className="mt-6 text-sm text-[#2E3E95] hover:underline"
+              className="mt-6 text-sm text-[#2E3E95] hover:underline flex justify-center items-center gap-2"
             >
               Close
             </button>

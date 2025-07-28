@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "@/app/globals.css"; // make sure this is present in your _app file
 import Image from "next/image";
 import { assetsDataMap } from "@/app/utils/assetsDataMap";
@@ -61,6 +61,8 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
 const OurServices = () => {
   const [showAllServices, setShowAllServices] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // New state for mobile view
+  const viewMoreRef = useRef<HTMLDivElement>(null);
+  const ourServicesRef = useRef<HTMLHeadingElement>(null);
 
   // Determine initial screen size and add resize listener
   useEffect(() => {
@@ -91,7 +93,10 @@ const OurServices = () => {
 
   return (
     <div className="p-6 max-w-screen-lg mx-auto">
-      <h2 className="text-center text-3xl font-bold mb-3 text-[#2E3E95]">
+      <h2
+        ref={ourServicesRef}
+        className="text-center text-3xl font-bold mb-3 text-[#2E3E95]"
+      >
         Our Services
       </h2>
       <hr className="w-[120px] border-t-[3px] border-[#2e3e95] mx-auto mb-8" />
@@ -331,14 +336,29 @@ const OurServices = () => {
         )}
       </div>
 
-      {/* View More Services Button for Mobile */}
+      {/* View More/Less Services Button for Mobile */}
       {isMobile && !showAllServices && (
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8" ref={viewMoreRef}>
           <button
             onClick={() => setShowAllServices(true)}
             className="button-tertiary text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-opacity duration-300"
           >
             View More Services
+          </button>
+        </div>
+      )}
+      {isMobile && showAllServices && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() => {
+              setShowAllServices(false);
+              setTimeout(() => {
+                ourServicesRef.current?.scrollIntoView({ behavior: "smooth" });
+              }, 100); // Wait for collapse animation
+            }}
+            className="button-tertiary text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-opacity duration-300"
+          >
+            View Less Services
           </button>
         </div>
       )}

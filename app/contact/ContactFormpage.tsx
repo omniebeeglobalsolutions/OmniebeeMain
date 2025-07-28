@@ -45,8 +45,8 @@ export default function ContactFormpage() {
         return "";
       case "email":
         if (!value.trim()) return "Please enter your email.";
-        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) return "Enter a valid email address.";
-        if (/[^a-zA-Z0-9@._-]/.test(value)) return "Email should not contain special characters except @ . _ -";
+        if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) return "Enter a valid email address.";
+        if (/[^a-zA-Z0-9@._]/.test(value)) return "Email should not contain special characters except @ . _ ";
         return "";
       case "phone":
         if (!value.trim()) return "Please enter your phone number.";
@@ -54,7 +54,7 @@ export default function ContactFormpage() {
         return "";
       case "zip":
         if (!value.trim()) return "Please enter your zip code.";
-        if (!/^\d{5,6}$/.test(value.trim())) return "Enter a valid zip code.";
+        if (!/^\d{6}$/.test(value.trim())) return "Enter a valid 6-digit Indian zip code.";
         return "";
       case "service":
         if (!value.trim()) return "Please select a service.";
@@ -73,15 +73,39 @@ export default function ContactFormpage() {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
     const { name, value } = e.target;
+    
+    // Handle phone number input restriction (max 10 digits)
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, ''); // Remove non-digits
+      if (numericValue.length <= 10) {
+        setForm({ ...form, [name]: numericValue });
+        const error = validateField(name, numericValue);
+        setFormErrors((prev) => ({ ...prev, [name]: error }));
+      }
+      return;
+    }
+    
+    // Handle zip code input restriction (max 6 digits)
+    if (name === "zip") {
+      const numericValue = value.replace(/\D/g, ''); // Remove non-digits
+      if (numericValue.length <= 6) {
+        setForm({ ...form, [name]: numericValue });
+        const error = validateField(name, numericValue);
+        setFormErrors((prev) => ({ ...prev, [name]: error }));
+      }
+      return;
+    }
+    
+    // Handle other fields normally
+    setForm({ ...form, [name]: value });
     const error = validateField(name, value);
     setFormErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Custom validation
+    // Custom validationn
     let hasError = false;
     const newErrors = { ...formErrors };
     Object.entries(form).forEach(([key, value]) => {
@@ -174,6 +198,7 @@ export default function ContactFormpage() {
                     placeholder="Enter your 10-digit mobile number"
                     onChange={handleChange}
                     value={form.phone}
+                    maxLength={10}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
                   />
                   {formErrors.phone && (
@@ -184,9 +209,10 @@ export default function ContactFormpage() {
                   <input
                     type="text"
                     name="zip"
-                    placeholder="Enter your zip code"
+                    placeholder="Enter your 6-digit Indian zip code"
                     onChange={handleChange}
                     value={form.zip}
+                    maxLength={6}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500 bg-white"
                   />
                   {formErrors.zip && (
@@ -208,6 +234,7 @@ export default function ContactFormpage() {
                     <option value="Staffing Solutions"> Staffing Solutions</option>
                     <option value="Business Consulting"> Business Consulting</option>
                     <option value="Training Services"> Training Services</option>
+                    <option value="Other..."> Other...</option>
                   </select>
                   {formErrors.service && (
                     <p className="text-sm text-red-600 mt-1">{formErrors.service}</p>
@@ -241,79 +268,74 @@ export default function ContactFormpage() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="bg-[#2E3E95] text-white p-6 rounded-lg space-y-5 w-[330px] sm:w-[350px]">
+          <div className="bg-[#2E3E95] text-white w-full max-w-xs sm:max-w-sm md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
-              <div
-                className="flex items-start gap-3"
-                style={{ marginBottom: "3rem" }}
-              >
-                <div>
+              {/* Phone */}
+              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["phone-logo"]}
                     alt="Phone"
                     width={30}
                     height={30}
-                    className="w-full h-auto object-cover"
+                    className="w-7 h-7 object-cover"
                     priority
                   />
                 </div>
-                <div>
-                  <p className="text-white font-semibold no-underline text-xs">
-                    Call Us
-                  </p>
+                <div className="min-w-0">
+                  <p className="text-white font-semibold text-xs">Call Us</p>
                   <a
                     href="tel:+919505637481"
-                    className="text-white-400 hover:text-white-600 font-bold text-base"
+                    className="text-white font-bold hover:text-[#56b9f0] break-all"
                   >
                     +91 9505637481
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3" style={{ marginBottom: "3rem" }}>
-                <div className="w-[30px] h-[30px] flex-shrink-0">
+              {/* Email */}
+              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["mail-logo"]}
                     alt="Email"
                     width={30}
                     height={30}
-                    className="w-full h-full object-contain"
+                    className="w-7 h-7 object-contain"
                     priority
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
                     href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold hover:text-white/80 whitespace-nowrap"
+                    className="text-white font-bold break-all hover:text-[#56b9f0]"
+                    style={{ wordBreak: "break-all" }}
                   >
                     support@omnibeeglobalsolutions.com
                   </a>
                 </div>
               </div>
-
-              <div className="flex items-start gap-3">
-                <div>
+              {/* Location */}
+              <div className="flex items-start gap-3 min-w-0">
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["location-logo"]}
                     alt="Location"
                     width={30}
                     height={30}
-                    className="w-full h-auto object-cover"
+                    className="w-7 h-7 object-cover"
                     priority
                   />
                 </div>
-                <div>
-                  <p className="text-white font-semibold text-xs">
-                    Our Location
-                  </p>
-                  <p className="font-bold">
+                <div className="min-w-0">
+                  <p className="text-white font-semibold text-xs">Our Location</p>
+                  <a className="font-bold hover:text-[#56b9f0] cursor-pointer">
                     8-3-231/A 77 & 78, Sri Krishna Nagar, <br />
                     Yousufguda, Hyderabad, 500045
-                  </p>
+                  </a>
                 </div>
               </div>
-              <div className="pt-2"></div>
             </div>
           </div>
         </div>

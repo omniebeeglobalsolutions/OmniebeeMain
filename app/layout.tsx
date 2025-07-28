@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     images: [assetsDataMap["OGS_Darklogo"] || ""],
   },
   icons: {
-    icon: assetsDataMap["OGS_Darklogo"] || undefined,
+    icon: '/favicon.png',
   },
 };
 
@@ -113,6 +113,8 @@ export default function RootLayout({
         <link rel="canonical" href={siteURL} />
         <meta name="robots" content="index, follow" />
         <meta name="theme-color" content="#0E1A2B" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png" />
         {/* JSON-LD Organization Schema for Rich Results */}
         <script
           type="application/ld+json"

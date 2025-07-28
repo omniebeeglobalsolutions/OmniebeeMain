@@ -46,7 +46,15 @@ const Footer = () => {
 
   const handleSubscribe = () => {
     if (!email.trim()) {
-      toast.error("Please enter a valid email address.");
+      toast.error("Please enter your email.");
+      return;
+    }
+    if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      toast.error("Enter a valid email address.");
+      return;
+    }
+    if (/[^a-zA-Z0-9@._]/.test(email)) {
+      toast.error("Email should not contain special characters except @ . _ ");
       return;
     }
     // Here you can add your API call to subscribe the email if needed
@@ -63,10 +71,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src={assetsDataMap["OGS_Darklogo"]}
+                src={assetsDataMap["OGS-Favicon"]}
                 alt="Logo"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
+                style={{ borderRadius: "10%" }}
               />
               <div className="w-[1px] h-10 bg-gray-400" />
               <h2 className="font-bold text-[#479BC9] text-lg leading-tight">
@@ -76,7 +85,7 @@ const Footer = () => {
               </h2>
             </div>
 
-            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-justify">
+            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-justify w-[340px]">
               Omniebee Global Solutions is a results-driven IT services company,
               delivering excellence in web and software development, cloud
               integration, UI/UX design, and full-stack consulting. We are
@@ -225,7 +234,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href=""
+                  href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

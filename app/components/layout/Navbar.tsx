@@ -77,10 +77,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close What We Do dropdown on route change
+  // Close What We Do dropdown on route change and component mount
   useEffect(() => {
     setShowWhatWeDoDropdown(false);
   }, [pathname]);
+
+  // Ensure dropdown is closed on component mount
+  useEffect(() => {
+    setShowWhatWeDoDropdown(false);
+  }, []);
 
   // Close What We Do dropdown on scroll or click outside
   useEffect(() => {
@@ -158,16 +163,16 @@ export default function Navbar() {
           {/* Desktop Nav - evenly spaced, correct order, blue dropdown icon */}
           <ul className="ml-4 hidden md:flex gap-8 font-semibold text-[#2E3E95] text-lg items-center">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              const hasChildren = !!link.children;
               const isDropdown = link.label === "What We Do?";
+              const isActive = isDropdown ? false : pathname === link.href;
+              const hasChildren = !!link.children;
               if (isDropdown && hasChildren) {
                 return (
                   <li
                     key={link.href}
                     className="relative flex items-center cursor-pointer hover:text-[#2E3E95] hover:font-bold group"
-                    onMouseEnter={() => setShowWhatWeDoDropdown(true)}
-                    // onMouseLeave={() => setShowWhatWeDoDropdown(false)}
+                    onMouseEnter={handleDropdownEnter}
+                    onMouseLeave={handleDropdownLeave}
                     data-whatwedo-navitem={isDropdown ? true : undefined}
                   >
                     <Link
@@ -308,9 +313,12 @@ export default function Navbar() {
                       href="https://test-next-1zxu.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center px-5 h-[44px] rounded-[30px] transition-all duration-300 font-semibold text-lg overflow-hidden text-[#2E3E95] whitespace-nowrap w-auto flex-shrink-0"
+                      className="relative group flex items-center justify-center px-5 h-[44px] rounded-[30px] transition-all duration-300 font-semibold text-lg overflow-hidden text-[#2E3E95] whitespace-nowrap w-auto flex-shrink-0"
                     >
-                      {link.label}
+                      <span className="z-10 group-hover:text-white">{link.label}</span>
+                      <span
+                        className="absolute inset-0 rounded-[30px] transition duration-500 opacity-0 group-hover:opacity-100 animated-gradient"
+                      />
                     </a>
                   </li>
                 );
@@ -509,35 +517,49 @@ export default function Navbar() {
 
         <ul className="flex flex-col items-center text-center gap-6 p-6 text-[#2E3E95] font-semibold">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isDropdown = link.label === "What We Do?";
+            const isActive = isDropdown ? false : pathname === link.href;
             const hasChildren = !!link.children;
             return (
               <li key={link.href} className="relative">
                 <div className="flex items-center justify-between">
-                  <Link
-                    href={link.href}
-                    onClick={() => {
-                      if (!hasChildren) setIsOpen(false);
-                    }}
-                    className={`relative group px-4 py-3 rounded-[30px] min-w-[160px] flex items-center justify-center text-lg font-semibold overflow-hidden`}
-                  >
-                    <span
-                      className={`z-10 ${
-                        isActive ? "text-white" : "text-[#2E3E95]"
-                      }`}
+                  {link.label === "Portfolio" ? (
+                    <a
+                      href="https://test-next-1zxu.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className={`relative group px-4 py-3 rounded-[30px] min-w-[160px] flex items-center justify-center text-lg font-semibold overflow-hidden text-[#2E3E95]`}
                     >
-                      {link.label}
-                    </span>
-                    <span
-                      className={`absolute inset-0 rounded-[30px] transition duration-500
-                        ${
-                          isActive
-                            ? "opacity-100 animated-gradient"
-                            : "opacity-0 group-hover:opacity-100 animated-gradient"
-                        }
-                      `}
-                    />
-                  </Link>
+                      <span className="z-10">{link.label}</span>
+                      <span className="absolute inset-0 rounded-[30px] transition duration-500 opacity-0 group-hover:opacity-100 animated-gradient" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => {
+                        if (!hasChildren) setIsOpen(false);
+                      }}
+                      className={`relative group px-4 py-3 rounded-[30px] min-w-[160px] flex items-center justify-center text-lg font-semibold overflow-hidden`}
+                    >
+                      <span
+                        className={`z-10 ${
+                          isActive ? "text-white" : "text-[#2E3E95]"
+                        }`}
+                      >
+                        {link.label}
+                      </span>
+                      <span
+                        className={`absolute inset-0 rounded-[30px] transition duration-500
+                          ${
+                            isActive
+                              ? "opacity-100 animated-gradient"
+                              : "opacity-0 group-hover:opacity-100 animated-gradient"
+                          }
+                        `}
+                      />
+                    </Link>
+                  )}
 
                   {hasChildren && (
                     <button
