@@ -46,7 +46,15 @@ const Footer = () => {
 
   const handleSubscribe = () => {
     if (!email.trim()) {
-      toast.error("Please enter a valid email address.");
+      toast.error("Please enter your email.");
+      return;
+    }
+    if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      toast.error("Enter a valid email address.");
+      return;
+    }
+    if (/[^a-zA-Z0-9@._]/.test(email)) {
+      toast.error("Email should not contain special characters except @ . _ ");
       return;
     }
     // Here you can add your API call to subscribe the email if needed
