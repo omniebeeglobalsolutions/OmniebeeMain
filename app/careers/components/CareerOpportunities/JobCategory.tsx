@@ -50,7 +50,7 @@ const JobCategory = ({ category, count, jobs, startIndex }: Props) => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-[900px] px-4 pt-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-[1280px] px-4 pt-3">
         {jobs.map((job) => (
           <Link key={job._id} href={`/careers/job/${job._id}`}>
             <JobCard
