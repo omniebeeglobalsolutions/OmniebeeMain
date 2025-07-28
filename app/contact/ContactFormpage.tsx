@@ -245,7 +245,7 @@ export default function ContactFormpage() {
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
               {/* Phone */}
-              <div className="flex items-start gap-3 min-w-0">
+              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["phone-logo"]}
@@ -260,14 +260,14 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">Call Us</p>
                   <a
                     href="tel:+919505637481"
-                    className="text-white font-bold text-base hover:text-[#56b9f0] break-all"
+                    className="text-white font-bold hover:text-[#56b9f0] break-all"
                   >
                     +91 9505637481
                   </a>
                 </div>
               </div>
               {/* Email */}
-              <div className="flex items-start gap-3 min-w-0">
+              <div className="flex items-start gap-3 min-w-0" style={{marginBottom: "50px"}}>
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["mail-logo"]}
@@ -282,7 +282,7 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
                     href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold break-all"
+                    className="text-white font-bold break-all hover:text-[#56b9f0]"
                     style={{ wordBreak: "break-all" }}
                   >
                     support@omnibeeglobalsolutions.com
@@ -303,10 +303,10 @@ export default function ContactFormpage() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-white font-semibold text-xs">Our Location</p>
-                  <p className="font-bold">
+                  <a className="font-bold hover:text-[#56b9f0] cursor-pointer">
                     8-3-231/A 77 & 78, Sri Krishna Nagar, <br />
                     Yousufguda, Hyderabad, 500045
-                  </p>
+                  </a>
                 </div>
               </div>
             </div>
