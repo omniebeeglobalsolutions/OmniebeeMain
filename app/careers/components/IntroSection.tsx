@@ -350,7 +350,7 @@ const IntroSection = () => {
 
       {showShareModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[30vh] rounded-lg overflow-y-auto p-5 mt-12">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[45vh] rounded-lg overflow-y-auto p-5 mt-12">
             <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center mb-5">
               Share with your Friends
             </h3>
@@ -361,40 +361,40 @@ const IntroSection = () => {
                 {
                   name: "Whatsapp",
                   url: `https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    "Check out this career opportunity: http://localhost:3000/careers"
+                    "Check out this career opportunity: https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["whatsapp-logo"],
                 },
                 {
                   name: "Facebook",
                   url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["facebook-logo"],
                 },
                 {
                   name: "LinkedIn",
                   url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["linkedin-logo"],
                 },
                 {
                   name: "Twitter",
                   url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}&text=${encodeURIComponent("Explore this role")}`,
                   icon: assetsDataMap["twitter-logo"],
                 },
                 {
                   name: "Gmail",
-                  url: `mailto:?subject=Great Career Opportunity&body=Check this out: http://localhost:3000/careers`,
+                  url: `mailto:?subject=Great Career Opportunity&body=Check this out: https://www.omniebeeglobalsolutions.com/careers`,
                   icon: assetsDataMap["gmail-logo"],
                 },
                 {
                   name: "Telegram",
                   url: `https://t.me/share/url?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}&text=${encodeURIComponent(
                     "Check out this career opportunity!"
                   )}`,
