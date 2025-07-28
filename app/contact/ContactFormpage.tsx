@@ -105,7 +105,7 @@ export default function ContactFormpage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Custom validation
+    // Custom validationn
     let hasError = false;
     const newErrors = { ...formErrors };
     Object.entries(form).forEach(([key, value]) => {
