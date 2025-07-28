@@ -241,79 +241,74 @@ export default function ContactFormpage() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="bg-[#2E3E95] text-white p-6 rounded-lg space-y-5 w-[330px] sm:w-[350px]">
+          <div className="bg-[#2E3E95] text-white w-full max-w-xs sm:max-w-sm md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
-              <div
-                className="flex items-start gap-3"
-                style={{ marginBottom: "3rem" }}
-              >
-                <div>
+              {/* Phone */}
+              <div className="flex items-start gap-3 min-w-0">
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["phone-logo"]}
                     alt="Phone"
                     width={30}
                     height={30}
-                    className="w-full h-auto object-cover"
+                    className="w-7 h-7 object-cover"
                     priority
                   />
                 </div>
-                <div>
-                  <p className="text-white font-semibold no-underline text-xs">
-                    Call Us
-                  </p>
+                <div className="min-w-0">
+                  <p className="text-white font-semibold text-xs">Call Us</p>
                   <a
                     href="tel:+919505637481"
-                    className="text-white-400 hover:text-white-600 font-bold text-base hover:text-[#56b9f0]"
+                    className="text-white font-bold text-base hover:text-[#56b9f0] break-all"
                   >
                     +91 9505637481
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3" style={{ marginBottom: "3rem" }}>
-                <div className="w-[30px] h-[30px] flex-shrink-0">
+              {/* Email */}
+              <div className="flex items-start gap-3 min-w-0">
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["mail-logo"]}
                     alt="Email"
                     width={30}
                     height={30}
-                    className="w-full h-full object-contain"
+                    className="w-7 h-7 object-contain"
                     priority
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
                     href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold whitespace-nowrap hover:text-[#56b9f0]"
+                    className="text-white font-bold break-all"
+                    style={{ wordBreak: "break-all" }}
                   >
                     support@omnibeeglobalsolutions.com
                   </a>
                 </div>
               </div>
-
-              <div className="flex items-start gap-3">
-                <div>
+              {/* Location */}
+              <div className="flex items-start gap-3 min-w-0">
+                <div className="pt-1">
                   <Image
                     src={assetsDataMap["location-logo"]}
                     alt="Location"
                     width={30}
                     height={30}
-                    className="w-full h-auto object-cover"
+                    className="w-7 h-7 object-cover"
                     priority
                   />
                 </div>
-                <div>
-                  <p className="text-white font-semibold text-xs">
-                    Our Location
-                  </p>
-                  <p className="font-bold hover:text-[#56b9f0] cursor-pointer">
+                <div className="min-w-0">
+                  <p className="text-white font-semibold text-xs">Our Location</p>
+                  <p className="font-bold">
                     8-3-231/A 77 & 78, Sri Krishna Nagar, <br />
                     Yousufguda, Hyderabad, 500045
                   </p>
                 </div>
               </div>
-              <div className="pt-2"></div>
             </div>
           </div>
         </div>
