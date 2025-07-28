@@ -97,13 +97,7 @@ const Page = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 text-gray-800">
       <div className="w-full mb-10 relative h-48 md:h-64 flex items-center justify-center">
-        <Image
-          src="/icons/omnie.jpg"
-          alt="Privacy Policy Banner"
-          fill
-          className="object-cover rounded-lg shadow"
-          priority
-        />
+        
         <div className="absolute inset-0 bg-[#2E3E95] bg-opacity-60 rounded-lg flex flex-col items-center justify-center">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center font-poppins drop-shadow-lg">
             Terms and Conditions

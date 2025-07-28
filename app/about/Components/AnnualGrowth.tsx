@@ -35,7 +35,7 @@ export default function StatsSection() {
 
   return (
     <section className="py-16 px-8 md:py-12 md:px-6 lg:px-24 bg-white font-inter mb-7">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-15 text-center md:text-left sm:w-[1100px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px] text-center md:text-left sm:w-[1200px] mx-auto">
         {stats.map((stat, index) => (
           <div
             key={index}

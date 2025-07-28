@@ -234,7 +234,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/people/Web-Eclipse/pfbid0yjLh2Jg1SfKRXqVptn5RvvLVaZ8xNAXZwv2q4rhKr1pxTjyg9M7iQWVe2Ksbetm5l/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -263,7 +263,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-6 text-xs text-[#fff] gap-2">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-6 text-xs text-[#fff] gap-4">
           <p>Made with ❤️ | Copyright ©2025 Omniebee Global Solutions | All Rights Reserved</p>
           <div className="flex gap-4">
             <Link href="/privacy-and-policy">
