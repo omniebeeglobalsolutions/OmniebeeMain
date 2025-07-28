@@ -226,7 +226,7 @@ const IntroSection = () => {
               onClick={() => setShowModal(true)}
               className="px-4 py-2 rounded-sm font-bold cursor-pointer text-sm button-secondary text-white transition-all duration-300 hover:bg-[#2e3e95]"
             >
-              Quick Apply
+              Express Interest
             </button>
             <Link href="/careers/employee-benefits">
               <button className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95]">
@@ -240,7 +240,7 @@ const IntroSection = () => {
               Refer a Friend
             </button>
             <a href="#employee-review">
-              <button className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white">
+              <button className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white hover:bg-[#2e3e95]">
                 Employee Reviews
               </button>
             </a>
