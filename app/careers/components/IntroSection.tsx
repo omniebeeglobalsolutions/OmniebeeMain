@@ -42,45 +42,61 @@ const IntroSection = () => {
     switch (name) {
       case "fullname":
         if (!value.trim()) return "Please enter your full name.";
-        if (!/^[a-zA-Z ]{2,}$/.test(value.trim())) return "Name should contain only letters and spaces (min 2 characters).";
-        if (/[^a-zA-Z ]/.test(value.trim())) return "Name should not contain special characters.";
+        if (!/^[a-zA-Z ]{2,}$/.test(value.trim()))
+          return "Name should contain only letters and spaces (min 2 characters).";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Name should not contain special characters.";
         return "";
       case "email":
         if (!value.trim()) return "Please enter your email.";
-        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) return "Enter a valid email address.";
-        if (/[^a-zA-Z0-9@._-]/.test(value)) return "Email should not contain special characters except @ . _ -";
+        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
+          return "Enter a valid email address.";
+        if (/[^a-zA-Z0-9@._-]/.test(value))
+          return "Email should not contain special characters except @ . _ -";
         return "";
       case "phoneNumber":
         if (!value.trim()) return "Please enter your phone number.";
-        if (!/^[6-9]\d{9}$/.test(value)) return "Enter a valid 10-digit phone number.";
+        if (!/^[6-9]\d{9}$/.test(value))
+          return "Enter a valid 10-digit phone number.";
         return "";
       case "yearsOfExperience":
         if (!value.trim()) return "Please enter your years of experience.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "noticePeriod":
         if (!value.trim()) return "Please enter your notice period.";
-        if (/[^a-zA-Z0-9 ]/.test(value.trim())) return "Notice period should not contain special characters.";
+        if (/[^a-zA-Z0-9 ]/.test(value.trim()))
+          return "Notice period should not contain special characters.";
         return "";
       case "primarySkills":
         if (!value.trim()) return "Please enter your primary skills.";
-        if (value.trim().length < 2) return "Primary skills should be at least 2 characters.";
+        if (value.trim().length < 2)
+          return "Primary skills should be at least 2 characters.";
         return "";
       case "designation":
         if (!value.trim()) return "Please enter the designation.";
-        if (value.trim().length < 2) return "Designation should be at least 2 characters.";
-        if (/[^a-zA-Z ]/.test(value.trim())) return "Designation should only contain letters and spaces.";
+        if (value.trim().length < 2)
+          return "Designation should be at least 2 characters.";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Designation should only contain letters and spaces.";
         return "";
       case "currentCTC":
         if (!value.trim()) return "Please enter your current Cmd.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "expectedCTC":
         if (!value.trim()) return "Please enter your expected CTC.";
-        if (isNaN(Number(value)) || Number(value) < 0) return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "linkedin":
-        if (value.trim() && !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())) return "Enter a valid LinkedIn URL.";
+        if (
+          value.trim() &&
+          !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())
+        )
+          return "Enter a valid LinkedIn URL.";
         return "";
       default:
         return "";
@@ -203,7 +219,7 @@ const IntroSection = () => {
             Dream more than a Job.
             <br />
             Grow your <span className="text-[#479BC9]">CAREER</span> to the
-            Fullest.
+            Highest.
           </h2>
           <div className="flex items-center gap-4 mb-4 font-medium text-[#2E3E95]">
             <a href="#">Learn More</a>
@@ -221,29 +237,33 @@ const IntroSection = () => {
           <p className="mb-6 text-gray-700 max-w-xl">
             - “Not just a job. A place to thrive.”
           </p>
-          <div className="grid grid-cols-2 gap-3 max-w-xs">
-            <button
-              onClick={() => setShowModal(true)}
-              className="px-4 py-2 rounded-sm font-bold cursor-pointer text-sm button-secondary text-white transition-all duration-300 hover:bg-[#2e3e95]"
-            >
-              Quick Apply
-            </button>
-            <Link href="/careers/employee-benefits">
-              <button className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95]">
-                Employee Benefits
+          <div className="flex flex-col gap-3 max-w-sm">
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowModal(true)}
+                className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold cursor-pointer text-sm button-secondary text-white transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg"
+              >
+                Quick Apply
               </button>
-            </Link>
-            <button
-              className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95]"
-              onClick={() => setShowShareModal(true)}
-            >
-              Refer a Friend
-            </button>
-            <a href="#employee-review">
-              <button className="px-4 py-2 rounded-sm font-bold text-sm button-secondary text-white">
-                Employee Reviews
+              <Link href="/careers/employee-benefits">
+                <button className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg">
+                  Employee Benefits
+                </button>
+              </Link>
+            </div>
+            <div className="flex gap-3">
+              <button
+                className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg"
+                onClick={() => setShowShareModal(true)}
+              >
+                Refer a Friend
               </button>
-            </a>
+              <a href="#employee-review">
+                <button className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg">
+                  Employee Reviews
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -278,16 +298,56 @@ const IntroSection = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
               {[
-                { label: "Full Name", name: "fullname", placeholder: "Enter your full name" },
-                { label: "Email Address", name: "email", placeholder: "Enter your email address" },
-                { label: "Phone Number", name: "phoneNumber", placeholder: "Enter your 10-digit phone number" },
-                { label: "Years of Experience", name: "yearsOfExperience", placeholder: "e.g. 3" },
-                { label: "Notice Period", name: "noticePeriod", placeholder: "e.g. 2 months" },
-                { label: "Primary Skills", name: "primarySkills", placeholder: "e.g. React, Node.js" },
-                { label: "Designation Applying For", name: "designation", placeholder: "e.g. Software Engineer" },
-                { label: "Current CTC", name: "currentCTC", placeholder: "e.g. 500000" },
-                { label: "Expected CTC", name: "expectedCTC", placeholder: "e.g. 700000" },
-                { label: "Linkedin Profile Link", name: "linkedin", placeholder: "Paste your LinkedIn profile URL" },
+                {
+                  label: "Full Name",
+                  name: "fullname",
+                  placeholder: "Enter your full name",
+                },
+                {
+                  label: "Email Address",
+                  name: "email",
+                  placeholder: "Enter your email address",
+                },
+                {
+                  label: "Phone Number",
+                  name: "phoneNumber",
+                  placeholder: "Enter your 10-digit phone number",
+                },
+                {
+                  label: "Years of Experience",
+                  name: "yearsOfExperience",
+                  placeholder: "e.g. 3",
+                },
+                {
+                  label: "Notice Period",
+                  name: "noticePeriod",
+                  placeholder: "e.g. 2 months",
+                },
+                {
+                  label: "Primary Skills",
+                  name: "primarySkills",
+                  placeholder: "e.g. React, Node.js",
+                },
+                {
+                  label: "Designation Applying For",
+                  name: "designation",
+                  placeholder: "e.g. Software Engineer",
+                },
+                {
+                  label: "Current CTC",
+                  name: "currentCTC",
+                  placeholder: "e.g. 500000",
+                },
+                {
+                  label: "Expected CTC",
+                  name: "expectedCTC",
+                  placeholder: "e.g. 700000",
+                },
+                {
+                  label: "Linkedin Profile Link",
+                  name: "linkedin",
+                  placeholder: "Paste your LinkedIn profile URL",
+                },
               ].map(({ label, name, placeholder }, i) => (
                 <div key={i}>
                   <label className="block text-sm font-medium text-[#479BC9] mb-1">
