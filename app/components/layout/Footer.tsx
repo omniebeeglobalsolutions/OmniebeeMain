@@ -44,23 +44,23 @@ const Footer = () => {
     fetchLocation();
   }, []);
 
-  const handleSubscribe = () => {
-    if (!email.trim()) {
-      toast.error("Please enter your email.");
-      return;
-    }
-    if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-      toast.error("Enter a valid email address.");
-      return;
-    }
-    if (/[^a-zA-Z0-9@._]/.test(email)) {
-      toast.error("Email should not contain special characters except @ . _ ");
-      return;
-    }
-    // Here you can add your API call to subscribe the email if needed
-    toast.success("Subscribed successfully!");
-    setEmail("");
-  };
+  // const handleSubscribe = () => {
+  //   if (!email.trim()) {
+  //     toast.error("Please enter your email.");
+  //     return;
+  //   }
+  //   if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+  //     toast.error("Enter a valid email address.");
+  //     return;
+  //   }
+  //   if (/[^a-zA-Z0-9@._]/.test(email)) {
+  //     toast.error("Email should not contain special characters except @ . _ ");
+  //     return;
+  //   }
+  //   // Here you can add your API call to subscribe the email if needed
+  //   toast.success("Subscribed successfully!");
+  //   setEmail("");
+  // };
 
   return (
     <footer className="relative w-full bg-gradient-to-b from-[#1E232A] to-[#2e3e95] text-[#fff] px-6 sm:px-12 pt-10 pb-4 ">
@@ -94,7 +94,7 @@ const Footer = () => {
               transformation.
             </p>
 
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <p className="font-medium mb-2 text-[#56B9F0]">
                 Get Newsletters & Subscriptions
               </p>
@@ -113,7 +113,7 @@ const Footer = () => {
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
 
          <div className="sm:ml-6 md:ml-10 lg:ml-16">

@@ -1,6 +1,7 @@
 import AnimatedBubbles from "@/app/about/Components/AnimatedBubbles";
 import Form from "@/app/components/reusable/Form";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 const buttonTextMap: Record<string, string> = {
   "6879f664ff8f487cbd3cf2c2": "Speak To Us", //Software Development
@@ -32,6 +33,28 @@ const excellenceSectionMap: Record<
   "6879fa0bff8f487cbd3cf2ca": "section5", //Technical Support
   "687a09c0ff8f487cbd3cf2d8": "section5", //Staffing Solutions
 };
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const res = await fetch(
+    `https://omniebee-server.vercel.app/api/services/${params.id}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    return {
+      title: "Service Not Found",
+    };
+  }
+
+  const service = await res.json();
+  
+  return {
+    title: service.section1.title,
+    description: service.section1.description,
+  };
+}
 
 export async function generateStaticParams() {
   const res = await fetch("https://omniebee-server.vercel.app/api/services", {

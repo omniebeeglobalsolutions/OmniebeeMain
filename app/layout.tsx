@@ -53,7 +53,7 @@ const siteDescription =
 export const metadata: Metadata = {
   title: {
     default: siteName,
-    template: `${siteName} | %s`,
+    template: `%s | ${siteName}`,
   },
   description: siteDescription,
   keywords: [
