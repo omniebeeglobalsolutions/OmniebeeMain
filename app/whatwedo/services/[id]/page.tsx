@@ -2,6 +2,7 @@ import AnimatedBubbles from "@/app/about/Components/AnimatedBubbles";
 import Form from "@/app/components/reusable/Form";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import FAQSection from "./FAQSection";
 
 const buttonTextMap: Record<string, string> = {
   "6879f664ff8f487cbd3cf2c2": "Speak To Us", //Software Development
@@ -34,7 +35,11 @@ const excellenceSectionMap: Record<
   "687a09c0ff8f487cbd3cf2d8": "section5", //Staffing Solutions
 };
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const res = await fetch(
     `https://omniebee-server.vercel.app/api/services/${params.id}`,
     {
@@ -49,7 +54,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 
   const service = await res.json();
-  
+
   return {
     title: service.section1.title,
     description: service.section1.description,
@@ -111,7 +116,7 @@ export default async function ServicePage({
               </p>
               <a
                 href="#services-form"
-                className="button-tertiary px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-base transition"
+                className="button-tertiary px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-base hover:bg-[#479BC9] hover:text-white transition-all duration-300"
               >
                 {buttonText}
               </a>
@@ -123,7 +128,7 @@ export default async function ServicePage({
         <AnimatedBubbles />
         <div>
           <section className="flex items-center justify-center bg-white px-4 mt-5">
-            <h2 className="text-center text-2xl sm:text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px] italic">
+            <h2 className="text-center text-2xl sm:text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px]">
               {service.section2.title}
             </h2>
           </section>
@@ -149,7 +154,7 @@ export default async function ServicePage({
       <section>
         <div className="mb-[45px]">
           <section className="flex items-center justify-center bg-white px-4 mt-5">
-            <h2 className="text-center text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px] italic">
+            <h2 className="text-center text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px]">
               {service.section3.title}
             </h2>
           </section>
@@ -183,7 +188,7 @@ export default async function ServicePage({
             <div className="w-full sm:w-auto flex justify-center sm:justify-end">
               <a
                 href="#services-form"
-                className="button-tertiary px-6 py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-base text-white transition"
+                className="button-tertiary px-6 py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-base text-white hover:bg-[#596acb] hover:text-white transition-all duration-300"
               >
                 {buttonReqText}
               </a>
@@ -195,7 +200,7 @@ export default async function ServicePage({
       {!isITConsulting && (
         <section className="bg-gradient-to-b from-[#1E232A] to-[#2E3E95] pb-[50px]">
           <div className="flex items-center justify-center px-4">
-            <h2 className="text-center text-3xl font-poppins font-bold text-[#fff] max-w-[600px] italic mt-4">
+            <h2 className="text-center text-3xl font-poppins font-bold text-[#fff] max-w-[600px] mt-4">
               {service.section4.title}
             </h2>
           </div>
@@ -203,7 +208,7 @@ export default async function ServicePage({
             <hr className="w-[170px] h-[5px] bg-[#2E3E95] border-none rounded-full" />
           </div>
           <div className="max-w-xl mx-auto px-4 mb-[50px] mt-9">
-            <p className="text-justify text-[16px] leading-[24px] sm:leading-[29px] font-normal text-[#fff]">
+            <p className="text-center text-[16px] leading-[24px] sm:leading-[29px] font-normal text-[#fff]">
               {service.section4.description}
             </p>
           </div>
@@ -270,7 +275,10 @@ export default async function ServicePage({
               {service.section7.title}
             </div>
             <div>
-              <a href="#services-form" className="button-tertiary px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-md transition text-white">
+              <a
+                href="#services-form"
+                className="button-tertiary px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium sm:font-semibold text-sm sm:text-md text-white hover:bg-[#596acb] hover:text-white transition-all duration-300 "
+              >
                 {buttonReqText}
               </a>
             </div>
@@ -282,7 +290,7 @@ export default async function ServicePage({
         params.id === "687a2e24e7dd05494d3087d9") && (
         <section>
           <div className="flex items-center justify-center px-4 mb-5">
-            <h2 className="text-center text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px] italic mt-4">
+            <h2 className="text-center text-3xl font-poppins font-bold text-[#2e3e95] max-w-[600px] mt-4">
               {service.section5.title}
             </h2>
           </div>
@@ -344,35 +352,10 @@ export default async function ServicePage({
           </div>
         </section>
       )}
-
-      <section className="bg-white py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-[#2e3e95] mb-8">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-4">
-            {service.section9.faqs.map((faq: any, index: number) => (
-              <details
-                key={index}
-                className="group border border-gray-300 rounded-lg p-4 transition-all open:shadow-md open:border-[#2e3e95]"
-              >
-                <summary className="flex justify-between items-center cursor-pointer text-lg font-medium text-[#2e3e95] group-open:font-bold">
-                  {faq.question}
-                  <span className="ml-2 text-xl font-bold text-[#2e3e95] group-open:hidden">
-                    +
-                  </span>
-                  <span className="ml-2 text-xl font-bold text-[#2e3e95] hidden group-open:inline">
-                    −
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm text-gray-700 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
+      <section>
+        <FAQSection faqs={service.section9.faqs} />
       </section>
+
       <div id="services-form">
         <Form />
       </div>

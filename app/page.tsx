@@ -80,8 +80,8 @@ export default async function Home() {
       <HeroSection />
       <NextGenSolutions />
       <IndustrySolutions />
-      <OurServices />
       <TeachStack />
+      <OurServices />
       <ClientsSSR initialInfo={infoData} />
       <Innovation />
     </div>

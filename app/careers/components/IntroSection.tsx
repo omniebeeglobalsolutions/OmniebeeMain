@@ -435,7 +435,7 @@ const IntroSection = () => {
 
       {showShareModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[38vh] rounded-lg overflow-y-auto p-5 mt-12">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[50vh] sm:h-[30vh] rounded-lg overflow-y-auto p-5 mt-12">
             <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center">
               Share with your Friends
             </h3>

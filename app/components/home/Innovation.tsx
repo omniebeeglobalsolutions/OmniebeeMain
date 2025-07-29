@@ -22,7 +22,7 @@ const Innovation = () => {
             Innovating Together, Building Tomorrow
           </h2>
 
-          <p className="text-sm sm:text-base text-white mb-6 leading-relaxed hidden sm:block text-justify">
+          <p className="text-sm sm:text-base text-white mb-6 leading-relaxed hidden sm:block text-left">
             At Omniebee Global Solutions, we are more than just a tech company—
             we are a collective of thinkers, builders, and innovators shaping
             the digital future. Our workplace thrives on collaboration,
@@ -31,7 +31,7 @@ const Innovation = () => {
           </p>
 
           <Link href="/careers">
-            <button className="button-primary text-white rounded-md text-sm sm:text-base font-medium cursor-pointer">
+            <button className="button-primary text-white rounded-md text-sm sm:text-base font-medium cursor-pointer hover:bg-[#2e3e95] transition-all duration-300">
               Explore Careers With Us
             </button>
           </Link>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const teamImage = assetsDataMap["Group3"];
-const profile1 = assetsDataMap["anil"]
+const profile1 = assetsDataMap["Anil-2"]
 const profile2 = assetsDataMap["Sriram"]
 const profile3 = assetsDataMap["Rakshii"]
 
@@ -103,7 +103,7 @@ const EmployeeBenefitsPage = () => {
       </div>
       {/* Third Section: Our Core Values */}
       <div className="w-full py-16 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:items-center">
           {/* Left: Heading and Description */}
           <div className="flex-1 mb-8 lg:mb-0 lg:pr-16">
             <h2 className="text-4xl font-bold text-blue-900 mb-2">Our Core Values</h2>
@@ -168,7 +168,7 @@ const EmployeeBenefitsPage = () => {
                 />
               </div>
               <div className="bg-white rounded-2xl shadow p-8 pt-14">
-                <p className="text-blue-900 text-left sm:text-justify text-md mb-4">
+                <p className="text-blue-900 text-left sm:text-left text-md mb-4">
                   The most rewarding part of #LifeatOmniebee is the collaborative environment. Everyone is genuinely invested in helping each other succeed, which fosters a sense of community and shared purpose.
                 </p>
                 <div className="font-bold text-blue-900">Anusha</div>
@@ -198,7 +198,7 @@ const EmployeeBenefitsPage = () => {
                 />
               </div>
               <div className="bg-white rounded-2xl shadow p-8 pt-14">
-                <p className="text-blue-900 mb-4 text-justify text-md">
+                <p className="text-blue-900 mb-4 text-left text-md">
                   Throughout my career, I've valued strong leadership and opportunities for continuous learning. I've found both here. We have exceptional leaders who empower us to take ownership and push boundaries, while also fostering a culture of continuous learning and development. It's truly rewarding to be part of a team that constantly challenges and inspires me to grow.
                 </p>
                 <div className="font-bold text-blue-900">Anil</div>
@@ -228,7 +228,7 @@ const EmployeeBenefitsPage = () => {
             </div>
             <div className="flex items-center ml-4">
               <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
+                src={assetsDataMap["Sriram-2"]}
                 alt="Employee"
                 className="w-28 h-32 object-cover rounded-2xl shadow-lg bg-white border-4 border-white"
                 style={{ objectPosition: 'top' }}
@@ -323,7 +323,7 @@ const EmployeeBenefitsPage = () => {
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
             {/* Badge Icon */}
             <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="10" y="12" width="28" height="24" rx="3" stroke="#0A3970" strokeWidth="2" /><rect x="18" y="18" width="12" height="4" rx="2" fill="#0A3970" /><circle cx="24" cy="28" r="2" fill="#0A3970" /></svg>
-            <div className="font-bold text-xl text-blue-900 mt-4">Biannual<br />Appraisal Cycle</div>
+            <div className="font-bold text-xl text-blue-900 mt-4">Annual<br />Appraisal Cycle</div>
           </div>
           {/* Card 2 */}
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
@@ -335,7 +335,7 @@ const EmployeeBenefitsPage = () => {
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
             {/* Money Icon */}
             <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="16" rx="3" stroke="#0A3970" strokeWidth="2" /><rect x="16" y="20" width="8" height="4" rx="2" fill="#0A3970" /><circle cx="32" cy="24" r="2" fill="#0A3970" /></svg>
-            <div className="font-bold text-xl text-blue-900 mt-4">Generous Referral<br />Bonuses</div>
+            <div className="font-bold text-xl text-blue-900 mt-4">Upskilling &<br />Career Development</div>
           </div>
           {/* Card 4 */}
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
@@ -359,13 +359,13 @@ const EmployeeBenefitsPage = () => {
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
             {/* Money Icon */}
             <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="16" rx="3" stroke="#0A3970" strokeWidth="2" /><rect x="16" y="20" width="8" height="4" rx="2" fill="#0A3970" /><circle cx="32" cy="24" r="2" fill="#0A3970" /></svg>
-            <div className="font-bold text-xl text-blue-900 mt-4">Secure Retirement<br />Options</div>
+            <div className="font-bold text-xl text-blue-900 mt-4">Employee Pension<br />Scheme</div>
           </div>
           {/* Card 8 */}
           <div className="bg-[#E6F1FC] rounded-2xl p-8 flex flex-col items-center text-center">
             {/* Hands Icon */}
             <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><path d="M16 32v-8c0-4 8-4 8 0v8" stroke="#0A3970" strokeWidth="2" /><path d="M32 32v-8c0-4-8-4-8 0v8" stroke="#0A3970" strokeWidth="2" /></svg>
-            <div className="font-bold text-xl text-blue-900 mt-4">Compassionate<br />Bereavement Leave</div>
+            <div className="font-bold text-xl text-blue-900 mt-4">Gratuity Benefits</div>
           </div>
         </div>
       </div>

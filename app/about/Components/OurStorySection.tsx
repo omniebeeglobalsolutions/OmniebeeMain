@@ -12,7 +12,7 @@ export default function OurStorySection() {
         {/* Client-side animated bubbles */}
         <AnimatedBubbles />
 
-        <h2 className="font-poppins text-[28px] sm:text-[32px] md:text-[38px] lg:text-[45px] font-bold text-[#2E3E95] mb-1 italic">
+        <h2 className="font-poppins text-[28px] sm:text-[32px] md:text-[38px] lg:text-[45px] font-bold text-[#2E3E95] mb-1">
           Our Story
         </h2>
 

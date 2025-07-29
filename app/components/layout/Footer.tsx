@@ -44,6 +44,8 @@ const Footer = () => {
     fetchLocation();
   }, []);
 
+  //Todo: Implement email subscription logic in 2nd Version
+
   // const handleSubscribe = () => {
   //   if (!email.trim()) {
   //     toast.error("Please enter your email.");
@@ -65,7 +67,13 @@ const Footer = () => {
   return (
     <footer className="relative w-full bg-gradient-to-b from-[#1E232A] to-[#2e3e95] text-[#fff] px-6 sm:px-12 pt-10 pb-4 ">
       <Toaster position="top-center" />
-      <div className="absolute inset-0 bg-[url('/icons/footerbg.png')] bg-cover bg-center opacity-25" />
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-25"
+        style={{
+          backgroundImage: `url(${assetsDataMap["footerbg"]})`,
+          opacity: 0.25,
+        }}
+      />
       <div className="relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-300 pb-10">
           <div>
@@ -114,9 +122,53 @@ const Footer = () => {
                 </button>
               </div>
             </div> */}
+
+            <div className="sm:mt-[100px] md:mt-[100px] lg:mt-[100px] mt-2 flex">
+              <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">
+                Follow Us:
+              </p>
+              <div className="ml-2 flex items-center gap-5">
+                <a
+                  href="https://www.linkedin.com/company/omniebee-global-solutions.com/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={assetsDataMap["linkedin-logo"]}
+                    alt="LinkedIn"
+                    width={28}
+                    height={28}
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/people/Web-Eclipse/pfbid0yjLh2Jg1SfKRXqVptn5RvvLVaZ8xNAXZwv2q4rhKr1pxTjyg9M7iQWVe2Ksbetm5l/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={assetsDataMap["facebook-logo"]}
+                    alt="Facebook"
+                    width={28}
+                    height={28}
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/omniebee_global_solutions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={assetsDataMap["insta-logo"]}
+                    alt="Instagram"
+                    width={28}
+                    height={28}
+                  />
+                </a>
+              </div>
+            </div>
           </div>
 
-         <div className="sm:ml-6 md:ml-10 lg:ml-16">
+          <div className="sm:ml-6 md:ml-10 lg:ml-16">
             <h3 className="font-bold mb-2 text-lg">Services</h3>
             <div className="w-22 h-[2px] bg-[#fff] mb-6" />
 
@@ -201,9 +253,14 @@ const Footer = () => {
                 />
                 <div>
                   <p className="text-xs font-semibold mb-1">Address</p>
-                  <p className="text-sm font-medium hover:text-[#56B9F0] transition-colors duration-200 cursor-pointer">
+                  <a
+                    href="https://www.google.com/maps/place/Omniebee+Global+Solutions+Pvt.Ltd/@17.4315484,78.423834,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9117b2bca973:0xc489b8669c1ad38b!8m2!3d17.4315433!4d78.4264089!16s%2Fg%2F11wr9dx2mc?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium hover:text-[#56B9F0] transition-colors duration-200 cursor-pointer"
+                  >
                     {location}
-                  </p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -218,8 +275,10 @@ const Footer = () => {
             </div>
 
             {/* Social Icons */}
-            <div className="mt-2 flex">
-              <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">Follow Us:</p>
+            {/* <div className="mt-2 flex">
+              <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">
+                Follow Us:
+              </p>
               <div className="ml-2 flex items-center gap-5">
                 <a
                   href="https://www.linkedin.com/company/omniebee-global-solutions.com/posts/?feedView=all"
@@ -258,13 +317,16 @@ const Footer = () => {
                   />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Bottom Footer */}
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-6 text-xs text-[#fff] gap-4">
-          <p>Made with ❤️ | Copyright ©2025 Omniebee Global Solutions | All Rights Reserved</p>
+          <p>
+            Made with ❤️ | Copyright ©2025 Omniebee Global Solutions | All
+            Rights Reserved
+          </p>
           <div className="flex gap-4">
             <Link href="/privacy-and-policy">
               <span className="text-[#fff] hover:text-[#56B9F0] transition-colors duration-200 cursor-pointer font-bold">
