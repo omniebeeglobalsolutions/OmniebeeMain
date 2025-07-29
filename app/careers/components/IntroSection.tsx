@@ -235,9 +235,7 @@ const IntroSection = () => {
 
   return (
     <>
-      {/* Main Section */}
       <section className="py-12 px-4 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
-        {/* Left */}
         <div className="flex-1 w-full md:w-1/2">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-[#2E3E95]">
             Dream more than a Job.
@@ -291,7 +289,6 @@ const IntroSection = () => {
           </div>
         </div>
 
-        {/* Right */}
         <div className="flex-1 w-full md:w-1/2 flex justify-center">
           <img
             src={assetsDataMap["Career-2ndSlide"]}
@@ -301,11 +298,9 @@ const IntroSection = () => {
         </div>
       </section>
 
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
           <div className="relative bg-white shadow-lg w-full max-w-4xl h-[90vh] rounded-lg overflow-y-auto p-5 mt-12">
-            {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 text-gray-600 hover:text-red-600 text-2xl font-bold"
@@ -401,8 +396,6 @@ const IntroSection = () => {
                   )}
                 </div>
               ))}
-
-              {/* Resume Upload */}
               <div className="col-span-1 md:col-span-2">
                 <label className="block text-sm font-medium text-[#479BC9] mb-1">
                   Upload Resume <span className="text-red-500">*</span>
@@ -441,7 +434,6 @@ const IntroSection = () => {
             </h3>
 
             <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-y-6 text-[#2E3E95]">
-              {/* Each item */}
               {[
                 {
                   name: "Whatsapp",

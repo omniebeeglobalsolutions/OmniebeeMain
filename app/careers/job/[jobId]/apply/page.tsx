@@ -1,7 +1,6 @@
 "use client";
 import { assetsDataMap } from "@/app/utils/assetsDataMap";
-import CareerById from "../../../components/CareerOpportunities/CareerById";
-import { use, useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 // Job type definition (reuse from CareerById)
 type Job = {
@@ -86,6 +85,7 @@ export default function JobApplyPage({
     skillInput: "",
     experience: "",
     qualification: "-None-",
+    otherQualification: "", // New state for 'Other' qualification
     relevantExperience: "",
     employer: "",
     notice: "",
@@ -132,114 +132,40 @@ export default function JobApplyPage({
     setSkillSuggestions(filtered);
   }, [form.skillInput, form.skills]);
 
+  // Helper to normalize whitespace: allows only one space between words
+  const normalizeWhitespace = (value: string) => {
+    return value.replace(/\s+/g, " ").trim();
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    let processedValue = value;
 
-    // Real-time validation
-    let errorMessage = "";
-
-    switch (name) {
-      case "firstName":
-        if (value.trim() && !/^[a-zA-Z\s]{2,50}$/.test(value.trim())) {
-          errorMessage = "First Name should be 2-50 characters, letters only";
-        }
-        break;
-      case "lastName":
-        if (value.trim() && !/^[a-zA-Z\s]{2,50}$/.test(value.trim())) {
-          errorMessage = "Last Name should be 2-50 characters, letters only";
-        }
-        break;
-      case "email":
-        if (value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
-          errorMessage = "Please enter a valid email address";
-        }
-        break;
-      case "mobile":
-        if (value.trim() && !/^[6-9]\d{9}$/.test(value.trim())) {
-          errorMessage = "Please enter a valid 10-digit Indian mobile number";
-        }
-        break;
-      case "street":
-        if (value.trim() && value.trim().length < 5) {
-          errorMessage = "Street address should be at least 5 characters";
-        }
-        break;
-      case "zip":
-        if (value.trim() && !/^[1-9][0-9]{5}$/.test(value.trim())) {
-          errorMessage = "Please enter a valid 6-digit Indian postal code";
-        }
-        break;
-      case "city":
-        if (value.trim() && !/^[a-zA-Z\s]{2,50}$/.test(value.trim())) {
-          errorMessage = "City should be 2-50 characters, letters only";
-        }
-        break;
-      case "state":
-        if (value.trim() && !/^[a-zA-Z\s]{2,50}$/.test(value.trim())) {
-          errorMessage = "State should be 2-50 characters, letters only";
-        }
-        break;
-      case "experience":
-        if (
-          value.trim() &&
-          (!/^[0-9]+(\.[0-9]+)?$/.test(value.trim()) ||
-            parseFloat(value) < 0 ||
-            parseFloat(value) > 50)
-        ) {
-          errorMessage = "Please enter a valid experience between 0-50 years";
-        }
-        break;
-      case "relevantExperience":
-        if (
-          value.trim() &&
-          (!/^[0-9]+(\.[0-9]+)?$/.test(value.trim()) ||
-            parseFloat(value) < 0 ||
-            parseFloat(value) > 50)
-        ) {
-          errorMessage =
-            "Please enter a valid relevant experience between 0-50 years";
-        }
-        break;
-      case "employer":
-        if (value.trim() && value.trim().length < 2) {
-          errorMessage = "Employer name should be at least 2 characters";
-        }
-        break;
-      case "notice":
-        if (
-          value.trim() &&
-          !/^[0-9]+\s*(days?|months?|weeks?)$/i.test(value.trim())
-        ) {
-          errorMessage =
-            "Please enter notice period in format: '30 days' or '2 months'";
-        }
-        break;
-      case "currentSalary":
-        if (value.trim() && !/^[0-9,]+(\.[0-9]{1,2})?$/.test(value.trim())) {
-          errorMessage = "Please enter a valid salary amount (numbers only)";
-        }
-        break;
-      case "expectedSalary":
-        if (value.trim() && !/^[0-9,]+(\.[0-9]{1,2})?$/.test(value.trim())) {
-          errorMessage = "Please enter a valid salary amount (numbers only)";
-        }
-        break;
+    // Apply whitespace normalization to all relevant text inputs
+    if (
+      [
+        "firstName",
+        "lastName",
+        "street",
+        "city",
+        "state",
+        "employer",
+        "notice",
+        "otherQualification",
+      ].includes(name)
+    ) {
+      processedValue = normalizeWhitespace(value);
     }
 
-    setErrors((prev) => ({ ...prev, [name]: errorMessage }));
+    setForm((prev) => ({ ...prev, [name]: processedValue }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // Clear error on change
   };
 
   const handleSkillInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, skillInput: e.target.value }));
     setSkillDropdown(true);
-
-    // Clear skills error when user starts typing
-    if (form.skills.length === 0) {
-      setErrors((prev) => ({ ...prev, skills: "" }));
-    }
   };
 
   const handleSkillSelect = (skill: string) => {
@@ -249,9 +175,6 @@ export default function JobApplyPage({
       skillInput: "",
     }));
     setSkillDropdown(false);
-
-    // Clear skills error when skill is added
-    setErrors((prev) => ({ ...prev, skills: "" }));
   };
 
   const handleSkillRemove = (skill: string) => {
@@ -259,14 +182,6 @@ export default function JobApplyPage({
       ...prev,
       skills: prev.skills.filter((s) => s !== skill),
     }));
-
-    // Show skills error if no skills remain
-    if (form.skills.length <= 1) {
-      setErrors((prev) => ({
-        ...prev,
-        skills: "At least one skill is required",
-      }));
-    }
   };
 
   const CLOUDINARY_UPLOAD_PRESET = "omniebee_web";
@@ -276,8 +191,6 @@ export default function JobApplyPage({
   const handleResumeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
-    // File type validation
     const allowed = [
       "application/pdf",
       "application/msword",
@@ -285,28 +198,16 @@ export default function JobApplyPage({
       "application/rtf",
       "application/vnd.oasis.opendocument.text",
     ];
-
     if (!allowed.includes(file.type)) {
-      setUploadError("Only .doc, .docx, .pdf, .odt, .rtf files are allowed");
+      setUploadError("Only .doc, .docx, .pdf, .odt, .rtf files are allowed.");
       return;
     }
-
-    // File size validation (10MB = 10 * 1024 * 1024 bytes)
-    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
-    if (file.size > maxSize) {
-      setUploadError("File size must be less than 10MB");
-      return;
-    }
-
     setUploadError("");
     setUploading(true);
     setResumeFile(file);
-
-    // Upload to Cloudinary
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-
     try {
       const res = await fetch(
         `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/raw/upload`,
@@ -320,135 +221,212 @@ export default function JobApplyPage({
         setResumeUrl(data.secure_url);
         setForm((prev) => ({ ...prev, resumePublicId: data.public_id }));
       } else {
-        setUploadError("Failed to upload resume");
+        setUploadError("Failed to upload resume.");
       }
     } catch (err) {
-      setUploadError("Failed to upload resume");
+      setUploadError("Failed to upload resume. Please check your network.");
     }
     setUploading(false);
   };
 
+  // --- Validation Helpers ---
+  const validateWhitespaceAndLength = (
+    value: string,
+    maxLength: number,
+    fieldName: string
+  ) => {
+    if (!value.trim()) return `${fieldName} is required.`;
+    if (value.length > maxLength)
+      return `${fieldName} must be less than ${maxLength + 1} characters.`;
+    if (!/^[a-zA-Z\s]+$/.test(value))
+      return `${fieldName} can only contain letters and spaces.`; // Allow only letters and spaces
+    if (/\s{2,}/.test(value.trim()))
+      return `${fieldName} should have only one space between words.`;
+    return "";
+  };
+
+  const validateAlphanumericAndLength = (
+    value: string,
+    maxLength: number,
+    fieldName: string
+  ) => {
+    if (!value.trim()) return `${fieldName} is required.`;
+    if (value.length > maxLength)
+      return `${fieldName} must be less than ${maxLength + 1} characters.`;
+    if (!/^[a-zA-Z0-9\s.,#-]+$/.test(value))
+      return `${fieldName} contains invalid characters.`; // Allow letters, numbers, and common address symbols
+    if (/\s{2,}/.test(value.trim()))
+      return `${fieldName} should have only one space between words.`;
+    return "";
+  };
+
+  const validatePositiveNumber = (value: string, fieldName: string) => {
+    const num = Number(value);
+    if (isNaN(num) || num <= 0)
+      return `${fieldName} must be a positive number.`;
+    return "";
+  };
+
+  const validateNonNegativeNumber = (value: string, fieldName: string) => {
+    const num = Number(value);
+    if (isNaN(num) || num < 0) return `${fieldName} cannot be negative.`;
+    return "";
+  };
+  // --- End Validation Helpers ---
+
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
-    // First Name validation
-    if (!form.firstName.trim()) {
-      newErrors.firstName = "First Name is required";
-    } else if (!/^[a-zA-Z\s]{2,50}$/.test(form.firstName.trim())) {
-      newErrors.firstName =
-        "First Name should be 2-50 characters, letters only";
-    }
+    // First Name
+    let error = validateWhitespaceAndLength(form.firstName, 25, "First Name");
+    if (error && form.firstName.trim())
+      newErrors.firstName = error; // Only show if not empty but invalid
+    else if (!form.firstName.trim())
+      newErrors.firstName = "First Name is required.";
 
-    // Last Name validation
-    if (!form.lastName.trim()) {
-      newErrors.lastName = "Last Name is required";
-    } else if (!/^[a-zA-Z\s]{2,50}$/.test(form.lastName.trim())) {
-      newErrors.lastName = "Last Name should be 2-50 characters, letters only";
-    }
+    // Last Name
+    error = validateWhitespaceAndLength(form.lastName, 25, "Last Name");
+    if (error) newErrors.lastName = error;
 
-    // Email validation
+    // Email
     if (!form.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = "Email is required.";
+    } else {
+      // Regex for email format and allowed domains (.com, .org, .io, .in, .tech)
+      const emailRegex =
+        /^[a-zA-Z0-9._%+-]+@(?![\d.])([a-zA-Z0-9-]+\.)+(com|org|io|in|tech)$/;
+      if (!emailRegex.test(form.email.toLowerCase())) {
+        newErrors.email =
+          "Please enter a valid email address with a supported domain (.com, .org, .io, .in, .tech).";
+      }
+      // Check if email starts with a number
+      if (/^\d/.test(form.email.trim())) {
+        newErrors.email = newErrors.email
+          ? newErrors.email + " Email cannot start with a number."
+          : "Email cannot start with a number.";
+      }
     }
 
-    // Mobile validation (Indian format)
+    // Mobile
     if (!form.mobile.trim()) {
-      newErrors.mobile = "Mobile number is required";
-    } else if (!/^[6-9]\d{9}$/.test(form.mobile.trim())) {
-      newErrors.mobile = "Please enter a valid 10-digit Indian mobile number";
+      newErrors.mobile = "Mobile number is required.";
+    } else if (!/^[6-9]\d{9}$/.test(form.mobile)) {
+      newErrors.mobile =
+        "Mobile number must be 10 digits and start with 6, 7, 8, or 9.";
     }
 
-    // Street validation
-    if (!form.street.trim()) {
-      newErrors.street = "Street address is required";
-    } else if (form.street.trim().length < 5) {
-      newErrors.street = "Street address should be at least 5 characters";
-    }
+    // Street
+    error = validateAlphanumericAndLength(form.street, 80, "Street");
+    if (error) newErrors.street = error;
 
-    // Zip/Postal Code validation (Indian format)
+    // Zip/Postal Code
     if (!form.zip.trim()) {
-      newErrors.zip = "Zip/Postal Code is required";
-    } else if (!/^[1-9][0-9]{5}$/.test(form.zip.trim())) {
-      newErrors.zip = "Please enter a valid 6-digit Indian postal code";
+      newErrors.zip = "Zip/Postal Code is required.";
+    } else if (!/^\d{6}$/.test(form.zip)) {
+      newErrors.zip = "Zip/Postal Code must be exactly 6 digits.";
     }
 
-    // City validation
+    // City
     if (!form.city.trim()) {
-      newErrors.city = "City is required";
-    } else if (!/^[a-zA-Z\s]{2,50}$/.test(form.city.trim())) {
-      newErrors.city = "City should be 2-50 characters, letters only";
+      newErrors.city = "City is required.";
+    } else if (form.city.length > 25) {
+      newErrors.city = "City must be less than 26 characters.";
+    } else if (/\s{2,}/.test(form.city.trim())) {
+      newErrors.city = "City should have only one space between words.";
+    } else if (!/^[a-zA-Z\s]+$/.test(form.city)) {
+      newErrors.city = "City can only contain letters and spaces.";
     }
 
-    // State validation
+    // State/Province
     if (!form.state.trim()) {
-      newErrors.state = "State/Province is required";
-    } else if (!/^[a-zA-Z\s]{2,50}$/.test(form.state.trim())) {
-      newErrors.state = "State should be 2-50 characters, letters only";
+      newErrors.state = "State/Province is required.";
+    } else if (form.state.length > 25) {
+      newErrors.state = "State/Province must be less than 26 characters.";
+    } else if (/\s{2,}/.test(form.state.trim())) {
+      newErrors.state =
+        "State/Province should have only one space between words.";
+    } else if (!/^[a-zA-Z\s]+$/.test(form.state)) {
+      newErrors.state = "State/Province can only contain letters and spaces.";
     }
 
-    // Skills validation
-    if (form.skills.length === 0) {
-      newErrors.skills = "At least one skill is required";
-    }
+    // Skills
+    if (form.skills.length === 0)
+      newErrors.skills = "At least one skill is required.";
 
-    // Experience validation
-    if (!form.experience.trim()) {
-      newErrors.experience = "Experience is required";
-    } else if (
-      !/^[0-9]+(\.[0-9]+)?$/.test(form.experience.trim()) ||
-      parseFloat(form.experience) < 0 ||
-      parseFloat(form.experience) > 50
-    ) {
-      newErrors.experience =
-        "Please enter a valid experience between 0-50 years";
-    }
+    // Experience in Years
+    error = validateNonNegativeNumber(form.experience, "Experience in Years");
+    if (error) newErrors.experience = error;
+    else if (!form.experience.trim())
+      newErrors.experience = "Experience in Years is required.";
 
-    // Qualification validation
+    // Qualification
     if (!form.qualification || form.qualification === "-None-") {
-      newErrors.qualification = "Qualification is required";
+      newErrors.qualification = "Qualification is required.";
+    } else if (form.qualification === "Other") {
+      if (!form.otherQualification.trim()) {
+        newErrors.otherQualification = "Please specify your qualification.";
+      } else if (form.otherQualification.length > 50) {
+        // Arbitrary limit for 'other' qualification
+        newErrors.otherQualification =
+          "Qualification must be less than 51 characters.";
+      } else if (!/^[a-zA-Z0-9\s.,&-]+$/.test(form.otherQualification)) {
+        // Allow more chars for custom qual.
+        newErrors.otherQualification =
+          "Qualification contains invalid characters.";
+      } else if (/\s{2,}/.test(form.otherQualification.trim())) {
+        newErrors.otherQualification =
+          "Qualification should have only one space between words.";
+      }
     }
 
-    // Relevant Experience validation
-    if (!form.relevantExperience.trim()) {
-      newErrors.relevantExperience = "Relevant Experience is required";
-    } else if (
-      !/^[0-9]+(\.[0-9]+)?$/.test(form.relevantExperience.trim()) ||
-      parseFloat(form.relevantExperience) < 0 ||
-      parseFloat(form.relevantExperience) > 50
-    ) {
-      newErrors.relevantExperience =
-        "Please enter a valid relevant experience between 0-50 years";
+    // Relevant Experience
+    error = validateNonNegativeNumber(
+      form.relevantExperience,
+      "Relevant Experience"
+    );
+    if (error) newErrors.relevantExperience = error;
+    else if (!form.relevantExperience.trim())
+      newErrors.relevantExperience = "Relevant Experience is required.";
+
+    // Current Employer
+    if (!form.employer.trim()) {
+      newErrors.employer = "Current Employer is required.";
+    } else if (form.employer.length > 25) {
+      newErrors.employer = "Current Employer must be less than 26 characters.";
+    } else if (!/^[a-zA-Z\s]+$/.test(form.employer)) {
+      newErrors.employer =
+        "Current Employer can only contain letters and spaces.";
+    } else if (/\s{2,}/.test(form.employer.trim())) {
+      newErrors.employer =
+        "Current Employer should have only one space between words.";
     }
 
-    // Employer validation
-    if (!form.employer || form.employer === "") {
-      newErrors.employer = "Current Employer is required";
-    }
-
-    // Notice Period validation
+    // Notice Period
     if (!form.notice.trim()) {
-      newErrors.notice = "Notice Period is required";
-    } else if (!/^[0-9]+\s*(days?|months?|weeks?)$/i.test(form.notice.trim())) {
+      newErrors.notice = "Notice Period is required.";
+    } else if (form.notice.length > 25) {
+      newErrors.notice = "Notice Period must be less than 26 characters.";
+    } else if (!/^[a-zA-Z0-9\s]+$/.test(form.notice)) {
+      // Allow numbers and letters
       newErrors.notice =
-        "Please enter notice period in format: '30 days' or '2 months'";
+        "Notice Period can only contain letters, numbers, and spaces.";
+    } else if (/\s{2,}/.test(form.notice.trim())) {
+      newErrors.notice =
+        "Notice Period should have only one space between words.";
     }
 
-    // Current Salary validation
-    if (!form.currentSalary.trim()) {
-      newErrors.currentSalary = "Current Salary is required";
-    } else if (!/^[0-9,]+(\.[0-9]{1,2})?$/.test(form.currentSalary.trim())) {
-      newErrors.currentSalary =
-        "Please enter a valid salary amount (numbers only)";
+    // Current Salary
+    if (form.currentSalary.trim()) {
+      // Only validate if not empty
+      error = validatePositiveNumber(form.currentSalary, "Current Salary");
+      if (error) newErrors.currentSalary = error;
     }
 
-    // Expected Salary validation
-    if (!form.expectedSalary.trim()) {
-      newErrors.expectedSalary = "Expected Salary is required";
-    } else if (!/^[0-9,]+(\.[0-9]{1,2})?$/.test(form.expectedSalary.trim())) {
-      newErrors.expectedSalary =
-        "Please enter a valid salary amount (numbers only)";
+    // Expected Salary
+    if (form.expectedSalary.trim()) {
+      // Only validate if not empty
+      error = validatePositiveNumber(form.expectedSalary, "Expected Salary");
+      if (error) newErrors.expectedSalary = error;
     }
 
     return newErrors;
@@ -458,9 +436,10 @@ export default function JobApplyPage({
     e.preventDefault();
     const newErrors = validate();
     setErrors(newErrors);
+
     if (Object.keys(newErrors).length === 0) {
       if (!resumeUrl) {
-        setUploadError("Please upload your resume");
+        setUploadError("Please upload your resume.");
         return;
       }
       const payload = {
@@ -473,13 +452,16 @@ export default function JobApplyPage({
         city: form.city,
         state: form.state,
         skillset: form.skills,
-        yearsOfExperience: form.experience,
-        highestQualification: form.qualification,
-        relevantYearsOfExperience: Number(form.relevantExperience),
-        currentEmployee: form.employer === "yes",
+        yearsOfExperience: Number(form.experience), // Convert to number
+        highestQualification:
+          form.qualification === "Other"
+            ? form.otherQualification
+            : form.qualification, // Use 'otherQualification' if 'Other' is selected
+        relevantYearsOfExperience: Number(form.relevantExperience), // Convert to number
+        currentEmployee: form.employer, // Store employer name
         noticePeriod: form.notice,
-        currentCTC: Number(form.currentSalary),
-        expectedCTC: Number(form.expectedSalary),
+        currentCTC: form.currentSalary ? Number(form.currentSalary) : null, // Convert to number, allow null if empty
+        expectedCTC: form.expectedSalary ? Number(form.expectedSalary) : null, // Convert to number, allow null if empty
         resumeUrl: resumeUrl,
         resumePublicId: form.resumePublicId,
         jobId: job?._id,
@@ -493,6 +475,7 @@ export default function JobApplyPage({
         });
         if (res.ok) {
           setShowSuccessModal(true);
+          // Reset form
           setForm({
             firstName: "",
             lastName: "",
@@ -506,6 +489,7 @@ export default function JobApplyPage({
             skillInput: "",
             experience: "",
             qualification: "-None-",
+            otherQualification: "", // Reset other qualification
             relevantExperience: "",
             employer: "",
             notice: "",
@@ -515,10 +499,19 @@ export default function JobApplyPage({
           });
           setResumeFile(null);
           setResumeUrl("");
+          if (fileInputRef.current) {
+            fileInputRef.current.value = ""; // Clear file input
+          }
         } else {
-          alert("Failed to submit application. Please try again.");
+          const errorData = await res.json();
+          alert(
+            `Failed to submit application: ${
+              errorData.message || "Please try again."
+            }`
+          );
         }
       } catch (err) {
+        console.error("Submission error:", err);
         alert("An error occurred. Please try again later.");
       }
     }
@@ -555,15 +548,7 @@ export default function JobApplyPage({
           </div>
         </div>
       </div>
-      {/* Job listing breadcrumbs */}
-      {/* <div className="w-full max-w-5xl mx-auto px-4">
-        <div className="text-sm text-[#FF6600] mb-2 flex justify-start">
-          Job listing <span className="mx-1">•</span> Job details
-          <span className="mx-1">•</span>
-          <span className="text-[#479BC9]">First Name</span>
-        </div>
-      </div> */}
-      {/* Application Form UI only, no job description */}
+
       <div className="w-full max-w-5xl bg-white rounded-lg shadow p-8 mt-8">
         {/* Complete Your Application */}
         <div className="text-[#479BC9] font-semibold mb-2">
@@ -578,7 +563,7 @@ export default function JobApplyPage({
           <span className="mx-1 text-gray-500">or</span>{" "}
           <span className="text-gray-500">drag and drop it here</span>
           <div className="text-xs text-gray-400 mt-2">
-            Only .doc, .docx, .pdf, .odt, .rtf (Max 10MB){" "}
+            Only .doc, .docx, .pdf, .odt, .rtf{" "}
             <span className="text-gray-400">(optional)</span>
           </div>
           <input
@@ -626,6 +611,7 @@ export default function JobApplyPage({
               onChange={handleChange}
               type="text"
               className="w-full border rounded px-3 py-2"
+              maxLength={25}
               required
             />
             {errors.firstName && (
@@ -644,6 +630,7 @@ export default function JobApplyPage({
               onChange={handleChange}
               type="text"
               className="w-full border rounded px-3 py-2"
+              maxLength={25}
               required
             />
             {errors.lastName && (
@@ -683,6 +670,7 @@ export default function JobApplyPage({
                 onChange={handleChange}
                 type="tel"
                 className="w-full border-t border-b border-r rounded-r px-3 py-2"
+                maxLength={10} // Restrict length for mobile number
                 required
               />
             </div>
@@ -723,6 +711,7 @@ export default function JobApplyPage({
                   onChange={handleChange}
                   type="text"
                   className="w-full border rounded px-3 py-2"
+                  maxLength={80} // Max length for street
                   required
                 />
                 {errors.street && (
@@ -738,13 +727,12 @@ export default function JobApplyPage({
                 <input
                   name="zip"
                   value={form.zip}
-                  onChange={(e) => {
-                    // Only allow up to 6 digits
-                    const val = e.target.value.replace(/\D/g, "").slice(0, 6);
-                    handleChange({ target: { name: "zip", value: val } });
-                  }}
-                  type="text"
+                  onChange={handleChange}
+                  type="text" // Changed to text to better control 6 digits, allows leading zeros
                   className="w-full border rounded px-3 py-2"
+                  maxLength={6} // Fixed 6 digits
+                  pattern="\d{6}" // HTML5 pattern for 6 digits
+                  title="Zip/Postal Code must be exactly 6 digits"
                   required
                 />
                 {errors.zip && (
@@ -761,6 +749,7 @@ export default function JobApplyPage({
                   onChange={handleChange}
                   type="text"
                   className="w-full border rounded px-3 py-2"
+                  maxLength={25} // Max length for city
                   required
                 />
                 {errors.city && (
@@ -777,6 +766,7 @@ export default function JobApplyPage({
                   onChange={handleChange}
                   type="text"
                   className="w-full border rounded px-3 py-2"
+                  maxLength={25} // Max length for state
                   required
                 />
                 {errors.state && (
@@ -803,6 +793,7 @@ export default function JobApplyPage({
                     skillInput: "",
                     experience: "",
                     qualification: "-None-",
+                    otherQualification: "", // Also clear other qualification
                     relevantExperience: "",
                     employer: "",
                     notice: "",
@@ -873,18 +864,9 @@ export default function JobApplyPage({
                 <input
                   name="experience"
                   value={form.experience}
-                  onChange={(e) => {
-                    // Prevent negative values
-                    const val = e.target.value;
-                    if (
-                      val === "" ||
-                      (/^\d*\.?\d*$/.test(val) && parseFloat(val) >= 0)
-                    ) {
-                      handleChange(e);
-                    }
-                  }}
+                  onChange={handleChange}
                   type="number"
-                  min="0"
+                  min="0" // HTML5 min attribute
                   className="w-full border rounded px-3 py-2"
                   required
                 />
@@ -906,11 +888,11 @@ export default function JobApplyPage({
                   className="w-full border rounded px-3 py-2"
                   required
                 >
-                  <option>-None-</option>
-                  <option>Bachelor's</option>
-                  <option>Master's</option>
-                  <option>PhD</option>
-                  <option>Other</option>
+                  <option value="-None-">-None-</option>
+                  <option value="Bachelor's">Bachelor's</option>
+                  <option value="Master's">Master's</option>
+                  <option value="PhD">PhD</option>
+                  <option value="Other">Other</option>
                 </select>
                 {errors.qualification && (
                   <div className="text-xs text-red-500 mt-1">
@@ -918,6 +900,28 @@ export default function JobApplyPage({
                   </div>
                 )}
               </div>
+              {form.qualification === "Other" && ( // Conditionally render 'Other Qualification' input
+                <div>
+                  <label className="block text-sm font-medium mb-1 text-[#479BC9]">
+                    Please Specify Qualification{" "}
+                    <span className="text-[#FF6600]">*</span>
+                  </label>
+                  <input
+                    name="otherQualification"
+                    value={form.otherQualification}
+                    onChange={handleChange}
+                    type="text"
+                    className="w-full border rounded px-3 py-2"
+                    maxLength={50}
+                    required
+                  />
+                  {errors.otherQualification && (
+                    <div className="text-xs text-red-500 mt-1">
+                      {errors.otherQualification}
+                    </div>
+                  )}
+                </div>
+              )}
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
                   Relevant Experience <span className="text-[#FF6600]">*</span>
@@ -925,18 +929,9 @@ export default function JobApplyPage({
                 <input
                   name="relevantExperience"
                   value={form.relevantExperience}
-                  onChange={(e) => {
-                    // Prevent negative values
-                    const val = e.target.value;
-                    if (
-                      val === "" ||
-                      (/^\d*\.?\d*$/.test(val) && parseFloat(val) >= 0)
-                    ) {
-                      handleChange(e);
-                    }
-                  }}
+                  onChange={handleChange}
                   type="number"
-                  min="0"
+                  min="0" // HTML5 min attribute
                   className="w-full border rounded px-3 py-2"
                   required
                 />
@@ -946,21 +941,19 @@ export default function JobApplyPage({
                   </div>
                 )}
               </div>
-              <div className="mb-2">
+              <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
                   Current Employer <span className="text-[#FF6600]">*</span>
                 </label>
-                <select
+                <input
                   name="employer"
                   value={form.employer}
                   onChange={handleChange}
+                  type="text"
                   className="w-full border rounded px-3 py-2"
+                  maxLength={25} // Max length for employer
                   required
-                >
-                  <option value="">Select</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
+                />
                 {errors.employer && (
                   <div className="text-xs text-red-500 mt-1">
                     {errors.employer}
@@ -975,8 +968,9 @@ export default function JobApplyPage({
                   name="notice"
                   value={form.notice}
                   onChange={handleChange}
-                  type="text"
+                  type="text" // Allow text for "30 days", "immediate", etc.
                   className="w-full border rounded px-3 py-2"
+                  maxLength={25} // Max length for notice
                   required
                 />
                 {errors.notice && (
@@ -987,15 +981,15 @@ export default function JobApplyPage({
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
-                  Current- Salary <span className="text-[#FF6600]">*</span>
+                  Current- Salary
                 </label>
                 <input
                   name="currentSalary"
                   value={form.currentSalary}
                   onChange={handleChange}
-                  type="text"
+                  type="number"
+                  min="0" // HTML5 min attribute, validation handles > 0
                   className="w-full border rounded px-3 py-2"
-                  required
                 />
                 {errors.currentSalary && (
                   <div className="text-xs text-red-500 mt-1">
@@ -1005,15 +999,15 @@ export default function JobApplyPage({
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
-                  Expected- Salary <span className="text-[#FF6600]">*</span>
+                  Expected- Salary
                 </label>
                 <input
                   name="expectedSalary"
                   value={form.expectedSalary}
                   onChange={handleChange}
-                  type="text"
+                  type="number"
+                  min="0" // HTML5 min attribute, validation handles > 0
                   className="w-full border rounded px-3 py-2"
-                  required
                 />
                 {errors.expectedSalary && (
                   <div className="text-xs text-red-500 mt-1">
@@ -1023,24 +1017,26 @@ export default function JobApplyPage({
               </div>
             </div>
           </div>
-
-          {/* Submit Button */}
-          <div className="w-full flex justify-center items-center mt-8 md:col-span-2">
-            <button
-              type="submit"
-              className="bg-[#56B9F0] text-white px-8 py-2 rounded font-semibold text-lg shadow cursor-pointer hover:bg-[#479BC9] transition-colors duration-300"
-            >
-              Submit
-            </button>
-          </div>
+          {/* Submit Button - moved outside form tag to wrap the whole form logic*/}
         </form>
+
+        <div className="w-full flex justify-center items-center mt-8">
+          <button
+            type="submit"
+            className="bg-[#56B9F0] text-white px-8 py-2 rounded font-semibold text-lg shadow cursor-pointer"
+            onClick={handleSubmit} // Attach handleSubmit to the button
+          >
+            Submit
+          </button>
+        </div>
+
         {showSuccessModal && (
-          <div className="fixed inset-0  bg-opacity-40 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
             <div className="bg-white rounded-xl shadow-xl px-8 py-6 max-w-md text-center animate-fade-in-up">
               <h2 className="text-2xl font-semibold text-[#2E3E95] mb-2">
                 🎉 Thank You!
               </h2>
-              <p className="text-gray-600 mb-4  ">
+              <p className="text-gray-600 mb-4">
                 Your application has been submitted successfully. <br />
                 We truly appreciate your patience.
                 <br />

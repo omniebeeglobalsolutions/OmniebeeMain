@@ -42,7 +42,10 @@ const navLinks = [
       },
     ],
   },
-  { href: "https://omniebee-portfolio-git-main-omniebees-projects.vercel.app/", label: "Portfolio" },
+  {
+    href: "https://omniebee-portfolio-git-main-omniebees-projects.vercel.app/",
+    label: "Portfolio",
+  },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -77,29 +80,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close What We Do dropdown on route change and component mount
   useEffect(() => {
     setShowWhatWeDoDropdown(false);
   }, [pathname]);
 
-  // Ensure dropdown is closed on component mount
   useEffect(() => {
     setShowWhatWeDoDropdown(false);
   }, []);
 
-  // Close What We Do dropdown on scroll or click outside
   useEffect(() => {
     if (!showWhatWeDoDropdown) return;
 
-    // Handler for scroll
     const handleScrollDropdown = () => {
       setShowWhatWeDoDropdown(false);
     };
     window.addEventListener("scroll", handleScrollDropdown);
 
-    // Handler for click outside
     const handleClickOutside = (event: MouseEvent) => {
-      // Find dropdown and nav item elements
       const dropdown = document.querySelector("[data-whatwedo-dropdown]");
       const navItem = document.querySelector("[data-whatwedo-navitem]");
       if (
@@ -113,14 +110,12 @@ export default function Navbar() {
     };
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScrollDropdown);
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showWhatWeDoDropdown]);
 
-  // Helper handlers for What We Do? dropdown
   const handleDropdownEnter = () => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setShowWhatWeDoDropdown(true);
@@ -135,8 +130,8 @@ export default function Navbar() {
   function normalizeKey(label: string) {
     return label
       .toLowerCase()
-      .replace(/and|&/g, "") // remove 'and' and '&'
-      .replace(/[^a-z0-9]/g, ""); // remove all non-alphanumeric
+      .replace(/and|&/g, "")
+      .replace(/[^a-z0-9]/g, "");
   }
 
   return (
@@ -147,20 +142,18 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-screen-xl mx-auto px-6 py-3 flex justify-between items-center">
-          {/* Logo - larger and vertically centered */}
           <div className="flex items-center h-[60px]">
             <Link href="/">
-            <Image
-              src={assetsDataMap["ogs-logo"]}
-              alt="Logo"
-              width={180}
-              height={60}
-              style={{ objectFit: "contain" }}
-            />
+              <Image
+                src={assetsDataMap["ogs-logo"]}
+                alt="Logo"
+                width={180}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
             </Link>
           </div>
 
-          {/* Desktop Nav - evenly spaced, correct order, blue dropdown icon */}
           <ul className="ml-4 hidden md:flex gap-8 font-semibold text-[#2E3E95] text-lg items-center">
             {navLinks.map((link) => {
               const isDropdown = link.label === "What We Do?";
@@ -204,7 +197,6 @@ export default function Navbar() {
                           />
                         </svg>
                       )}
-                      {/* Animated Gradient Background on Hover */}
                       <span
                         className={`absolute inset-0 rounded-[30px] transition duration-500
                           ${
@@ -215,7 +207,6 @@ export default function Navbar() {
                         `}
                       />
                     </Link>
-                    {/* Dropdown for desktop */}
                     {showWhatWeDoDropdown && (
                       <div
                         className={`absolute left-1/2 top-full transform -translate-x-1/2 flex justify-center z-50 pointer-events-auto mt-6`}
@@ -226,7 +217,6 @@ export default function Navbar() {
                           className={`bg-[#fafbfc] shadow-2xl rounded-xl px-20 py-12  flex flex-row gap-20 min-w-[900px] max-w-6xl w-full transition-all duration-300 ease-in-out opacity-100 translate-y-0 pointer-events-auto`}
                           style={{ minHeight: "240px" }}
                         >
-                          {/* Services Column: left (heading+desc), right (list) */}
                           <div className="flex flex-row flex-1 min-w-[340px] max-w-[420px] pr-12 pl-12 justify-center gap-10">
                             <div className="flex flex-col justify-center min-w-[230px] mt-[-80px] max-w-[250px]">
                               <div className="font-bold text-lg mb-2 text-black hover:text-[#2E3E95] hover:font-bold">
@@ -258,12 +248,10 @@ export default function Navbar() {
                               })}
                             </ul>
                           </div>
-                          {/* Divider */}
                           <div
                             className="w-[2px] bg-[#2E3E95] mx-10 rounded-full self-stretch"
                             style={{ minHeight: "180px" }}
                           />
-                          {/* Industries Column: left (heading+desc), right (list) */}
                           <div className="flex flex-row flex-1 min-w-[340px] max-w-[420px] pr-12 pl-8 justify-center gap-10">
                             <div className="flex flex-col justify-center min-w-[230px] mt-[-80px] max-w-[250px]">
                               <div className="font-bold text-lg mb-2 text-black hover:text-[#2E3E95] hover:font-bold">
@@ -315,10 +303,10 @@ export default function Navbar() {
                       rel="noopener noreferrer"
                       className="relative group flex items-center justify-center px-5 h-[44px] rounded-[30px] transition-all duration-300 font-semibold text-lg overflow-hidden text-[#2E3E95] whitespace-nowrap w-auto flex-shrink-0"
                     >
-                      <span className="z-10 group-hover:text-white">{link.label}</span>
-                      <span
-                        className="absolute inset-0 rounded-[30px] transition duration-500 opacity-0 group-hover:opacity-100 animated-gradient"
-                      />
+                      <span className="z-10 group-hover:text-white">
+                        {link.label}
+                      </span>
+                      <span className="absolute inset-0 rounded-[30px] transition duration-500 opacity-0 group-hover:opacity-100 animated-gradient" />
                     </a>
                   </li>
                 );
@@ -357,7 +345,6 @@ export default function Navbar() {
                         />
                       </svg>
                     )}
-                    {/* Animated Gradient Background on Hover */}
                     <span
                       className={`absolute inset-0 rounded-[30px] transition duration-500
                         ${
@@ -368,7 +355,6 @@ export default function Navbar() {
                       `}
                     />
                   </Link>
-                  {/* Dropdown for desktop - 3 columns, divider, 100% width, all black text, no hover color */}
                   {hasChildren && isDropdown && (
                     <div
                       className={`absolute left-1/2 top-full transform -translate-x-1/2 mt-4 flex justify-center z-50 pointer-events-none`}
@@ -386,7 +372,6 @@ export default function Navbar() {
                           minHeight: "240px",
                         }}
                       >
-                        {/* Services Column: left (heading+desc), right (list) */}
                         <div className="flex flex-row flex-1 min-w-[340px] max-w-[420px] pr-12 pl-12 justify-center gap-10">
                           <div className="flex flex-col justify-center min-w-[230px] mt-[-80px] max-w-[250px]">
                             <div className="font-bold text-lg mb-2 text-black hover:text-[#2E3E95] hover:font-bold">
@@ -555,7 +540,9 @@ export default function Navbar() {
                       </span>
                       <svg
                         className={`ml-2 w-4 h-4 transition-transform duration-200 ${
-                          dropdownOpen === link.label ? "rotate-180" : "rotate-0"
+                          dropdownOpen === link.label
+                            ? "rotate-180"
+                            : "rotate-0"
                         }`}
                         fill="none"
                         stroke="currentColor"
@@ -605,7 +592,6 @@ export default function Navbar() {
                     </Link>
                   )}
                 </div>
-                {/* Dropdown for mobile */}
                 {hasChildren &&
                   dropdownOpen === link.label &&
                   (link.label === "What We Do?" ? (
@@ -613,7 +599,6 @@ export default function Navbar() {
                       className="mt-2 ml-0 bg-[#fafbfc] shadow-2xl rounded-2xl py-6 px-4 flex flex-col md:flex-row gap-6 w-[90vw] max-w-[98vw] max-h-[60vh] overflow-y-auto relative z-40 items-center text-center md:items-start md:text-left"
                       style={{ paddingTop: "2rem" }}
                     >
-                      {/* Services Column */}
                       <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left min-w-[230px] max-w-[250px] px-4">
                         <div className="font-bold text-lg mb-2 text-black hover:text-[#2E3E95]">
                           {link.children[0].heading}
@@ -688,9 +673,7 @@ export default function Navbar() {
                       </div>
                     </div>
                   ) : (
-                    <ul className="mt-2 ml-4 bg-white shadow-lg rounded-xl py-2 flex flex-col gap-1">
-                      {/* For other links, fallback to previous logic if needed */}
-                    </ul>
+                    <ul className="mt-2 ml-4 bg-white shadow-lg rounded-xl py-2 flex flex-col gap-1"></ul>
                   ))}
               </li>
             );
@@ -698,7 +681,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Backdrop for mobile menu */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
@@ -706,7 +688,6 @@ export default function Navbar() {
         />
       )}
 
-      {/* Inline Global Styles for Floating Gradient */}
       <style jsx global>{`
         .animated-gradient {
           background-image: linear-gradient(

@@ -57,7 +57,6 @@ const Footer = () => {
       toast.error("Email should not contain special characters except @ . _ ");
       return;
     }
-    // Here you can add your API call to subscribe the email if needed
     toast.success("Subscribed successfully!");
     setEmail("");
   };
@@ -116,7 +115,7 @@ const Footer = () => {
             </div>
           </div>
 
-         <div className="sm:ml-6 md:ml-10 lg:ml-16">
+          <div className="sm:ml-6 md:ml-10 lg:ml-16">
             <h3 className="font-bold mb-2 text-lg">Services</h3>
             <div className="w-22 h-[2px] bg-[#fff] mb-6" />
 
@@ -219,7 +218,9 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="mt-2 flex">
-              <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">Follow Us:</p>
+              <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">
+                Follow Us:
+              </p>
               <div className="ml-2 flex items-center gap-5">
                 <a
                   href="https://www.linkedin.com/company/omniebee-global-solutions.com/posts/?feedView=all"
@@ -264,7 +265,10 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-6 text-xs text-[#fff] gap-4">
-          <p>Made with ❤️ | Copyright ©2025 Omniebee Global Solutions | All Rights Reserved</p>
+          <p>
+            Made with ❤️ | Copyright ©2025 Omniebee Global Solutions | All
+            Rights Reserved
+          </p>
           <div className="flex gap-4">
             <Link href="/privacy-and-policy">
               <span className="text-[#fff] hover:text-[#56B9F0] transition-colors duration-200 cursor-pointer font-bold">

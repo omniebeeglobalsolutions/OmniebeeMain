@@ -25,14 +25,6 @@ export const metadata = {
       "We're hiring! Check out open positions and grow your career with a leading tech company.",
     url: "https://omniebeeglobalsolutions.com/careers",
     siteName: "Omniebee Global Solutions",
-    // images: [
-    //   {
-    //     url: "https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/your-folder/og-careers.jpg", // ✅ Replace this with your actual Cloudinary image URL
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Careers at Omniebee",
-    //   },
-    // ],
     locale: "en_US",
     type: "website",
   },

@@ -63,7 +63,11 @@ export default function Topbar() {
               className="w-6 h-6"
             />
           </a>
-          <a href="https://www.facebook.com/people/Web-Eclipse/pfbid0yjLh2Jg1SfKRXqVptn5RvvLVaZ8xNAXZwv2q4rhKr1pxTjyg9M7iQWVe2Ksbetm5l/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com/people/Web-Eclipse/pfbid0yjLh2Jg1SfKRXqVptn5RvvLVaZ8xNAXZwv2q4rhKr1pxTjyg9M7iQWVe2Ksbetm5l/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src={assetsDataMap["facebook-logo"]}
               alt="Facebook"
@@ -81,12 +85,6 @@ export default function Topbar() {
               className="w-6 h-6"
             />
           </a>
-
-          {/* TODO: Uncomment when language selection is needed */}
-          {/* <select className="bg-[#B0D4E8] text-sm px-2 py-1 rounded-md outline-none">
-            <option>English</option>
-            <option>Hindi</option>
-          </select> */}
         </div>
       </div>
     </div>

@@ -43,7 +43,6 @@ const CareerById = ({ job, showInterestedButton = false, applyUrl }: Props) => {
 
   return (
     <div className="w-full min-h-screen bg-[#f7f7f7] flex flex-col items-center py-8">
-      {/* Banner/Header Section */}
       <div className="w-full max-w-5xl rounded-lg overflow-hidden relative mb-8">
         <div
           className="h-80 w-full bg-cover bg-center relative"
@@ -113,13 +112,12 @@ const CareerById = ({ job, showInterestedButton = false, applyUrl }: Props) => {
               services for data-driven enterprises. Our focus is to empower
               businesses to achieve their digital transformation goals and
               maximize their business impact through the effective use of data
-              and AI.  We leverage cutting-edge technologies in data analytics,
+              and AI.We leverage cutting-edge technologies in data analytics,
               data governance, AI-ML, GenAI/ LLM and industry best practices to
               deliver custom solutions that help organizations optimize their
               operations, enhance customer experiences, and drive growth.
             </div>
           </div>
-
           <div className="mb-6">
             <div className="font-bold mb-1 text-[#000000]">Working for us</div>
             <div className="text-sm text-[#000000] mb-2">
@@ -222,7 +220,6 @@ const CareerById = ({ job, showInterestedButton = false, applyUrl }: Props) => {
           )}
         </div>
 
-        {/* Right: Job Information */}
         <div className="w-full md:w-80 flex-shrink-0 md:border-l md:border-gray-400 md:pl-6">
           <div className="text-lg font-semibold text-[#479BC9] mb-4">
             Job Information

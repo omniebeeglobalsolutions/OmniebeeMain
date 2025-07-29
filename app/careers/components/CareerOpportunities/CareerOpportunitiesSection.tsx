@@ -26,18 +26,15 @@ const CareerOpportunitiesSection = ({ jobs = [] }: CareerOpportunitiesSectionPro
   const [department, setDepartment] = useState('All Departments');
   const [location, setLocation] = useState('All Locations');
 
-  // Group jobs by industry
   const grouped: { [industry: string]: Job[] } = jobs.reduce((acc: { [industry: string]: Job[] }, job) => {
     if (!acc[job.industry]) acc[job.industry] = [];
     acc[job.industry].push(job);
     return acc;
   }, {});
 
-  // Dropdown values
   const allDepartments = ['All Departments', ...Array.from(new Set(jobs.map(j => j.industry)))];
   const allLocations = ['All Locations', ...Array.from(new Set(jobs.map(j => j.location)))];
 
-  // Apply filters
   const filteredGrouped = Object.entries(grouped)
     .map(([industry, jobsArr]) => ({
       industry,
