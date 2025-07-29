@@ -15,14 +15,34 @@ const Form = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [mobileError, setMobileError] = useState("");
+  const [nameError, setNameError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
 
+    if (name === "name") {
+      let cleanValue = value;
+
+      // Restrict to 25 characters
+      if (cleanValue.length > 25) {
+        cleanValue = cleanValue.slice(0, 25);
+      }
+
+      // Disallow multiple consecutive spaces
+      if (/\s{2,}/.test(cleanValue)) {
+        setNameError("Name cannot contain multiple spaces in a row.");
+      } else {
+        setNameError("");
+      }
+
+      setForm((prev) => ({ ...prev, name: cleanValue }));
+      return;
+    }
+
     if (name === "mobile") {
-      const numericValue = value.replace(/\D/g, "").slice(0, 10); // Limit to 10 digits
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
       setForm((prev) => ({ ...prev, [name]: numericValue }));
 
       if (numericValue && !/^[6-9]/.test(numericValue)) {
@@ -30,7 +50,6 @@ const Form = () => {
       } else {
         setMobileError("");
       }
-
       return;
     }
 
@@ -46,15 +65,47 @@ const Form = () => {
     setError("");
     setSuccess(false);
 
-    // Email format validation
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(form.email)) {
-      setError("Please enter a valid email address.");
+    // === Custom Email Validation Start ===
+    const email = form.email.trim();
+
+    if (!email) {
+      setError("Please enter your email.");
       setLoading(false);
       return;
     }
 
-    // Mobile number validation
+    if (!/^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      setError("Enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+
+    if (/[^a-zA-Z0-9@._]/.test(email)) {
+      setError("Email should not contain special characters except @ . _");
+      setLoading(false);
+      return;
+    }
+
+    const allowedEndings = [
+      ".com",
+      ".in",
+      ".org",
+      ".co",
+      ".io",
+      ".info",
+      ".email",
+    ];
+
+    if (
+      !allowedEndings.some((ending) => email.toLowerCase().endsWith(ending))
+    ) {
+      setError("Enter valid email address.");
+      setLoading(false);
+      return;
+    }
+    // === Custom Email Validation End ===
+
+    // === Mobile Validation ===
     if (!/^[6-9]\d{9}$/.test(form.mobile)) {
       setError(
         "Please enter a valid 10-digit mobile number starting with 6–9."
@@ -63,9 +114,9 @@ const Form = () => {
       return;
     }
 
-    // Company email validation if company name is given
+    // === Company Domain Validation ===
     if (form.company.trim()) {
-      const emailDomain = form.email.split("@")[1]?.toLowerCase();
+      const emailDomain = email.split("@")[1]?.toLowerCase();
       const companyName = form.company.trim().toLowerCase().replace(/\s+/g, "");
       const personalDomains = [
         "gmail.com",
@@ -90,6 +141,7 @@ const Form = () => {
       }
     }
 
+    // === Submit Form ===
     try {
       const res = await fetch(
         "https://omniebee-server.vercel.app/api/contact/info",
@@ -146,11 +198,17 @@ const Form = () => {
                 type="text"
                 required
                 placeholder="Name*"
-                className="rounded px-4 py-2 focus:outline-none border border-[#EDEDED80] text-[#FFFFFF] bg-transparent"
+                className={`rounded px-4 py-2 focus:outline-none border ${
+                  nameError ? "border-red-500" : "border-[#EDEDED80]"
+                } text-[#FFFFFF] bg-transparent`}
                 value={form.name}
                 onChange={handleChange}
               />
+              {nameError && (
+                <span className="text-red-500 text-sm mt-1">{nameError}</span>
+              )}
             </div>
+
             <div className="flex-1 flex flex-col">
               <input
                 name="email"

@@ -8,7 +8,7 @@ export default function ValuesMissionVisionSection() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
         {/* Left Text Content */}
         <div className="flex flex-col justify-center flex-1 text-center lg:text-left font-poppins">
-          <h2 className="text-[24px] sm:text-[28px] md:text-[36px] lg:text-[38px] font-bold text-[#2E3E95] leading-snug mb-3 italic">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[36px] lg:text-[38px] font-bold text-[#2E3E95] leading-snug mb-3">
             Our Values, Mission <br className="hidden sm:block" /> and Vision
           </h2>
           <hr className="w-[120px] sm:w-[150px] border-t-[3px] border-[#2e3e95] mx-auto lg:mx-0 mb-4" />

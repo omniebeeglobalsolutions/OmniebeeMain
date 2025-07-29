@@ -20,7 +20,7 @@ const ReviewCard = ({name, text, avatar, date, blueTick, googleLogo,}: Props) =>
       <img
         src={avatar}
         alt={name}
-        className="w-9 h-9 rounded-full mr-2 border-2 border-white shadow"
+        className="w-9 h-9 rounded-full mr-2 border-2 border-white shadow object-cover"
       />
       <span className="font-semibold text-[#222] text-sm mr-1 truncate max-w-[100px]">
         {name}

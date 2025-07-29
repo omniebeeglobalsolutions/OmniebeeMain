@@ -58,7 +58,7 @@ export const industriesData = {
           },
           {
             title: "Better Patient Experiences",
-            content: "SMake it easier for patients and doctors to connect. Store all important information in one place. Help create a smooth and reliable digital experience for everyone. You’ll build lasting relationships through faster, more organized care.",
+            content: "Make it easier for patients and doctors to connect. Store all important information in one place. Help create a smooth and reliable digital experience for everyone. You’ll build lasting relationships through faster, more organized care.",
             icon: assetsDataMap["HCI-PCE"]
           },
           {

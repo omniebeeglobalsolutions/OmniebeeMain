@@ -42,6 +42,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { assetsDataMap } from "./utils/assetsDataMap";
 import Head from "next/head";
+import MoveToTopButton from "./components/layout/MoveToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -147,6 +148,7 @@ export default function RootLayout({
         <Navbar />
         <main className="sm:pt-28 pt-20">{children}</main>
         <Footer />
+        <MoveToTopButton />
       </body>
     </html>
   );

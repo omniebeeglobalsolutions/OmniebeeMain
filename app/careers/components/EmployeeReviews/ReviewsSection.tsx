@@ -5,45 +5,45 @@ import { assetsDataMap } from "@/app/utils/assetsDataMap";
 
 const allReviews = [
   {
-    name: "amoju karri",
+    name: "Amoju karri",
     date: "08/05/2025",
     text: "Working at ominibee has been a truly rewarding experience. The leadership team is supportive, and there’s a strong culture of collaboration and innovation. I've had the opportunity to work on exciting projects with cutting-edge technologies, which has significantly contributed to my professional growth. Overall, it’s a great place to grow your career in tech.",
-    avatar: assetsDataMap["Career-Person1"],
+    avatar: assetsDataMap["GoogleReview-4"],
     blueTick: assetsDataMap["verify-tag"],
   },
   {
     name: "Anusha Muthya",
     date: "26/12/2024",
     text: "I approached this team with a freelancing project and was impressed by how quickly they understood my requirements. Their clear communication and grasp of the project needs gave me the confidence that they could execute it effectively.  I truly appreciate their professionalism and look forward to seeing the great work they deliver!",
-    avatar: assetsDataMap["Career-Person2"],
+    avatar: assetsDataMap["GoogleReview-3"],
     blueTick: assetsDataMap["verify-tag"],
   },
   {
     name: "Sathvika Jani",
     date: "15/11/2024",
     text: "I am very happy to have the opportunity to be part of Omniebee Global Solutions. The responsibilities and care you have entrusted to me are truly great, and I deeply appreciate the support and encouragement in my work. The work-life balance is respected, and the team genuinely values continuous learning.",
-    avatar: assetsDataMap["Career-Person3"],
+    avatar: assetsDataMap["GoogleReview-2"],
     blueTick: assetsDataMap["verify-tag"],
   },
   {
     name: "Vinay Goud",
     date: "20/10/2024",
     text: "Good working environment ,supporting management and team member s. Excellent environment for skill development. Teammates are supportive and the management is also helpful. Provided a quality service within the estimated timeline. Keep up the good work!",
-    avatar: assetsDataMap["Career-Person4"],
+    avatar: assetsDataMap["GoogleReview-5"],
     blueTick: assetsDataMap["verify-tag"],
   },
   {
     name: "Ravi Teja",
     date: "01/09/2024",
     text: "Great place to work with supportive leadership and plenty of learning opportunities. Had a talk with the team for a freelancing project and felt like, I have reached the right place. These guys actually know their stuff and seemed reliable. Keep up the good work ! 👍",
-    avatar: assetsDataMap["Career-Person5"],
+    avatar: assetsDataMap["GoogleReview-6"],
     blueTick: assetsDataMap["verify-tag"],
   },
   {
     name: "Kiranmai",
     date: "12/08/2024",
-    text: "I am very happy to have the opportunity to be part of Omniebee Global Solutions. The responsibilities and care you have entrusted to me are truly great, and I deeply appreciate the support and encouragement in my work.  I truly appreciate their professionalism and look forward to seeing the great work they deliver!",
-    avatar: assetsDataMap["Career-Person2"],
+    text: "I'm truly grateful to be a part of Omniebee Global Solutions. The trust, responsibility, and encouragement I've received from the team mean a lot to me. Their professionalism, supportive culture, and clear vision create a fantastic work environment. I'm excited to continue contributing and look forward to the amazing work the company is set to deliver!",
+    avatar: assetsDataMap["GoogleReview-1"],
     blueTick: assetsDataMap["verify-tag"],
   },
 ];
@@ -89,7 +89,7 @@ const ReviewsSection = () => {
               </span>
             ))}
           </div>
-          <span className="italic text-base text-[#222] mb-2">
+          <span className="text-base text-[#222] mb-2">
             Based on 24 Reviews
           </span>
           <img

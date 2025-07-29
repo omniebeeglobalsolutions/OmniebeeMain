@@ -68,7 +68,7 @@ const IndustrySolutions = () => {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-[#2E3E95] mb-5 italic">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-[#2E3E95] mb-5">
           Delivering{" "}
           <span className="relative inline-block">
             <span className="inline-block font-semibold text-[#479BC9]">

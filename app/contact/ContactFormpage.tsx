@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { assetsDataMap } from "../utils/assetsDataMap";
+import { RedirectType } from "next/navigation";
 
 export default function ContactFormpage() {
   const [form, setForm] = useState({
@@ -39,24 +40,52 @@ export default function ContactFormpage() {
   const validateField = (name: string, value: string): string => {
     switch (name) {
       case "name":
-        if (!value.trim()) return "Please enter your name.";
-        if (!/^[a-zA-Z ]{2,}$/.test(value.trim()))
-          return "Name should contain only letters and spaces (min 2 characters).";
-        if (/[^a-zA-Z ]/.test(value.trim()))
-          return "Name should not contain special characters.";
+        const trimmedValue = value.trim();
+
+        if (!trimmedValue) return "Please enter your full name.";
+        if (trimmedValue.length > 75)
+          return "Name should not exceed 75 characters.";
+
+        // Only letters and single spaces between words
+        if (!/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(trimmedValue))
+          return "Name should contain only letters with a single space between words.";
+
+        if (trimmedValue.length < 2)
+          return "Name should be at least 2 characters long.";
+
         return "";
+
       case "email":
         if (!value.trim()) return "Please enter your email.";
-        if (!/^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
+
+        // Basic email format check
+        if (
+          !/^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+        )
           return "Enter a valid email address.";
+
+        // Allow only specific characters
         if (/[^a-zA-Z0-9@._]/.test(value))
-          return "Email should not contain special characters except @ . _ ";
-        // Check for allowed domain endings
-        const allowedEndings = ['.com', '.in', '.org', '.co', '.io', '.info', '.email'];
-        if (!allowedEndings.some(ending => value.toLowerCase().endsWith(ending))) {
-          return "Email must end with .com, .in, .org, .co, .io, .info, or .email";
+          return "Email should not contain special characters except @ . _";
+
+        // Domain ending restriction
+        const allowedEndings = [
+          ".com",
+          ".in",
+          ".org",
+          ".co",
+          ".io",
+          ".info",
+          ".email",
+        ];
+        if (
+          !allowedEndings.some((ending) => value.toLowerCase().endsWith(ending))
+        ) {
+          return "Enter valid email address.";
         }
+
         return "";
+
       case "phone":
         if (!value.trim()) return "Please enter your phone number.";
         if (!/^[6-9]\d{9}$/.test(value))
@@ -74,6 +103,8 @@ export default function ContactFormpage() {
         if (!value.trim()) return "Please enter your message.";
         if (value.trim().length < 10)
           return "Message should be at least 10 characters.";
+        if (value.trim().length > 500)
+          return "Enter a message with less than 500 characters.";
         return "";
       default:
         return "";
@@ -184,10 +215,13 @@ export default function ContactFormpage() {
                     placeholder="Enter your full name"
                     onChange={handleChange}
                     value={form.name}
+                    maxLength={25}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.name && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.name}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.name}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -200,7 +234,9 @@ export default function ContactFormpage() {
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.email && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.email}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.email}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -214,7 +250,9 @@ export default function ContactFormpage() {
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.phone && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.phone}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.phone}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -228,7 +266,9 @@ export default function ContactFormpage() {
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.zip && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.zip}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.zip}
+                    </p>
                   )}
                 </div>
                 <div className="md:col-span-2">
@@ -240,16 +280,29 @@ export default function ContactFormpage() {
                     aria-placeholder="Select a service"
                   >
                     <option value="">Select a service</option>
-                    <option value="Software Devlopment">Software Devlopment</option>
+                    <option value="Software Devlopment">
+                      Software Devlopment
+                    </option>
                     <option value="Web Development">Technnical Support</option>
                     <option value="It Consulting">It Consulting</option>
-                    <option value="Staffing Solutions"> Staffing Solutions</option>
-                    <option value="Business Consulting"> Business Consulting</option>
-                    <option value="Training Services"> Training Services</option>
+                    <option value="Staffing Solutions">
+                      {" "}
+                      Staffing Solutions
+                    </option>
+                    <option value="Business Consulting">
+                      {" "}
+                      Business Consulting
+                    </option>
+                    <option value="Training Services">
+                      {" "}
+                      Training Services
+                    </option>
                     <option value="Other..."> Other...</option>
                   </select>
                   {formErrors.service && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.service}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.service}
+                    </p>
                   )}
                 </div>
                 <div className="md:col-span-2">
@@ -259,10 +312,13 @@ export default function ContactFormpage() {
                     rows={4}
                     onChange={handleChange}
                     value={form.message}
+                    maxLength={500}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
                   />
                   {formErrors.message && (
-                    <p className="text-sm text-red-600 mt-1">{formErrors.message}</p>
+                    <p className="text-sm text-red-600 mt-1">
+                      {formErrors.message}
+                    </p>
                   )}
                 </div>
               </div>
@@ -284,7 +340,10 @@ export default function ContactFormpage() {
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
               {/* Phone */}
-              <div className="flex items-center gap-3 min-w-0" style={{marginBottom: "50px"}}>
+              <div
+                className="flex items-center gap-3 min-w-0"
+                style={{ marginBottom: "50px" }}
+              >
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["phone-logo"]}
@@ -306,7 +365,10 @@ export default function ContactFormpage() {
                 </div>
               </div>
               {/* Email */}
-              <div className="flex items-center gap-3 min-w-0" style={{marginBottom: "50px", wordBreak: "break-all"}}>
+              <div
+                className="flex items-center gap-3 min-w-0"
+                style={{ marginBottom: "50px", wordBreak: "break-all" }}
+              >
                 <div className="pt-1">
                   <Image
                     src={assetsDataMap["mail-logo"]}
@@ -341,8 +403,15 @@ export default function ContactFormpage() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-white font-semibold text-xs">Our Location</p>
-                  <a className="font-bold hover:text-[#56b9f0] cursor-pointer">
+                  <p className="text-white font-semibold text-xs">
+                    Our Location
+                  </p>
+                  <a
+                    href="https://www.google.com/maps/place/Omniebee+Global+Solutions+Pvt.Ltd/@17.4315484,78.423834,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9117b2bca973:0xc489b8669c1ad38b!8m2!3d17.4315433!4d78.4264089!16s%2Fg%2F11wr9dx2mc?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold hover:text-[#56b9f0] cursor-pointer inline-block"
+                  >
                     8-3-231/A 77 & 78, Sri Krishna Nagar, <br />
                     Yousufguda, Hyderabad, 500045
                   </a>

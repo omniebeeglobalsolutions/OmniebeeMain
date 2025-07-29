@@ -115,13 +115,13 @@ export default function GrowthJourneySection() {
         </div>
 
         {/* Heading on top for mobile */}
-        <h2 className="text-[30px] sm:text-[36px] md:text-[42px] lg:text-[45px] font-bold text-[#2E3E95] mb-4 sm:mb-5 md:mb-6 lg:hidden text-center font-poppins italic">
+        <h2 className="text-[30px] sm:text-[36px] md:text-[42px] lg:text-[45px] font-bold text-[#2E3E95] mb-4 sm:mb-5 md:mb-6 lg:hidden text-center font-poppins">
           Our Growth Journey
         </h2>
 
         {/* Text Content */}
         <div className="w-full order-3 lg:order-2 text-center lg:text-left px-4 sm:px-6 md:px-8 lg:px-0">
-          <h2 className="hidden lg:block text-[45px] font-poppins font-bold text-[#2E3E95] mb-3 italic">
+          <h2 className="hidden lg:block text-[45px] font-poppins font-bold text-[#2E3E95] mb-3">
             Our Growth Journey
           </h2>
           <hr className="w-[150px] border-t-[3px] border-[#2e3e95] mx-auto lg:mx-0 mb-3" />{" "}

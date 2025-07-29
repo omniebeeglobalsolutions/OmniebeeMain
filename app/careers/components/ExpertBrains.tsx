@@ -26,7 +26,7 @@ const ExpertBrains = () => (
           />
         ))}
       </div>
-      <span className="md:ml-3 italic text-xl font-medium text-center md:text-left" style={{ color: '#2E3E95' }}>
+      <span className="md:ml-3 text-xl font-medium text-center md:text-left" style={{ color: '#2E3E95' }}>
         Join 50+ Expert Brains
       </span>
     </div>

@@ -131,7 +131,7 @@ const OurServices = () => {
                 </div>
 
                 {/* Hidden description that appears on hover */}
-                <div className="text-white text-xs font-normal opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-[-5px] sm:group-hover:translate-y-[-50px] transition-all duration-500 ease-in-out text-justify">
+                <div className="text-white text-xs font-normal opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-[-5px] sm:group-hover:translate-y-[-50px] transition-all duration-500 ease-in-out text-left">
                   Our Staffing Solutions are designed to help businesses find
                   the right talent at the right time. We bridge the gap between
                   urgent workforce needs and skilled professionals ready to
@@ -202,7 +202,7 @@ const OurServices = () => {
                     </div>
 
                     {/* Description: hidden by default, shown on hover */}
-                    <span className="text-white text-xs pt-3 px-5 leading-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-justify">
+                    <span className="text-white text-xs pt-3 px-5 leading-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-left">
                       At Omniebee Global Solutions, we believe mobile apps are
                       more than just digital tools — they are strategic assets
                       that drive growth....
@@ -228,7 +228,7 @@ const OurServices = () => {
                     </div>
 
                     {/* Description: hidden by default, shown on hover */}
-                    <span className="text-white text-xs pt-3 px-5 leading-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-justify">
+                    <span className="text-white text-xs pt-3 px-5 leading-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-left">
                       Our Technical Support Services are designed to ensure
                       uninterrupted development workflows, faster issue
                       resolution, and optimized project delivery.....

@@ -50,7 +50,7 @@ const Card = () => {
 
   return (
     <div className="w-full px-4 py-10 bg-white text-center">
-      <h2 className="text-[22px] md:text-[28px] font-bold text-[#2E3E95] mb-4 italic">
+      <h2 className="text-[22px] md:text-[28px] font-bold text-[#2E3E95] mb-4">
         Skilled IT professionals for 15+ Dedicated Services
       </h2>
               <hr className="w-[150px] border-t-[3px] border-[#2e3e95] mx-auto mb-6" />{" "}

@@ -170,7 +170,7 @@ export default function Navbar() {
                 return (
                   <li
                     key={link.href}
-                    className="relative flex items-center cursor-pointer hover:text-[#2E3E95] hover:font-bold group"
+                    className="relative flex items-center hover:text-[#2E3E95] hover:font-bold group"
                     onMouseEnter={handleDropdownEnter}
                     onMouseLeave={handleDropdownLeave}
                     data-whatwedo-navitem={isDropdown ? true : undefined}
@@ -232,7 +232,7 @@ export default function Navbar() {
                               <div className="font-bold text-lg mb-2 text-black hover:text-[#2E3E95] hover:font-bold">
                                 {link.children[0].heading}
                               </div>
-                              <div className="text-xs font-normal text-black mb-0 max-w-xs hover:text-[#2E3E95] leading-relaxed text-justify">
+                              <div className="text-xs font-normal text-black mb-0 max-w-xs hover:text-[#2E3E95] leading-relaxed text-left">
                                 {link.children[0].description}
                               </div>
                             </div>
