@@ -51,6 +51,11 @@ export default function ContactFormpage() {
           return "Enter a valid email address.";
         if (/[^a-zA-Z0-9@._]/.test(value))
           return "Email should not contain special characters except @ . _ ";
+        // Check for allowed domain endings
+        const allowedEndings = ['.com', '.in', '.org', '.co', '.io', '.info', '.email'];
+        if (!allowedEndings.some(ending => value.toLowerCase().endsWith(ending))) {
+          return "Email must end with .com, .in, .org, .co, .io, .info, or .email";
+        }
         return "";
       case "phone":
         if (!value.trim()) return "Please enter your phone number.";
