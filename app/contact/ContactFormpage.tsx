@@ -282,7 +282,7 @@ export default function ContactFormpage() {
                   <p className="text-white font-semibold text-xs">Email Us</p>
                   <a
                     href="mailto:support@omnibeeglobalsolutions.com"
-                    className="text-white font-bold break-all hover:text-[#56b9f0]"
+                    className="text-white font-bold break-all"
                     style={{ wordBreak: "break-all" }}
                   >
                     support@omnibeeglobalsolutions.com
