@@ -32,6 +32,13 @@ body{
     color: #ffffff;
   }
 }
+/* styles/globals.css */
+html {
+  -webkit-text-size-adjust: none; /* Prevent layout breaking */
+  text-size-adjust: none;         /* Modern fallback */
+  overflow-x: hidden;             /* Block horizontal scroll globally */
+}
+
 
 .char-animate {
   display: inline-block;
@@ -218,3 +225,6 @@ button:hover .button-text {
 .animate-scroll-left {
   animation: scroll-left 5s linear infinite;
 }
+
+
+

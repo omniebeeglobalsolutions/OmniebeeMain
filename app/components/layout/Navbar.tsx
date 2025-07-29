@@ -142,7 +142,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed z-50 w-full bg-[#FFFFFF] shadow-md transition-all duration-500  ${
+        className={`fixed z-50 w-full bg-[#FFFFFF] navbar-custom shadow-md transition-all duration-500  ${
           hideTopbar ? "top-0" : "sm:top-[64px]"
         }`}
       >
@@ -161,7 +161,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav - evenly spaced, correct order, blue dropdown icon */}
-          <ul className="ml-4 hidden md:flex gap-8 font-semibold text-[#2E3E95] text-lg items-center">
+          <ul className="ml-4 hidden md:flex gap-2  font-semibold text-[#2E3E95] text-lg items-center">
             {navLinks.map((link) => {
               const isDropdown = link.label === "What We Do?";
               const isActive = isDropdown ? false : pathname === link.href;
