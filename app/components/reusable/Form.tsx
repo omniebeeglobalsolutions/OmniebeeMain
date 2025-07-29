@@ -10,30 +10,98 @@ const Form = () => {
     help: "",
     subscribe: false,
   });
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [mobileError, setMobileError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
+
+    if (name === "mobile") {
+      const numericValue = value.replace(/\D/g, "").slice(0, 10); // Limit to 10 digits
+      setForm((prev) => ({ ...prev, [name]: numericValue }));
+
+      if (numericValue && !/^[6-9]/.test(numericValue)) {
+        setMobileError("Mobile number must start with digits between 6 to 9.");
+      } else {
+        setMobileError("");
+      }
+
+      return;
+    }
+
     setForm((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     setSuccess(false);
+
+    // Email format validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(form.email)) {
+      setError("Please enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+
+    // Mobile number validation
+    if (!/^[6-9]\d{9}$/.test(form.mobile)) {
+      setError(
+        "Please enter a valid 10-digit mobile number starting with 6–9."
+      );
+      setLoading(false);
+      return;
+    }
+
+    // Company email validation if company name is given
+    if (form.company.trim()) {
+      const emailDomain = form.email.split("@")[1]?.toLowerCase();
+      const companyName = form.company.trim().toLowerCase().replace(/\s+/g, "");
+      const personalDomains = [
+        "gmail.com",
+        "yahoo.com",
+        "outlook.com",
+        "hotmail.com",
+        "protonmail.com",
+      ];
+
+      if (personalDomains.includes(emailDomain)) {
+        setError(
+          "Please use your company email if you’ve entered a company name."
+        );
+        setLoading(false);
+        return;
+      }
+
+      if (!emailDomain.includes(companyName)) {
+        setError("The email domain should match your company name.");
+        setLoading(false);
+        return;
+      }
+    }
+
     try {
-      const res = await fetch("https://omniebee-server.vercel.app/api/contact/info", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "https://omniebee-server.vercel.app/api/contact/info",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+
       if (!res.ok) throw new Error("Failed to send message");
+
       setSuccess(true);
       setForm({
         name: "",
@@ -51,7 +119,10 @@ const Form = () => {
   };
 
   return (
-    <div className="relative w-full min-h-[500px] flex items-start" style={{ minHeight: "500px" }}>
+    <div
+      className="relative w-full min-h-[500px] flex items-start"
+      style={{ minHeight: "500px" }}
+    >
       <img
         src="https://res.cloudinary.com/dqgixj7vr/image/upload/v1752735375/hjsmlbtpb2pperbdcd2c.jpg"
         alt="Office background"
@@ -75,7 +146,7 @@ const Form = () => {
                 type="text"
                 required
                 placeholder="Name*"
-                className="rounded px-4 py-2  focus:outline-none border border-[#EDEDED80] text-[#FFFFFF] bg-transparent"
+                className="rounded px-4 py-2 focus:outline-none border border-[#EDEDED80] text-[#FFFFFF] bg-transparent"
                 value={form.name}
                 onChange={handleChange}
               />
@@ -86,12 +157,13 @@ const Form = () => {
                 type="email"
                 required
                 placeholder="Email*"
-                className="rounded px-4 py-2  focus:outline-none border text-[#FFFFFF] border-[#EDEDED80] bg-transparent"
+                className="rounded px-4 py-2 focus:outline-none border text-[#FFFFFF] border-[#EDEDED80] bg-transparent"
                 value={form.email}
                 onChange={handleChange}
               />
             </div>
           </div>
+
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 flex flex-col">
               <input
@@ -99,11 +171,17 @@ const Form = () => {
                 type="text"
                 required
                 placeholder="Mobile*"
-                className="rounded px-4 py-2  focus:outline-none text-[#FFFFFF] border border-[#EDEDED80] bg-transparent"
+                className={`rounded px-4 py-2 focus:outline-none text-white border ${
+                  mobileError ? "border-red-500" : "border-[#EDEDED80]"
+                } bg-transparent`}
                 value={form.mobile}
                 onChange={handleChange}
               />
+              {mobileError && (
+                <span className="text-red-500 text-sm mt-1">{mobileError}</span>
+              )}
             </div>
+
             <div className="flex-1 flex flex-col">
               <input
                 name="company"
@@ -116,21 +194,23 @@ const Form = () => {
               />
             </div>
           </div>
+
           <div className="flex flex-col">
             <textarea
               name="help"
               rows={2}
               placeholder="How can I help you?"
-              className="w-full rounded px-4 py-2  focus:outline-none border text-[#FFFFFF] border-[#EDEDED80] bg-transparent"
+              className="w-full rounded px-4 py-2 focus:outline-none border text-[#FFFFFF] border-[#EDEDED80] bg-transparent"
               value={form.help}
               onChange={handleChange}
             />
           </div>
+
           <div className="flex items-start gap-2">
             <input
               type="checkbox"
               name="subscribe"
-              className="mt-3  border border-[#767676]"
+              className="mt-3 border border-[#767676]"
               checked={form.subscribe}
               onChange={handleChange}
             />
@@ -139,8 +219,17 @@ const Form = () => {
               insights, trends reports, and more in your inbox!
             </label>
           </div>
-          {error && <div className="text-red-400 text-sm font-medium">{error}</div>}
-          {success && <div className="text-green-400 text-sm font-medium">Thank you! Your request has been submitted.</div>}
+
+          {error && (
+            <div className="text-red-400 text-sm font-medium">{error}</div>
+          )}
+          {success && (
+            <div className="text-green-400 text-sm font-medium">
+              Thank you! Your request has been submitted. We'll get back within
+              24 hours.
+            </div>
+          )}
+
           <button
             type="submit"
             className="mt-2 px-8 py-2 bg-[#56B9F0] text-[#FFFFFF] rounded hover:bg-blue-500 transition w-fit"

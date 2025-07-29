@@ -81,10 +81,11 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
             />
           </div>
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-sm sm:text-xl md:text-xl font-bold text-[#2E3E95] mb-4 leading-snug w-[300px]">
+            <h2 className="text-base sm:text-xl md:text-xl font-bold text-[#2E3E95] mb-4 leading-snug w-[350px] mx-auto text-center">
               {data.sections[0].heading}
             </h2>
-            <p className="text-[#262626] mb-6 sm:mb-10 text-base sm:text-sm text-justify leading-7 max-w-2xl mx-auto md:mx-0 w-[580px]">
+            <p className="text-[#262626] mb-6 sm:mb-10 text-base sm:text-base text-justify leading-[25px] w-full max-w-[580px] mx-auto md:mx-0 px-4 sm:px-0
+">
               {data.sections[0].content}
             </p>
             <a
@@ -125,7 +126,7 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 py-8">
+      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 py-11">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6 md:gap-20">
           <h2 className="text-white text-lg sm:text-xl md:text-2xl font-extrabold">
             {data.sections[2].highlight?.heading}
@@ -185,7 +186,7 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
               className="bg-[#2E3E95] text-white p-6 rounded-lg shadow-md flex flex-col justify-between w-full max-w-[320px] h-[320px]"
             >
               <div>
-                <h3 className="text-lg font-bold mb-4 flex justify-between items-start">
+                <h3 className="text-lg font-bold mb-4 flex justify-between items-start text-left">
                   {tile.title}
                   <img
                     src={tile.icon}
@@ -193,20 +194,20 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
                     className="w-10 h-10"
                   />
                 </h3>
-                <p className="text-sm leading-relaxed">{tile.content}</p>
+                <p className="text-sm leading-relaxed text-left">{tile.content}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 py-8">
+      <section className="bg-gradient-to-b from-[#1E232AE5] to-[#2E3E95] px-4 sm:px-6 md:px-10 py-5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6 md:gap-12">
-          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-extrabold w-full md:w-1/3">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-extrabold w-full md:w-1/3 text-left">
             {data.sections[5].ctaSection?.heading}
           </h2>
 
-          <p className="text-white text-sm sm:text-base font-normal w-full md:w-1/3 text-justify">
+          <p className="text-white text-sm sm:text-base font-normal w-full md:w-1/3 text-left">
             {data.sections[5].ctaSection?.description}
           </p>
 

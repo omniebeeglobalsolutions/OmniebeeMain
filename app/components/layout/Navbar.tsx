@@ -518,7 +518,9 @@ export default function Navbar() {
         <ul className="flex flex-col items-center text-center gap-6 p-6 text-[#2E3E95] font-semibold">
           {navLinks.map((link) => {
             const isDropdown = link.label === "What We Do?";
-            const isActive = isDropdown ? false : pathname === link.href;
+            const isActive = isDropdown
+              ? false
+              : pathname === link.href && !(dropdownOpen === "What We Do?"); // Only highlight Home if dropdown is not open
             const hasChildren = !!link.children;
             return (
               <li key={link.href} className="relative">
@@ -534,6 +536,48 @@ export default function Navbar() {
                       <span className="z-10">{link.label}</span>
                       <span className="absolute inset-0 rounded-[30px] transition duration-500 opacity-0 group-hover:opacity-100 animated-gradient" />
                     </a>
+                  ) : hasChildren && isDropdown ? (
+                    <button
+                      type="button"
+                      className={`relative group px-4 py-3 rounded-[30px] min-w-[160px] flex items-center justify-center text-lg font-semibold overflow-hidden w-full`}
+                      onClick={() =>
+                        setDropdownOpen(
+                          dropdownOpen === link.label ? false : link.label
+                        )
+                      }
+                    >
+                      <span
+                        className={`z-10 ${
+                          isActive ? "text-white" : "text-[#2E3E95]"
+                        }`}
+                      >
+                        {link.label}
+                      </span>
+                      <svg
+                        className={`ml-2 w-4 h-4 transition-transform duration-200 ${
+                          dropdownOpen === link.label ? "rotate-180" : "rotate-0"
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      <span
+                        className={`absolute inset-0 rounded-[30px] transition duration-500
+                          ${
+                            isActive
+                              ? "opacity-100 animated-gradient"
+                              : "opacity-0 group-hover:opacity-100 animated-gradient"
+                          }
+                        `}
+                      />
+                    </button>
                   ) : (
                     <Link
                       href={link.href}
@@ -559,36 +603,6 @@ export default function Navbar() {
                         `}
                       />
                     </Link>
-                  )}
-
-                  {hasChildren && (
-                    <button
-                      className="ml-2 focus:outline-none"
-                      onClick={() =>
-                        setDropdownOpen(
-                          dropdownOpen === link.label ? false : link.label
-                        )
-                      }
-                      aria-label="Toggle dropdown"
-                    >
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          dropdownOpen === link.label
-                            ? "rotate-180"
-                            : "rotate-0"
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
                   )}
                 </div>
                 {/* Dropdown for mobile */}

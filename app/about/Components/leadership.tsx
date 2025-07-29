@@ -49,7 +49,7 @@ export default async function LeadershipSection() {
               <p className="text-[#479BC9] text-[18px] sm:text-[16px] md:text-[24px] font-bold font-inter">
                 {member.employeeName}
               </p>
-              <p className="text-[#479BC9] text-[14px] sm:text-[14px] md:text-[22px] italic">
+              <p className="text-[#479BC9] text-[14px] sm:text-[15px] md:text-[17.5px] italic">
                 {member.role || member.designation}
               </p>
             </div>

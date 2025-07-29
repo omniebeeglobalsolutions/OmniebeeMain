@@ -46,9 +46,17 @@ const IntroSection = () => {
           return "Name should contain only letters and spaces (min 2 characters).";
         if (/[^a-zA-Z ]/.test(value.trim()))
           return "Name should not contain special characters.";
+        if (!/^[a-zA-Z ]{2,}$/.test(value.trim()))
+          return "Name should contain only letters and spaces (min 2 characters).";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Name should not contain special characters.";
         return "";
       case "email":
         if (!value.trim()) return "Please enter your email.";
+        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
+          return "Enter a valid email address.";
+        if (/[^a-zA-Z0-9@._-]/.test(value))
+          return "Email should not contain special characters except @ . _ -";
         if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value))
           return "Enter a valid email address.";
         if (/[^a-zA-Z0-9@._-]/.test(value))
@@ -58,11 +66,14 @@ const IntroSection = () => {
         if (!value.trim()) return "Please enter your phone number.";
         if (!/^[6-9]\d{9}$/.test(value))
           return "Enter a valid 10-digit phone number.";
+        if (value.length > 10) return "Phone number cannot exceed 10 digits.";
         return "";
       case "yearsOfExperience":
         if (!value.trim()) return "Please enter your years of experience.";
         if (isNaN(Number(value)) || Number(value) < 0)
           return "Enter a valid number.";
+        if (Number(value) > 75)
+          return "Enter valid years of experience (max 75).";
         return "";
       case "noticePeriod":
         if (!value.trim()) return "Please enter your notice period.";
@@ -73,6 +84,8 @@ const IntroSection = () => {
         if (!value.trim()) return "Please enter your primary skills.";
         if (value.trim().length < 2)
           return "Primary skills should be at least 2 characters.";
+        if (value.trim().length < 2)
+          return "Primary skills should be at least 2 characters.";
         return "";
       case "designation":
         if (!value.trim()) return "Please enter the designation.";
@@ -80,9 +93,13 @@ const IntroSection = () => {
           return "Designation should be at least 2 characters.";
         if (/[^a-zA-Z ]/.test(value.trim()))
           return "Designation should only contain letters and spaces.";
+        if (value.trim().length < 2)
+          return "Designation should be at least 2 characters.";
+        if (/[^a-zA-Z ]/.test(value.trim()))
+          return "Designation should only contain letters and spaces.";
         return "";
       case "currentCTC":
-        if (!value.trim()) return "Please enter your current Cmd.";
+        if (!value.trim()) return "Please enter your current CTC.";
         if (isNaN(Number(value)) || Number(value) < 0)
           return "Enter a valid number.";
         return "";
@@ -90,8 +107,15 @@ const IntroSection = () => {
         if (!value.trim()) return "Please enter your expected CTC.";
         if (isNaN(Number(value)) || Number(value) < 0)
           return "Enter a valid number.";
+        if (isNaN(Number(value)) || Number(value) < 0)
+          return "Enter a valid number.";
         return "";
       case "linkedin":
+        if (
+          value.trim() &&
+          !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())
+        )
+          return "Enter a valid LinkedIn URL.";
         if (
           value.trim() &&
           !/^https?:\/\/(www\.)?linkedin\.com\//.test(value.trim())
@@ -243,7 +267,7 @@ const IntroSection = () => {
                 onClick={() => setShowModal(true)}
                 className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold cursor-pointer text-sm button-secondary text-white transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg"
               >
-                Quick Apply
+                Express Interest
               </button>
               <Link href="/careers/employee-benefits">
                 <button className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg">
@@ -259,7 +283,7 @@ const IntroSection = () => {
                 Refer a Friend
               </button>
               <a href="#employee-review">
-                <button className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg">
+                <button className="h-[40px] w-[160px] px-4 py-4 rounded-lg font-bold text-sm button-secondary text-white cursor-pointer transition-all duration-300 hover:bg-[#2e3e95] hover:scale-105 hover:shadow-lg hover:bg-[#2e3e95]">
                   Employee Reviews
                 </button>
               </a>
@@ -367,6 +391,7 @@ const IntroSection = () => {
                     value={(formData as any)[name]}
                     onChange={handleChange}
                     placeholder={placeholder}
+                    maxLength={name === "phoneNumber" ? 10 : undefined}
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
                   {formErrors[name as keyof typeof formErrors] && (
@@ -410,8 +435,8 @@ const IntroSection = () => {
 
       {showShareModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-2xl bg-black bg-opacity-30 flex items-center justify-center px-4 sm:px-6">
-          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[30vh] rounded-lg overflow-y-auto p-5 mt-12">
-            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center mb-5">
+          <div className="relative bg-white shadow-lg w-full max-w-4xl h-[40vh] sm:h-[38vh] rounded-lg overflow-y-auto p-5 mt-12">
+            <h3 className="text-lg sm:text-2xl font-bold mb-6 text-[#2E3E95] text-center">
               Share with your Friends
             </h3>
 
@@ -421,42 +446,48 @@ const IntroSection = () => {
                 {
                   name: "Whatsapp",
                   url: `https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    "Check out this career opportunity: http://localhost:3000/careers"
+                    "🚀 Explore amazing career opportunities at Omniebee Global Solutions! Join our dynamic team and grow your future. Apply now 👉 https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["whatsapp-logo"],
                 },
                 {
                   name: "Facebook",
                   url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
+                  )}&quote=${encodeURIComponent(
+                    "Looking to take your career to the next level? Join Omniebee Global Solutions — a place where innovation meets opportunity."
                   )}`,
                   icon: assetsDataMap["facebook-logo"],
                 },
                 {
                   name: "LinkedIn",
                   url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["linkedin-logo"],
                 },
                 {
                   name: "Twitter",
                   url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
-                  )}&text=${encodeURIComponent("Explore this role")}`,
+                    "https://www.omniebeeglobalsolutions.com/careers"
+                  )}&text=${encodeURIComponent(
+                    "Join the team at Omniebee Global Solutions and build a career you’re proud of. Check out the latest openings now! #Hiring #TechCareers"
+                  )}`,
                   icon: assetsDataMap["twitter-logo"],
                 },
                 {
                   name: "Gmail",
-                  url: `mailto:?subject=Great Career Opportunity&body=Check this out: http://localhost:3000/careers`,
+                  url: `mailto:?subject=Career Opportunity at Omniebee Global Solutions&body=${encodeURIComponent(
+                    "Hi,\n\nI came across some exciting career opportunities at Omniebee Global Solutions. If you're exploring new roles or want to work in a growing tech-driven company, take a look:\n\nhttps://www.omniebeeglobalsolutions.com/careers\n\nFeel free to apply or share it with others who might be interested!"
+                  )}`,
                   icon: assetsDataMap["gmail-logo"],
                 },
                 {
                   name: "Telegram",
                   url: `https://t.me/share/url?url=${encodeURIComponent(
-                    "http://localhost:3000/careers"
+                    "https://www.omniebeeglobalsolutions.com/careers"
                   )}&text=${encodeURIComponent(
-                    "Check out this career opportunity!"
+                    "✨ New career opportunities available at Omniebee Global Solutions! If you're passionate about tech and growth, this is your chance. Apply here: https://www.omniebeeglobalsolutions.com/careers"
                   )}`,
                   icon: assetsDataMap["telegram-logo"],
                 },
