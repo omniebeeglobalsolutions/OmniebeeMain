@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: assetsDataMap["OGS_Darklogo"] || "",
+        url: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png",
         width: 400,
         height: 400,
         alt: "Omniebee Logo",
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description: siteDescription,
-    images: [assetsDataMap["OGS_Darklogo"] || ""],
+    images: ["https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png"],
   },
   icons: {
     icon: '/faviconborder.png',
@@ -125,7 +125,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Omniebee Global Solutions",
               url: siteURL,
-              logo: assetsDataMap["OGS_Darklogo"] || "",
+              logo: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png",
               contactPoint: [
                 {
                   "@type": "ContactPoint",
