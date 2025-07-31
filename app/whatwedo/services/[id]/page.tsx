@@ -256,7 +256,7 @@ export default async function ServicePage({
               <h3 className="text-xl font-semibold mb-4 border-b border-blue-400 pb-2">
                 For Candidates
               </h3>
-              <ul className="list-disc list-inside space-y-2 text-sm">
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Job placements based on real-time tech demand</li>
                 <li>Guidance on interviews and resume preparation</li>
                 <li>Opportunities across top-tier companies</li>

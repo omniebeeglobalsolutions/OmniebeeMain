@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Form = () => {
   const [form, setForm] = useState({
@@ -16,6 +16,16 @@ const Form = () => {
   const [error, setError] = useState("");
   const [mobileError, setMobileError] = useState("");
   const [nameError, setNameError] = useState("");
+
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -196,6 +206,7 @@ const Form = () => {
               <input
                 name="name"
                 type="text"
+                autoComplete="off"
                 required
                 placeholder="Name*"
                 className={`rounded px-4 py-2 focus:outline-none border ${
