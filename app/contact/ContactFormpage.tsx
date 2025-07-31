@@ -213,10 +213,15 @@ export default function ContactFormpage() {
                     type="text"
                     name="name"
                     placeholder="Enter your full name"
+                    autoComplete="off"
                     onChange={handleChange}
                     value={form.name}
                     maxLength={25}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    style={{
+                      WebkitBoxShadow: "0 0 0px 1000px white inset",
+                      boxShadow: "0 0 0px 1000px white inset",
+                    }}
                   />
                   {formErrors.name && (
                     <p className="text-sm text-red-600 mt-1">
@@ -230,8 +235,13 @@ export default function ContactFormpage() {
                     name="email"
                     placeholder="Enter your email address"
                     onChange={handleChange}
+                    autoComplete="off"
                     value={form.email}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    style={{
+                      WebkitBoxShadow: "0 0 0px 1000px white inset",
+                      boxShadow: "0 0 0px 1000px white inset",
+                    }}
                   />
                   {formErrors.email && (
                     <p className="text-sm text-red-600 mt-1">
@@ -244,10 +254,15 @@ export default function ContactFormpage() {
                     type="tel"
                     name="phone"
                     placeholder="Enter your 10-digit mobile number"
+                    autoComplete="off"
                     onChange={handleChange}
                     value={form.phone}
                     maxLength={10}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    style={{
+                      WebkitBoxShadow: "0 0 0px 1000px white inset",
+                      boxShadow: "0 0 0px 1000px white inset",
+                    }}
                   />
                   {formErrors.phone && (
                     <p className="text-sm text-red-600 mt-1">
@@ -261,9 +276,14 @@ export default function ContactFormpage() {
                     name="zip"
                     placeholder="Enter your 6-digit Indian zip code"
                     onChange={handleChange}
+                    autoComplete="off"
                     value={form.zip}
                     maxLength={6}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    style={{
+                      WebkitBoxShadow: "0 0 0px 1000px white inset",
+                      boxShadow: "0 0 0px 1000px white inset",
+                    }}
                   />
                   {formErrors.zip && (
                     <p className="text-sm text-red-600 mt-1">
@@ -310,10 +330,15 @@ export default function ContactFormpage() {
                     name="message"
                     placeholder="Type your message here"
                     rows={4}
+                    autoComplete="off"
                     onChange={handleChange}
                     value={form.message}
                     maxLength={500}
                     className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    style={{
+                      WebkitBoxShadow: "0 0 0px 1000px white inset",
+                      boxShadow: "0 0 0px 1000px white inset",
+                    }}
                   />
                   {formErrors.message && (
                     <p className="text-sm text-red-600 mt-1">
@@ -375,7 +400,7 @@ export default function ContactFormpage() {
                     alt="Email"
                     width={30}
                     height={30}
-                    className="w-10 h-10 object-contain"
+                    className="w-14 h-10 sm:w-10 sm:h-10 object-contain"
                     priority
                   />
                 </div>
@@ -398,7 +423,7 @@ export default function ContactFormpage() {
                     alt="Location"
                     width={30}
                     height={30}
-                    className="w-10 h-10 object-contain"
+                    className="w-14 h-10 sm:w-10 sm:h-10 object-contain"
                     priority
                   />
                 </div>

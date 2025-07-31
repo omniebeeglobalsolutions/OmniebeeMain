@@ -161,7 +161,7 @@ export default function IndustryTemplate({ data }: { data: IndustryData }) {
               {data.sections[3].content}
             </p>
             <h3 className="text-lg mb-2 font-medium">Key Features:</h3>
-            <ul className="list-disc list-inside space-y-2 text-[#000000] font-medium">
+            <ul className="list-disc pl-5 space-y-2 text-[#000000] font-medium">
               {data.sections[3].features?.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
