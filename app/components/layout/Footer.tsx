@@ -93,7 +93,7 @@ const Footer = () => {
               </h2>
             </div>
 
-            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-left w-[340px]">
+            <p className="mt-4 text-sm text-[#fff] leading-relaxed text-left w-[340px] sm:w-[270px] md:w-[250px] lg:w-[340px]">
               Omniebee Global Solutions is a results-driven IT services company,
               delivering excellence in web and software development, cloud
               integration, UI/UX design, and full-stack consulting. We are
