@@ -42,7 +42,7 @@ const navLinks = [
       },
     ],
   },
-  { href: "https://www.portfolio-omniebeeglobalsolutions.com/", label: "Portfolio" },
+  { href: "https://portfolio-omniebeeglobalsolutions.com/", label: "Portfolio" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -310,7 +310,7 @@ export default function Navbar() {
                 return (
                   <li key={link.href} className="relative flex items-center">
                     <a
-                      href="https://test-next-1zxu.vercel.app/"
+                      href="https://portfolio-omniebeeglobalsolutions.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="relative group flex items-center justify-center px-5 h-[44px] rounded-[30px] transition-all duration-300 font-semibold text-lg overflow-hidden text-[#2E3E95] whitespace-nowrap w-auto flex-shrink-0"
@@ -527,7 +527,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between">
                   {link.label === "Portfolio" ? (
                     <a
-                      href="https://test-next-1zxu.vercel.app/"
+                      href="https://portfolio-omniebeeglobalsolutions.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
