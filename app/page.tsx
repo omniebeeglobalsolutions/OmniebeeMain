@@ -55,7 +55,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       siteName: "Omniebee Global Solutions",
       images: [
         {
-          url: assetsDataMap["OGS_Darklogo"] || "", // Replace with hero banner if available
+          url: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734391/upnr7ik4007ozok1bbwp.png" , // Replace with hero banner if available
           width: 600,
           height: 400,
           alt: "Omniebee Global Solutions Logo",
@@ -67,7 +67,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       title: "Omniebee Global Solutions",
       description:
         "Delivering innovative digital and IT services for startups and enterprises.",
-      images: [assetsDataMap["OGS_Darklogo"] || ""],
+      images: ["https://res.cloudinary.com/dqgixj7vr/image/upload/v1752734391/upnr7ik4007ozok1bbwp.png"],
     },
   };
 };
