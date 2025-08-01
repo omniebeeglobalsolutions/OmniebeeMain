@@ -42,7 +42,7 @@ const navLinks = [
       },
     ],
   },
-  { href: "https://omniebee-portfolio.vercel.app/", label: "Portfolio" },
+  { href: "https://www.portfolio-omniebeeglobalsolutions.com/", label: "Portfolio" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact Us" },
 ];
