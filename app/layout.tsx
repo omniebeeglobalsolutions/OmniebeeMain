@@ -1,39 +1,3 @@
-// import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
-// import "./globals.css";
-// import Topbar from "./components/layout/Topbar";
-// import Navbar from "./components/layout/Navbar";
-// import Footer from "./components/layout/Footer";
-// import { assetsDataMap } from "./utils/assetsDataMap";
-
-// const inter = Inter({ subsets: ['latin'] });
-
-// export const metadata: Metadata = {
-//   title: "Omniebee Global Solutions",
-//   description: "Building Future-Ready IT Solutions",
-//   icons: {
-//   icon: assetsDataMap["OGS_Darklogo"] || undefined,
-// }
-// };
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en" style={{ scrollBehavior: 'smooth' }}>
-//       <body className={inter.className}>
-//         <Topbar/>
-//         <Navbar/>
-//         <main className="pt-28">{children}</main>
-//         <Footer/>
-
-//       </body>
-//     </html>
-//   );
-// }
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -84,7 +48,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png",
+        url: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1755497826/rwgi0kbbc1j2h0s5ghof.png",
         width: 400,
         height: 400,
         alt: "Omniebee Logo",
@@ -95,10 +59,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description: siteDescription,
-    images: ["https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png"],
+    images: ["https://res.cloudinary.com/dqgixj7vr/image/upload/v1755497826/rwgi0kbbc1j2h0s5ghof.png"],
   },
   icons: {
-    icon: '/faviconborder.png',
+    icon: '/faviconOgsLogoBordered.png',
   },
 };
 
@@ -114,8 +78,8 @@ export default function RootLayout({
         <link rel="canonical" href={siteURL} />
         <meta name="robots" content="index, follow" />
         <meta name="theme-color" content="#0E1A2B" />
-        <link rel="icon" type="image/png" href="/faviconborder.png" />
-        <link rel="shortcut icon" type="image/png" href="/faviconborder.png" />
+        <link rel="icon" type="image/png" href="/faviconOgsLogoBordered.png" />
+        <link rel="shortcut icon" type="image/png" href="/faviconOgsLogoBordered.png" />
         {/* JSON-LD Organization Schema for Rich Results */}
         <script
           type="application/ld+json"
@@ -125,7 +89,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Omniebee Global Solutions",
               url: siteURL,
-              logo: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1753335746/eulx0eudnclx2vjgu5m4.png",
+              logo: "https://res.cloudinary.com/dqgixj7vr/image/upload/v1755497826/rwgi0kbbc1j2h0s5ghof.png",
               contactPoint: [
                 {
                   "@type": "ContactPoint",
