@@ -79,7 +79,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src={assetsDataMap["OGS-Favicon"]}
+                src={assetsDataMap["faviconOgsLogoBordered"]}
                 alt="Logo"
                 width={50}
                 height={50}
