@@ -60,9 +60,12 @@ export default function ContactFormpage() {
 
         // Basic email format check
         if (
-          !/^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+          !/^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+\.[a-zA-Z]{2,}$/.test(value)
         )
           return "Enter a valid email address.";
+          const invalidDomainPattern = /@[0-9]+gmail\.com$/i;
+            if (invalidDomainPattern.test(value))
+             return "Enter a valid Gmail address (e.g., name123@gmail.com).";
 
         // Allow only specific characters
         if (/[^a-zA-Z0-9@._]/.test(value))
@@ -296,7 +299,7 @@ export default function ContactFormpage() {
                     name="service"
                     onChange={handleChange}
                     value={form.service}
-                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white"
+                    className="w-full border border-gray-200 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 bg-white opacity-50"
                     aria-placeholder="Select a service"
                   >
                     <option value="">Select a service</option>
