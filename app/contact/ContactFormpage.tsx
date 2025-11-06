@@ -361,10 +361,9 @@ export default function ContactFormpage() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="bg-[#2E3E95] text-white w-full max-w-md md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
+          {/* <div className="bg-[#2E3E95] text-white w-full max-w-md md:max-w-md p-6 sm:p-4 md:p-6 rounded-lg space-y-5 mx-auto">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-4 text-sm">
-              {/* Phone */}
               <div
                 className="flex items-center gap-3 min-w-0"
                 style={{ marginBottom: "50px" }}
@@ -389,7 +388,6 @@ export default function ContactFormpage() {
                   </a>
                 </div>
               </div>
-              {/* Email */}
               <div
                 className="flex items-center gap-3 min-w-0"
                 style={{ marginBottom: "50px", wordBreak: "break-all" }}
@@ -415,7 +413,6 @@ export default function ContactFormpage() {
                   </a>
                 </div>
               </div>
-              {/* Location */}
               <div className="flex items-center gap-3 min-w-0 mb-12">
                 <div>
                   <Image
@@ -443,7 +440,7 @@ export default function ContactFormpage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* Success Modal */}
         {success && (

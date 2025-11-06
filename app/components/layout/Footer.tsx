@@ -75,7 +75,7 @@ const Footer = () => {
         }}
       />
       <div className="relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-300 pb-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 border-b border-gray-300 pb-10">
           <div>
             <div className="flex items-center gap-3">
               <Image
@@ -123,7 +123,7 @@ const Footer = () => {
               </div>
             </div> */}
 
-            <div className="sm:mt-[100px] md:mt-[100px] lg:mt-[100px] mt-2 flex">
+            {/* <div className="sm:mt-[100px] md:mt-[100px] lg:mt-[100px] mt-2 flex">
               <p className="font-medium sm:mt-[8px] mt-[8px] mb-2 text-sm">
                 Follow Us:
               </p>
@@ -165,7 +165,7 @@ const Footer = () => {
                   />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="sm:ml-6 md:ml-10 lg:ml-16">
@@ -204,6 +204,7 @@ const Footer = () => {
             </ul>
           </div>
 
+          {false && (
           <div className="flex flex-col justify-between">
             <div>
               <h3 className="font-bold text-xl mb-4">Our Location</h3>
@@ -319,6 +320,7 @@ const Footer = () => {
               </div>
             </div> */}
           </div>
+          )}
         </div>
 
         {/* Bottom Footer */}
