@@ -3,7 +3,7 @@ import AnimatedBubbles from "./Components/AnimatedBubbles";
 import StatsSection from "./Components/AnnualGrowth";
 import ClientExperienceSection from "./Components/ClientsExperience";
 import GrowthJourneySection from "./Components/GrowthJourneySection";
-import LeadershipSection from "./Components/leadership";
+// import LeadershipSection from "./Components/leadership";
 import OurStorySection from "./Components/OurStorySection";
 import ValuesMissionVisionSection from "./Components/ValuesMission";
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
      <StatsSection/>
      <ValuesMissionVisionSection/>
      <ClientExperienceSection/>
-     <LeadershipSection/>
+     {/* <LeadershipSection/> */}
 
     </div>
   );

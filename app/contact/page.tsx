@@ -1,6 +1,6 @@
 // "use client"
 import ContactHeaderpage from "../contact/ContactHeaderpage";
-import ContactMappage from "../contact/ContactMappage"
+// import ContactMappage from "../contact/ContactMappage"
 import ContactFormpage from "../contact/ContactFormpage"
 
 export const metadata = {
@@ -39,7 +39,7 @@ const page = () => {
     <div> 
   <ContactHeaderpage/>
   <ContactFormpage/>
-  <ContactMappage/>
+  {/* <ContactMappage/> */}
     </div>
   )
 }
