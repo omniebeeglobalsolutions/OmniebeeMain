@@ -144,7 +144,7 @@ export default function JobApplyPage({
     let processedValue = value;
 
     // Apply whitespace normalization to all relevant text inputs
-    if (['firstName', 'lastName', 'street', 'city', 'state', 'employer', 'notice', 'otherQualification'].includes(name)) {
+    if (['firstName', 'lastName', 'street', 'city', 'state', 'notice', 'otherQualification'].includes(name)) {
       processedValue = normalizeWhitespace(value);
     }
 
@@ -322,10 +322,10 @@ export default function JobApplyPage({
     if (form.skills.length === 0)
       newErrors.skills = "At least one skill is required.";
 
-    // Experience in Years
-    error = validateNonNegativeNumber(form.experience, "Experience in Years");
-    if (error) newErrors.experience = error;
-    else if (!form.experience.trim()) newErrors.experience = "Experience in Years is required.";
+    // Experience in Years (Boolean)
+    if (!form.experience) {
+      newErrors.experience = "Please select if you have work experience.";
+    }
 
     // Qualification
     if (!form.qualification || form.qualification === "-None-") {
@@ -347,15 +347,9 @@ export default function JobApplyPage({
     if (error) newErrors.relevantExperience = error;
     else if (!form.relevantExperience.trim()) newErrors.relevantExperience = "Relevant Experience is required.";
 
-    // Current Employer
-    if (!form.employer.trim()) {
-      newErrors.employer = "Current Employer is required.";
-    } else if (form.employer.length > 25) {
-      newErrors.employer = "Current Employer must be less than 26 characters.";
-    } else if (!/^[a-zA-Z\s]+$/.test(form.employer)) {
-      newErrors.employer = "Current Employer can only contain letters and spaces.";
-    } else if (/\s{2,}/.test(form.employer.trim())) {
-      newErrors.employer = "Current Employer should have only one space between words.";
+    // Current Employer (Boolean)
+    if (!form.employer) {
+      newErrors.employer = "Please select if you are currently employed.";
     }
 
     // Notice Period
@@ -405,10 +399,10 @@ export default function JobApplyPage({
         city: form.city,
         state: form.state,
         skillset: form.skills,
-        yearsOfExperience: Number(form.experience), // Convert to number
+        yearsOfExperience: form.experience === "yes", // Convert "yes"/"no" to true/false
         highestQualification: form.qualification === "Other" ? form.otherQualification : form.qualification, // Use 'otherQualification' if 'Other' is selected
         relevantYearsOfExperience: Number(form.relevantExperience), // Convert to number
-        currentEmployee: form.employer, // Store employer name
+        currentEmployee: form.employer === "yes", // Convert "yes"/"no" to true/false
         noticePeriod: form.notice,
         currentCTC: form.currentSalary ? Number(form.currentSalary) : null, // Convert to number, allow null if empty
         expectedCTC: form.expectedSalary ? Number(form.expectedSalary) : null, // Convert to number, allow null if empty
@@ -528,8 +522,8 @@ export default function JobApplyPage({
             {uploading
               ? "Uploading..."
               : resumeFile
-              ? "Change File"
-              : "Choose File"}
+                ? "Change File"
+                : "Choose File"}
           </button>
           {resumeFile && resumeUrl && !uploading && (
             <div className="mt-2 text-green-600 text-sm">
@@ -803,17 +797,32 @@ export default function JobApplyPage({
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
-                  Experience in Years <span className="text-[#FF6600]">*</span>
+                  Do you have any work experience? <span className="text-[#FF6600]">*</span>
                 </label>
-                <input
-                  name="experience"
-                  value={form.experience}
-                  onChange={handleChange}
-                  type="number"
-                  min="0" // HTML5 min attribute
-                  className="w-full border rounded px-3 py-2"
-                  required
-                />
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="experience"
+                      value="yes"
+                      checked={form.experience === "yes"}
+                      onChange={handleChange}
+                      className="form-radio text-blue-600"
+                    />
+                    <span>Yes</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="experience"
+                      value="no"
+                      checked={form.experience === "no"}
+                      onChange={handleChange}
+                      className="form-radio text-blue-600"
+                    />
+                    <span>No</span>
+                  </label>
+                </div>
                 {errors.experience && (
                   <div className="text-xs text-red-500 mt-1">
                     {errors.experience}
@@ -887,17 +896,32 @@ export default function JobApplyPage({
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#479BC9]">
-                  Current Employer <span className="text-[#FF6600]">*</span>
+                  Are you currently employed? <span className="text-[#FF6600]">*</span>
                 </label>
-                <input
-                  name="employer"
-                  value={form.employer}
-                  onChange={handleChange}
-                  type="text"
-                  className="w-full border rounded px-3 py-2"
-                  maxLength={25} // Max length for employer
-                  required
-                />
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="employer"
+                      value="yes"
+                      checked={form.employer === "yes"}
+                      onChange={handleChange}
+                      className="form-radio text-blue-600"
+                    />
+                    <span>Yes</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="employer"
+                      value="no"
+                      checked={form.employer === "no"}
+                      onChange={handleChange}
+                      className="form-radio text-blue-600"
+                    />
+                    <span>No</span>
+                  </label>
+                </div>
                 {errors.employer && (
                   <div className="text-xs text-red-500 mt-1">
                     {errors.employer}
@@ -961,18 +985,18 @@ export default function JobApplyPage({
               </div>
             </div>
           </div>
-           {/* Submit Button - moved outside form tag to wrap the whole form logic*/}
+          {/* Submit Button - moved outside form tag to wrap the whole form logic*/}
         </form>
 
         <div className="w-full flex justify-center items-center mt-8">
-            <button
-              type="submit"
-              className="bg-[#56B9F0] text-white px-8 py-2 rounded font-semibold text-lg shadow cursor-pointer"
-              onClick={handleSubmit} // Attach handleSubmit to the button
-            >
-              Submit
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="bg-[#56B9F0] text-white px-8 py-2 rounded font-semibold text-lg shadow cursor-pointer"
+            onClick={handleSubmit} // Attach handleSubmit to the button
+          >
+            Submit
+          </button>
+        </div>
 
         {showSuccessModal && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
